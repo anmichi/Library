@@ -8,7 +8,7 @@ struct segtree {
     segtree(const vector<S>& a) {
         while (siz < a.size()) siz <<= 1;
         dat = vector<S>(siz << 1, e());
-        rep(i, a.size()) dat[siz + i] = a[i];
+        for (int i = 0; i < a.size(); i++) dat[siz + i] = a[i];
         for (int i = siz - 1; i >= 1; i--) dat[i] = op(dat[2 * i], dat[2 * i + 1]);
     }
     void set(int p, S x) {
