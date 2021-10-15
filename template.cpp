@@ -40,15 +40,15 @@ vector<int> next_divisor(int n) {
     }
     return v;
 }
-ll modpow(ll a, ll b) {
+ll modpow(ll a, ll b,ll m=mod) {
     ll res = 1;
     while (b) {
         if (b & 1) {
             res *= a;
-            res %= mod;
+            res %= m;
         }
         a *= a;
-        a %= mod;
+        a %= m;
         b >>= 1;
     }
     return res;
@@ -68,7 +68,7 @@ void init_fact(int n) {
         factinv[i] = factinv[i - 1] * inv[i] % mod;
     }
 }
-ll _inv(ll a, ll m = mod) {
+ll modinv(ll a, ll m = mod) {
     // gcd(a,m) must be 1
     ll b = m, u = 1, v = 0;
     while (b) {
