@@ -3,6 +3,7 @@
 "test/Geomerty.crosspoint.test.cpp": "2021-11-06 21:47:13 +0900",
 "test/Geometry.ccw.test.cpp": "2021-11-06 21:47:13 +0900",
 "test/Geometry.intersection.test.cpp": "2021-11-06 21:47:13 +0900",
+"test/Geometry.pararell-orthogonal.test.cpp": "2021-11-06 22:03:35 +0900",
 "test/Geometry.segments-distance.test.cpp": "2021-11-06 21:47:13 +0900",
 "test/Segtree.test.cpp": "2021-11-06 21:47:13 +0900",
 "test/SparseTable.test.cpp": "2021-11-06 21:47:13 +0900"
