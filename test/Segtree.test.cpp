@@ -1,7 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include "../Segtree.cpp"
-using namespace std;
-
 long long op(long long a, long long b) { return a + b; }
 long long e() { return 0; }
 int main() {

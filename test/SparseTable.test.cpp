@@ -1,6 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 #include "../SparseTable.cpp"
-using namespace std;
 int op(int a, int b) { return min(a, b); }
 int main() {
     int n, q;
