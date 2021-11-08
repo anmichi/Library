@@ -8,10 +8,10 @@ struct point {
     point operator+(point P) { return point(x + P.x, y + P.y); }
     point operator-(point P) { return point(x - P.x, y - P.y); }
     point operator*(double a) { return point(x * a, y * a); }
-    double norm() { return x * x + y * y; }
-    double abs() { return sqrt(norm()); }
+    double abs2() { return x * x + y * y; }
+    double abs() { return sqrt(abs2()); }
 };
-double norm(point P) { return P.norm(); }
+double abs2(point P) { return P.abs2(); }
 double abs(point P) { return P.abs(); }
 double dist(point P, point Q) { return abs(Q - P); }
 double dot(point P, point Q) { return P.x * Q.x + P.y * Q.y; }
@@ -28,7 +28,7 @@ int ccw(point A, point B, point C) {
     if (cross(B - A, C - A) > eps) return +1;
     if (cross(B - A, C - A) < -eps) return -1;
     if (dot(B - A, C - A) < -eps) return +2;
-    if (norm(B - A) + eps < norm(C - A)) return -2;
+    if (abs2(B - A) + eps < abs2(C - A)) return -2;
     return 0;
 }
 bool intersect(line L, line M) { return ccw(L.A, L.B, M.A) * ccw(L.A, L.B, M.B) <= 0 && ccw(M.A, M.B, L.A) * ccw(M.A, M.B, L.B) <= 0; }
