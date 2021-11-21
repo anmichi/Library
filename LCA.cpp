@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 struct lca_tree {
-    int n;
+    int n, size;
     vector<vector<int>> g, par;
     vector<int> depth;
-    lca_tree(vector<vector<int>> g, int root) : n(g.size()), g(g), depth(vector<int>(n, n)), par(vector(log2(n) + 2, vector<int>(n, -1))) {
+    lca_tree(vector<vector<int>> g, int root = 0) : n(g.size()), size(log2(n) + 2), g(g), par(size, vector<int>(n, -1)), depth(vector<int>(n, n)) {
         queue<int> que;
         depth[root] = 0;
         que.push(root);
@@ -19,7 +19,7 @@ struct lca_tree {
                 }
             }
         }
-        for (int k = 0; k < (int)par.size() - 1; k++) {
+        for (int k = 0; k < size - 1; k++) {
             for (int i = 0; i < n; i++) {
                 if (par[k][i] == -1)
                     par[k + 1][i] = -1;
@@ -30,11 +30,11 @@ struct lca_tree {
     }
     int query(int u, int v) {
         if (depth[u] > depth[v]) swap(u, v);
-        for (int k = 0; k < (int)par.size(); k++) {
+        for (int k = 0; k < size; k++) {
             if (((depth[v] - depth[u]) >> k) & 1) v = par[k][v];
             if (u == v) return u;
         }
-        for (int k = par.size() - 1; k >= 0; k--) {
+        for (int k = size - 1; k >= 0; k--) {
             if (par[k][u] != par[k][v]) {
                 u = par[k][u];
                 v = par[k][v];
