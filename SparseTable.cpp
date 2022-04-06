@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 template <class T, T (*op)(T, T)>
-struct SparseTable {
+struct sparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
-    SparseTable(vector<T> v) {
+    sparsetable(vector<T> v) {
         int len = 0;
         while ((1 << len) <= v.size()) len++;
         table.assign(len, vector<T>(1 << len));

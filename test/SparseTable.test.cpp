@@ -6,7 +6,7 @@ int main() {
     cin >> n >> q;
     vector<int> a(n);
     for (int& x : a) cin >> x;
-    SparseTable<int, op> st(a);
+    sparsetable<int, op> st(a);
     while (q--) {
         int l, r;
         cin >> l >> r;
