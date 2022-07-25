@@ -4,6 +4,7 @@ template <class T>
 struct Matrix {
     int n;
     vector<vector<T>> m;
+    Matrix() : Matrix(0) {}
     Matrix(int x) : Matrix(vector<vector<T>>(x, vector<T>(x, 0))) {}
     Matrix(const vector<vector<T>>& a) {
         n = a.size();
