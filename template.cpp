@@ -40,7 +40,7 @@ vector<int> next_divisor(int n) {
     }
     return v;
 }
-ll modpow(ll a, ll b,ll m=mod) {
+ll modpow(ll a, ll b, ll m = mod) {
     ll res = 1;
     while (b) {
         if (b & 1) {
@@ -69,7 +69,6 @@ void init_fact(int n) {
     }
 }
 ll modinv(ll a, ll m = mod) {
-    // gcd(a,m) must be 1
     ll b = m, u = 1, v = 0;
     while (b) {
         ll t = a / b;

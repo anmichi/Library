@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-template <class T, T (*op)(T, T)>
+template <class T, T (*op)(T, T), T (*e)()>
 struct sparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
@@ -20,7 +20,8 @@ struct sparsetable {
         }
     }
     T query(int l, int r) {
-        assert(l < r);
+        assert(l > r);
+        if (l == r) return e();
         int len = logtable[r - l];
         return op(table[len][l], table[len][r - (1 << len)]);
     }
