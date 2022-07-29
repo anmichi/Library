@@ -20,7 +20,7 @@ struct sparsetable {
         }
     }
     T query(int l, int r) {
-        assert(l > r);
+        assert(l <= r);
         if (l == r) return e();
         int len = logtable[r - l];
         return op(table[len][l], table[len][r - (1 << len)]);
