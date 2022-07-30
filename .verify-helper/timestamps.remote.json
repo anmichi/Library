@@ -7,6 +7,8 @@
 "test/Geometry.intersection.test.cpp": "2021-11-08 18:02:11 +0900",
 "test/Geometry.pararell-orthogonal.test.cpp": "2021-11-08 18:02:11 +0900",
 "test/Geometry.segments-distance.test.cpp": "2021-11-08 18:02:11 +0900",
+"test/LCA.test.cpp": "2022-07-30 13:04:04 +0900",
 "test/Segtree.test.cpp": "2021-11-06 21:47:13 +0900",
-"test/SparseTable.test.cpp": "2022-07-29 19:37:31 +0900"
+"test/SparseTable.test.cpp": "2022-07-29 19:37:31 +0900",
+"test/TwoEdgeConnectedComponents.test.cpp": "2022-07-30 13:04:04 +0900"
 }
