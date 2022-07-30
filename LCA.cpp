@@ -31,7 +31,7 @@ struct lca_tree {
     }
     int query(int u, int v) {
         if (depth[u] > depth[v]) swap(u, v);
-        for (int k = 0; k < size; k++) {
+        for (int k = size - 1; k >= 0; k--) {
             if (((depth[v] - depth[u]) >> k) & 1) v = par[k][v];
             if (u == v) return u;
         }
@@ -42,5 +42,9 @@ struct lca_tree {
             }
         }
         return par[0][u];
+    }
+    int dist(int u, int v) {
+        int l = query(u, v);
+        return depth[u] + depth[v] - 2 * depth[l];
     }
 };
