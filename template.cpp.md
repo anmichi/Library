@@ -12,12 +12,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/ModSqrt.test.cpp
     title: test/ModSqrt.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/Modint-Binomial.test.cpp
     title: test/Modint-Binomial.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -141,7 +141,7 @@ data:
   - ModSqrt.cpp
   - FormalPowerSeries.cpp
   timestamp: '2024-03-05 22:13:40+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/ModSqrt.test.cpp
   - test/Modint-Binomial.test.cpp

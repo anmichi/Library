@@ -45,7 +45,7 @@ data:
     - icon: ':warning:'
       path: UnionFind.cpp
       title: UnionFind.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template.cpp
       title: template.cpp
     - icon: ':warning:'
@@ -84,7 +84,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/ModSqrt.test.cpp
       title: test/ModSqrt.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/Modint-Binomial.test.cpp
       title: test/Modint-Binomial.test.cpp
     - icon: ':heavy_check_mark:'
