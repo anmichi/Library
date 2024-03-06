@@ -16,10 +16,10 @@ data:
     - https://judge.yosupo.jp/problem/lca
   bundledCode: "#line 1 \"test/LCA.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\
     \n#line 1 \"LCA.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\nstruct\
-    \ lca_tree {\n    int n, size;\n    vector<vector<int>> g, par;\n    vector<int>\
-    \ depth;\n    lca_tree(vector<vector<int>> g_, int root = 0)\n        : n((int)g_.size()),\
-    \ size(log2(n) + 2), g(g_), par(size, vector<int>(n, -1)), depth(vector<int>(n,\
-    \ n)) {\n        queue<int> que;\n        depth[root] = 0;\n        que.push(root);\n\
+    \ lca_tree {\n    int n, size;\n    vector<vector<int>> par;\n    vector<int>\
+    \ depth;\n    lca_tree(vector<vector<int>> g, int root = 0) : n((int)g.size()),\
+    \ size(log2(n) + 2), par(size, vector<int>(n, -1)), depth(vector<int>(n, n)) {\n\
+    \        queue<int> que;\n        depth[root] = 0;\n        que.push(root);\n\
     \        while (!que.empty()) {\n            int p = que.front();\n          \
     \  que.pop();\n            for (int i : g[p]) {\n                if (depth[i]\
     \ > depth[p] + 1) {\n                    depth[i] = depth[p] + 1;\n          \
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/LCA.test.cpp
   requiredBy: []
-  timestamp: '2024-03-05 22:13:40+09:00'
+  timestamp: '2024-03-07 04:25:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/LCA.test.cpp
