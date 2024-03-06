@@ -143,8 +143,8 @@ data:
   timestamp: '2024-03-05 22:13:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/ModSqrt.test.cpp
   - test/Modint-Binomial.test.cpp
+  - test/ModSqrt.test.cpp
 documentation_of: template.cpp
 layout: document
 redirect_from:

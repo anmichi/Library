@@ -80,11 +80,11 @@ data:
   timestamp: '2024-03-05 22:13:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/Geometry.ccw.test.cpp
-  - test/Geometry.pararell-orthogonal.test.cpp
-  - test/Geomerty.crosspoint.test.cpp
   - test/Geometry.segments-distance.test.cpp
   - test/Geometry.intersection.test.cpp
+  - test/Geometry.pararell-orthogonal.test.cpp
+  - test/Geomerty.crosspoint.test.cpp
+  - test/Geometry.ccw.test.cpp
 documentation_of: Geometry.cpp
 layout: document
 redirect_from:

@@ -1,8 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: AuxiliaryTree.cpp
+    title: AuxiliaryTree.cpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/AuxiliaryTree.test.cpp
+    title: test/AuxiliaryTree.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/LCA.test.cpp
     title: test/LCA.test.cpp
@@ -55,10 +61,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: LCA.cpp
-  requiredBy: []
+  requiredBy:
+  - AuxiliaryTree.cpp
   timestamp: '2024-03-05 22:13:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/AuxiliaryTree.test.cpp
   - test/LCA.test.cpp
 documentation_of: LCA.cpp
 layout: document

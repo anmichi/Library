@@ -7,6 +7,9 @@ data:
       path: 2DBIT.cpp
       title: 2DBIT.cpp
     - icon: ':heavy_check_mark:'
+      path: AuxiliaryTree.cpp
+      title: AuxiliaryTree.cpp
+    - icon: ':heavy_check_mark:'
       path: BIT.cpp
       title: BIT.cpp
     - icon: ':heavy_check_mark:'
@@ -57,6 +60,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/2DBIT.test.cpp
       title: test/2DBIT.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/AuxiliaryTree.test.cpp
+      title: test/AuxiliaryTree.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/BIT.test.cpp
       title: test/BIT.test.cpp
