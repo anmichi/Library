@@ -2,10 +2,9 @@
 using namespace std;
 struct lca_tree {
     int n, size;
-    vector<vector<int>> g, par;
+    vector<vector<int>> par;
     vector<int> depth;
-    lca_tree(vector<vector<int>> g_, int root = 0)
-        : n((int)g_.size()), size(log2(n) + 2), g(g_), par(size, vector<int>(n, -1)), depth(vector<int>(n, n)) {
+    lca_tree(vector<vector<int>> g, int root = 0) : n((int)g.size()), size(log2(n) + 2), par(size, vector<int>(n, -1)), depth(vector<int>(n, n)) {
         queue<int> que;
         depth[root] = 0;
         que.push(root);
