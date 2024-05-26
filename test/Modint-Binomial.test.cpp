@@ -1,5 +1,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/117"
-#include "../template.cpp"
+#include "../Binomial.cpp"
+#include "../modint_old.cpp"
 int main() {
     Binomial<modint<1000000007>> bin(2000000);
     int t;

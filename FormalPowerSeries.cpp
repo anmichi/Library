@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
-#include "ModSqrt.cpp"
+#include <atcoder/convolution>
+#include "modsqrt.cpp"
 template <typename mint>
 struct FormalPowerSeries : vector<mint> {
     using vector<mint>::vector;
@@ -48,7 +47,7 @@ struct FormalPowerSeries : vector<mint> {
             return *this;
         }
         int n = this->size() - r.size() + 1;
-        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev(n);
+        return *this = (rev().pre(n) * r.rev().inv(n)).pre(n).rev();
     }
     FPS& operator%=(const FPS& r) {
         *this -= *this / r * r;
