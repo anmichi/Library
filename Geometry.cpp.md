@@ -81,10 +81,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/Geometry.segments-distance.test.cpp
-  - test/Geometry.intersection.test.cpp
-  - test/Geometry.pararell-orthogonal.test.cpp
   - test/Geomerty.crosspoint.test.cpp
   - test/Geometry.ccw.test.cpp
+  - test/Geometry.intersection.test.cpp
+  - test/Geometry.pararell-orthogonal.test.cpp
 documentation_of: Geometry.cpp
 layout: document
 redirect_from:

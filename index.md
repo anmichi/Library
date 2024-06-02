@@ -100,6 +100,9 @@ data:
       path: test/SparseTable.test.cpp
       title: test/SparseTable.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/SparseTableDisjoint.test.cpp
+      title: test/SparseTableDisjoint.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/TwoEdgeConnectedComponents.test.cpp
       title: test/TwoEdgeConnectedComponents.test.cpp
 layout: toppage
