@@ -1,5 +1,5 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind"
-#include "Series.cpp"
+#include "../Series.cpp"
 using mint = atcoder::modint998244353;
 void solve() {
     int n;

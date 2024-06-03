@@ -1,4 +1,4 @@
-#include "../ModSqrt.cpp"
+#include "../mod_sqrt.cpp"
 #define PROBLEM "https://judge.yosupo.jp/problem/sqrt_mod"
 int main() {
     cin.tie(0);
