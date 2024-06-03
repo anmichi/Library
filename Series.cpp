@@ -20,3 +20,13 @@ vector<mint> stirling_second(int n, Binomial<mint>& bin) {
     h.resize(n + 1);
     return h;
 }
+template <typename mint>
+vector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>& bin) {
+    using fps = FormalPowerSeries<mint>;
+    fps f(n + 1);
+    for (int i = 1; i <= n; i++) f[i] = bin.factinv[i];
+    f = f.pow(k, n + 1);
+    vector<mint> res(n - k + 1);
+    for (int i = k; i <= n; i++) res[i - k] = f[i] * bin.fact[i] * bin.factinv[k];
+    return res;
+}
