@@ -2,7 +2,7 @@
 template <typename mint>
 FormalPowerSeries<mint> stirling_first(int n, Binomial<mint>& bin) {
     if (n == 0) return FormalPowerSeries<mint>{1};
-    auto f = stirling1(n >> 1, bin);
+    auto f = stirling_first(n >> 1, bin);
     f *= TaylorShift(f, -mint(n >> 1), bin);
     if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)
     return f;
