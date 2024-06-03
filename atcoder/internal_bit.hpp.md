@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
   - icon: ':heavy_check_mark:'
@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
   - icon: ':warning:'
@@ -30,6 +30,9 @@ data:
     path: test/atcoder/segtree.hpp
     title: test/atcoder/segtree.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/FPSprod.test.cpp
+    title: test/FPSprod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
@@ -42,9 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n#ifdef _MSC_VER\n#include\
@@ -79,11 +82,12 @@ data:
   - atcoder/segtree.hpp
   - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/StirlingSecondFixedK.test.cpp
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
+  - test/FPSprod.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: atcoder/internal_bit.hpp
 layout: document

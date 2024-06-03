@@ -1,25 +1,25 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_bit.hpp
     title: atcoder/internal_bit.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: mod_sqrt.cpp
     title: mod_sqrt.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy:
@@ -30,6 +30,9 @@ data:
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/FPSprod.test.cpp
+    title: test/FPSprod.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
@@ -42,9 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"FormalPowerSeries.cpp\"\n#include <atcoder/convolution>\n\
@@ -158,7 +161,11 @@ data:
     \     ret = (ret + pre(i << 1) * ret.inv(i << 1)) * inv2;\n        }\n       \
     \ return ret.pre(deg);\n    }\n    mint eval(mint x) const {\n        mint r =\
     \ 0, w = 1;\n        for (auto& v : *this) r += w * v, w *= x;\n        return\
-    \ r;\n    }\n};\n"
+    \ r;\n    }\n};\ntemplate <typename mint>\nFormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>>\
+    \ f) {\n    int n = (int)f.size();\n    if (n == 0) return {1};\n    function<FormalPowerSeries<mint>(int,\
+    \ int)> calc = [&](int l, int r) {\n        if (r - l == 1) return f[l];\n   \
+    \     int m = (l + r) / 2;\n        return calc(l, m) * calc(m, r);\n    };\n\
+    \    return calc(0, n);\n}\n"
   code: "#include <atcoder/convolution>\n#include \"mod_sqrt.cpp\"\ntemplate <typename\
     \ mint>\nstruct FormalPowerSeries : vector<mint> {\n    using vector<mint>::vector;\n\
     \    using FPS = FormalPowerSeries;\n    FPS& operator+=(const FPS& r) {\n   \
@@ -241,7 +248,11 @@ data:
     \     ret = (ret + pre(i << 1) * ret.inv(i << 1)) * inv2;\n        }\n       \
     \ return ret.pre(deg);\n    }\n    mint eval(mint x) const {\n        mint r =\
     \ 0, w = 1;\n        for (auto& v : *this) r += w * v, w *= x;\n        return\
-    \ r;\n    }\n};"
+    \ r;\n    }\n};\ntemplate <typename mint>\nFormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>>\
+    \ f) {\n    int n = (int)f.size();\n    if (n == 0) return {1};\n    function<FormalPowerSeries<mint>(int,\
+    \ int)> calc = [&](int l, int r) {\n        if (r - l == 1) return f[l];\n   \
+    \     int m = (l + r) / 2;\n        return calc(l, m) * calc(m, r);\n    };\n\
+    \    return calc(0, n);\n}"
   dependsOn:
   - atcoder/convolution.hpp
   - atcoder/internal_bit.hpp
@@ -255,12 +266,13 @@ data:
   requiredBy:
   - Series.cpp
   - TaylorShift.cpp
-  timestamp: '2024-06-03 19:26:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-03 23:12:06+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/StirlingSecondFixedK.test.cpp
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
+  - test/FPSprod.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: FormalPowerSeries.cpp
 layout: document

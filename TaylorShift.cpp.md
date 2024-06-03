@@ -4,28 +4,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: Binomial.cpp
     title: Binomial.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_bit.hpp
     title: atcoder/internal_bit.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: mod_sqrt.cpp
     title: mod_sqrt.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy:
@@ -174,13 +174,17 @@ data:
     \     ret = (ret + pre(i << 1) * ret.inv(i << 1)) * inv2;\n        }\n       \
     \ return ret.pre(deg);\n    }\n    mint eval(mint x) const {\n        mint r =\
     \ 0, w = 1;\n        for (auto& v : *this) r += w * v, w *= x;\n        return\
-    \ r;\n    }\n};\n#line 3 \"TaylorShift.cpp\"\n// f(x + a)\ntemplate <typename\
-    \ mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint> f, mint a,\
-    \ Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0; i < n; i++)\
-    \ f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint> g(n, mint(1));\n\
-    \    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n    f = (f\
-    \ * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i] *= bin.factinv[i];\n\
-    \    return f;\n}\n"
+    \ r;\n    }\n};\ntemplate <typename mint>\nFormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>>\
+    \ f) {\n    int n = (int)f.size();\n    if (n == 0) return {1};\n    function<FormalPowerSeries<mint>(int,\
+    \ int)> calc = [&](int l, int r) {\n        if (r - l == 1) return f[l];\n   \
+    \     int m = (l + r) / 2;\n        return calc(l, m) * calc(m, r);\n    };\n\
+    \    return calc(0, n);\n}\n#line 3 \"TaylorShift.cpp\"\n// f(x + a)\ntemplate\
+    \ <typename mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint>\
+    \ f, mint a, Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0;\
+    \ i < n; i++) f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint>\
+    \ g(n, mint(1));\n    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n\
+    \    f = (f * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i]\
+    \ *= bin.factinv[i];\n    return f;\n}\n"
   code: "#include \"Binomial.cpp\"\n#include \"FormalPowerSeries.cpp\"\n// f(x + a)\n\
     template <typename mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint>\
     \ f, mint a, Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0;\
@@ -202,7 +206,7 @@ data:
   path: TaylorShift.cpp
   requiredBy:
   - Series.cpp
-  timestamp: '2024-06-03 20:31:23+09:00'
+  timestamp: '2024-06-03 23:12:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/StirlingSecondFixedK.test.cpp

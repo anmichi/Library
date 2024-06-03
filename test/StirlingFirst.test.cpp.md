@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Binomial.cpp
     title: Binomial.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
   - icon: ':heavy_check_mark:'
@@ -13,25 +13,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_bit.hpp
     title: atcoder/internal_bit.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: mod_sqrt.cpp
     title: mod_sqrt.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy: []
@@ -169,30 +169,35 @@ data:
     \     ret = (ret + pre(i << 1) * ret.inv(i << 1)) * inv2;\n        }\n       \
     \ return ret.pre(deg);\n    }\n    mint eval(mint x) const {\n        mint r =\
     \ 0, w = 1;\n        for (auto& v : *this) r += w * v, w *= x;\n        return\
-    \ r;\n    }\n};\n#line 3 \"TaylorShift.cpp\"\n// f(x + a)\ntemplate <typename\
-    \ mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint> f, mint a,\
-    \ Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0; i < n; i++)\
-    \ f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint> g(n, mint(1));\n\
-    \    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n    f = (f\
-    \ * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i] *= bin.factinv[i];\n\
-    \    return f;\n}\n#line 2 \"Series.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
-    \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
-    \    auto f = stirling_first(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >>\
-    \ 1), bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n\
-    \    return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int\
-    \ n, Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn\
-    \ = 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
-    \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
-    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\ntemplate\
-    \ <typename mint>\nvector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>&\
-    \ bin) {\n    using fps = FormalPowerSeries<mint>;\n    fps f(n + 1);\n    for\
-    \ (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n    f = f.pow(k, n + 1);\n\
-    \    vector<mint> res(n - k + 1);\n    for (int i = k; i <= n; i++) res[i - k]\
-    \ = f[i] * bin.fact[i] * bin.factinv[k];\n    return res;\n}\n#line 3 \"test/StirlingFirst.test.cpp\"\
-    \nusing mint = atcoder::modint998244353;\nvoid solve() {\n    int n;\n    cin\
-    \ >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n, bin);\n  \
-    \  for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n}\n"
+    \ r;\n    }\n};\ntemplate <typename mint>\nFormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>>\
+    \ f) {\n    int n = (int)f.size();\n    if (n == 0) return {1};\n    function<FormalPowerSeries<mint>(int,\
+    \ int)> calc = [&](int l, int r) {\n        if (r - l == 1) return f[l];\n   \
+    \     int m = (l + r) / 2;\n        return calc(l, m) * calc(m, r);\n    };\n\
+    \    return calc(0, n);\n}\n#line 3 \"TaylorShift.cpp\"\n// f(x + a)\ntemplate\
+    \ <typename mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint>\
+    \ f, mint a, Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0;\
+    \ i < n; i++) f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint>\
+    \ g(n, mint(1));\n    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n\
+    \    f = (f * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i]\
+    \ *= bin.factinv[i];\n    return f;\n}\n#line 2 \"Series.cpp\"\ntemplate <typename\
+    \ mint>\nFormalPowerSeries<mint> stirling_first(int n, Binomial<mint>& bin) {\n\
+    \    if (n == 0) return FormalPowerSeries<mint>{1};\n    auto f = stirling_first(n\
+    \ >> 1, bin);\n    f *= TaylorShift(f, -mint(n >> 1), bin);\n    if (n & 1) f\
+    \ = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n    return f;\n}\ntemplate <typename\
+    \ mint>\nvector<mint> stirling_second(int n, Binomial<mint>& bin) {\n    vector<mint>\
+    \ f(n + 1), g(n + 1);\n    mint sgn = 1;\n    for (int i = 0; i <= n; i++) {\n\
+    \        f[i] = mint(i).pow(n) * bin.factinv[i];\n        g[i] = sgn * bin.factinv[i];\n\
+    \        sgn = -sgn;\n    }\n    auto h = atcoder::convolution(f, g);\n    h.resize(n\
+    \ + 1);\n    return h;\n}\ntemplate <typename mint>\nvector<mint> stirling_second_fixedK(int\
+    \ n, int k, Binomial<mint>& bin) {\n    using fps = FormalPowerSeries<mint>;\n\
+    \    fps f(n + 1);\n    for (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n\
+    \    f = f.pow(k, n + 1);\n    vector<mint> res(n - k + 1);\n    for (int i =\
+    \ k; i <= n; i++) res[i - k] = f[i] * bin.fact[i] * bin.factinv[k];\n    return\
+    \ res;\n}\n#line 3 \"test/StirlingFirst.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
+    void solve() {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto\
+    \ f = stirling_first(n, bin);\n    for (auto x : f) cout << x.val() << \" \";\n\
+    \    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
     \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
     \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n,\
@@ -214,7 +219,7 @@ data:
   isVerificationFile: true
   path: test/StirlingFirst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 21:24:05+09:00'
+  timestamp: '2024-06-03 23:12:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/StirlingFirst.test.cpp
