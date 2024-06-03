@@ -37,6 +37,9 @@ data:
     path: test/StirlingSecond.test.cpp
     title: test/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/StirlingSecondFixedK.test.cpp
+    title: test/StirlingSecondFixedK.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
@@ -255,6 +258,7 @@ data:
   timestamp: '2024-06-03 19:26:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/StirlingSecondFixedK.test.cpp
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp

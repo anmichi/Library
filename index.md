@@ -230,6 +230,9 @@ data:
       path: test/StirlingSecond.test.cpp
       title: test/StirlingSecond.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/StirlingSecondFixedK.test.cpp
+      title: test/StirlingSecondFixedK.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/TaylorShift.test.cpp
       title: test/TaylorShift.test.cpp
     - icon: ':heavy_check_mark:'

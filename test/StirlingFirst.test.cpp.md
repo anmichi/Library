@@ -183,12 +183,16 @@ data:
     \ n, Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn\
     \ = 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
     \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
-    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\n#line\
-    \ 3 \"test/StirlingFirst.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
-    void solve() {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto\
-    \ f = stirling_first(n, bin);\n    for (auto x : f) cout << x.val() << \" \";\n\
-    \    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    solve();\n}\n"
+    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\ntemplate\
+    \ <typename mint>\nvector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>&\
+    \ bin) {\n    using fps = FormalPowerSeries<mint>;\n    fps f(n + 1);\n    for\
+    \ (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n    f = f.pow(k, n + 1);\n\
+    \    vector<mint> res(n - k + 1);\n    for (int i = k; i <= n; i++) res[i - k]\
+    \ = f[i] * bin.fact[i] * bin.factinv[k];\n    return res;\n}\n#line 3 \"test/StirlingFirst.test.cpp\"\
+    \nusing mint = atcoder::modint998244353;\nvoid solve() {\n    int n;\n    cin\
+    \ >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n, bin);\n  \
+    \  for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
     \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
     \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n,\
@@ -210,7 +214,7 @@ data:
   isVerificationFile: true
   path: test/StirlingFirst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 20:41:39+09:00'
+  timestamp: '2024-06-03 21:24:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/StirlingFirst.test.cpp

@@ -41,11 +41,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
     links:
-    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
-  bundledCode: "#line 1 \"test/StirlingSecond.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
-    \n#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
+  bundledCode: "#line 1 \"test/StirlingSecondFixedK.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\n\
+    #line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
     \ <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int\
     \ n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
     \ + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n        for (int i = 1; i\
@@ -188,18 +189,18 @@ data:
     \ bin) {\n    using fps = FormalPowerSeries<mint>;\n    fps f(n + 1);\n    for\
     \ (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n    f = f.pow(k, n + 1);\n\
     \    vector<mint> res(n - k + 1);\n    for (int i = k; i <= n; i++) res[i - k]\
-    \ = f[i] * bin.fact[i] * bin.factinv[k];\n    return res;\n}\n#line 3 \"test/StirlingSecond.test.cpp\"\
-    \nusing mint = atcoder::modint998244353;\nvoid solve() {\n    int n;\n    cin\
-    \ >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_second(n, bin);\n \
-    \   for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\nint main()\
-    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    /*int t;\n    cin\
-    \ >> t;\n    while (t--)*/\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    \ = f[i] * bin.fact[i] * bin.factinv[k];\n    return res;\n}\n#line 3 \"test/StirlingSecondFixedK.test.cpp\"\
+    \nusing mint = atcoder::modint998244353;\nvoid solve() {\n    int n, k;\n    cin\
+    \ >> n >> k;\n    Binomial<mint> bin(n);\n    auto f = stirling_second_fixedK(n,\
+    \ k, bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n\
+    }\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
     \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
-    \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_second(n,\
-    \ bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    /*int t;\n\
-    \    cin >> t;\n    while (t--)*/\n    solve();\n}\n"
+    \ {\n    int n, k;\n    cin >> n >> k;\n    Binomial<mint> bin(n);\n    auto f\
+    \ = stirling_second_fixedK(n, k, bin);\n    for (auto x : f) cout << x.val() <<\
+    \ \" \";\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    solve();\n}\n"
   dependsOn:
   - Series.cpp
   - TaylorShift.cpp
@@ -213,15 +214,15 @@ data:
   - mod_sqrt.cpp
   - template.cpp
   isVerificationFile: true
-  path: test/StirlingSecond.test.cpp
+  path: test/StirlingSecondFixedK.test.cpp
   requiredBy: []
   timestamp: '2024-06-03 21:24:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/StirlingSecond.test.cpp
+documentation_of: test/StirlingSecondFixedK.test.cpp
 layout: document
 redirect_from:
-- /verify/test/StirlingSecond.test.cpp
-- /verify/test/StirlingSecond.test.cpp.html
-title: test/StirlingSecond.test.cpp
+- /verify/test/StirlingSecondFixedK.test.cpp
+- /verify/test/StirlingSecondFixedK.test.cpp.html
+title: test/StirlingSecondFixedK.test.cpp
 ---
