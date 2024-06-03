@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/Modint-Binomial.test.cpp
     title: test/Modint-Binomial.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
@@ -21,9 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -61,7 +61,7 @@ data:
   - Series.cpp
   - TaylorShift.cpp
   timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/Modint-Binomial.test.cpp
   - test/StirlingSecond.test.cpp

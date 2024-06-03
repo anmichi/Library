@@ -1,47 +1,47 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Binomial.cpp
     title: Binomial.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/internal_bit.hpp
     title: atcoder/internal_bit.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: mod_sqrt.cpp
     title: mod_sqrt.cpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/StirlingSecond.test.cpp
     title: test/StirlingSecond.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -176,20 +176,20 @@ data:
     \ * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i] *= bin.factinv[i];\n\
     \    return f;\n}\n#line 2 \"Series.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
     \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
-    \    auto f = stirling1(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >> 1),\
-    \ bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n   \
-    \ return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int n,\
-    \ Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn =\
-    \ 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
+    \    auto f = stirling_first(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >>\
+    \ 1), bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n\
+    \    return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int\
+    \ n, Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn\
+    \ = 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
     \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
     \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\n"
   code: "#include \"TaylorShift.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
     \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
-    \    auto f = stirling1(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >> 1),\
-    \ bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n   \
-    \ return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int n,\
-    \ Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn =\
-    \ 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
+    \    auto f = stirling_first(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >>\
+    \ 1), bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n\
+    \    return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int\
+    \ n, Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn\
+    \ = 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
     \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
     \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}"
   dependsOn:
@@ -206,8 +206,8 @@ data:
   isVerificationFile: false
   path: Series.cpp
   requiredBy: []
-  timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2024-06-03 20:41:39+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
