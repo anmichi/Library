@@ -183,3 +183,14 @@ struct FormalPowerSeries : vector<mint> {
         return r;
     }
 };
+template <typename mint>
+FormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>> f) {
+    int n = (int)f.size();
+    if (n == 0) return {1};
+    function<FormalPowerSeries<mint>(int, int)> calc = [&](int l, int r) {
+        if (r - l == 1) return f[l];
+        int m = (l + r) / 2;
+        return calc(l, m) * calc(m, r);
+    };
+    return calc(0, n);
+}
