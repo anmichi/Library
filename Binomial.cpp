@@ -4,7 +4,6 @@ template <typename T>
 struct Binomial {
     vector<T> inv, fact, factinv;
     Binomial(int n) {
-        assert(n > 0);
         inv.resize(n + 1);
         fact.resize(n + 1);
         factinv.resize(n + 1);
