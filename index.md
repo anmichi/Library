@@ -13,6 +13,9 @@ data:
       path: BIT.cpp
       title: BIT.cpp
     - icon: ':heavy_check_mark:'
+      path: Binomial.cpp
+      title: Binomial.cpp
+    - icon: ':heavy_check_mark:'
       path: DualSegtree.cpp
       title: DualSegtree.cpp
     - icon: ':warning:'
@@ -33,27 +36,142 @@ data:
     - icon: ':heavy_check_mark:'
       path: ModSqrt.cpp
       title: ModSqrt.cpp
-    - icon: ':warning:'
-      path: Modint.cpp
-      title: Modint.cpp
     - icon: ':heavy_check_mark:'
       path: Segtree.cpp
       title: Segtree.cpp
     - icon: ':heavy_check_mark:'
       path: SparseTable.cpp
       title: SparseTable.cpp
+    - icon: ':warning:'
+      path: TaylorShift.cpp
+      title: TaylorShift.cpp
     - icon: ':heavy_check_mark:'
       path: TwoEdgeConnectedComponents.cpp
       title: TwoEdgeConnectedComponents.cpp
     - icon: ':warning:'
       path: UnionFind.cpp
       title: UnionFind.cpp
+    - icon: ':warning:'
+      path: modint_io.cpp
+      title: modint_io.cpp
+    - icon: ':heavy_check_mark:'
+      path: modint_old.cpp
+      title: modint_old.cpp
+    - icon: ':warning:'
+      path: rerooting.cpp
+      title: rerooting.cpp
     - icon: ':heavy_check_mark:'
       path: template.cpp
       title: template.cpp
     - icon: ':warning:'
       path: template_old.cpp
       title: template_old.cpp
+  - name: atcoder
+    pages:
+    - icon: ':warning:'
+      path: atcoder/convolution.hpp
+      title: atcoder/convolution.hpp
+    - icon: ':warning:'
+      path: atcoder/dsu.hpp
+      title: atcoder/dsu.hpp
+    - icon: ':warning:'
+      path: atcoder/fenwicktree.hpp
+      title: atcoder/fenwicktree.hpp
+    - icon: ':warning:'
+      path: atcoder/internal_bit.hpp
+      title: atcoder/internal_bit.hpp
+    - icon: ':warning:'
+      path: atcoder/internal_math.hpp
+      title: atcoder/internal_math.hpp
+    - icon: ':warning:'
+      path: atcoder/internal_queue.hpp
+      title: atcoder/internal_queue.hpp
+    - icon: ':warning:'
+      path: atcoder/internal_scc.hpp
+      title: atcoder/internal_scc.hpp
+    - icon: ':warning:'
+      path: atcoder/internal_type_traits.hpp
+      title: atcoder/internal_type_traits.hpp
+    - icon: ':warning:'
+      path: atcoder/lazysegtree.hpp
+      title: atcoder/lazysegtree.hpp
+    - icon: ':warning:'
+      path: atcoder/math.hpp
+      title: atcoder/math.hpp
+    - icon: ':warning:'
+      path: atcoder/maxflow.hpp
+      title: atcoder/maxflow.hpp
+    - icon: ':warning:'
+      path: atcoder/mincostflow.hpp
+      title: atcoder/mincostflow.hpp
+    - icon: ':warning:'
+      path: atcoder/modint.hpp
+      title: atcoder/modint.hpp
+    - icon: ':warning:'
+      path: atcoder/scc.hpp
+      title: atcoder/scc.hpp
+    - icon: ':warning:'
+      path: atcoder/segtree.hpp
+      title: atcoder/segtree.hpp
+    - icon: ':warning:'
+      path: atcoder/string.hpp
+      title: atcoder/string.hpp
+    - icon: ':warning:'
+      path: atcoder/twosat.hpp
+      title: atcoder/twosat.hpp
+  - name: test/atcoder
+    pages:
+    - icon: ':warning:'
+      path: test/atcoder/convolution.hpp
+      title: test/atcoder/convolution.hpp
+    - icon: ':warning:'
+      path: test/atcoder/dsu.hpp
+      title: test/atcoder/dsu.hpp
+    - icon: ':warning:'
+      path: test/atcoder/fenwicktree.hpp
+      title: test/atcoder/fenwicktree.hpp
+    - icon: ':warning:'
+      path: test/atcoder/internal_bit.hpp
+      title: test/atcoder/internal_bit.hpp
+    - icon: ':warning:'
+      path: test/atcoder/internal_math.hpp
+      title: test/atcoder/internal_math.hpp
+    - icon: ':warning:'
+      path: test/atcoder/internal_queue.hpp
+      title: test/atcoder/internal_queue.hpp
+    - icon: ':warning:'
+      path: test/atcoder/internal_scc.hpp
+      title: test/atcoder/internal_scc.hpp
+    - icon: ':warning:'
+      path: test/atcoder/internal_type_traits.hpp
+      title: test/atcoder/internal_type_traits.hpp
+    - icon: ':warning:'
+      path: test/atcoder/lazysegtree.hpp
+      title: test/atcoder/lazysegtree.hpp
+    - icon: ':warning:'
+      path: test/atcoder/math.hpp
+      title: test/atcoder/math.hpp
+    - icon: ':warning:'
+      path: test/atcoder/maxflow.hpp
+      title: test/atcoder/maxflow.hpp
+    - icon: ':warning:'
+      path: test/atcoder/mincostflow.hpp
+      title: test/atcoder/mincostflow.hpp
+    - icon: ':warning:'
+      path: test/atcoder/modint.hpp
+      title: test/atcoder/modint.hpp
+    - icon: ':warning:'
+      path: test/atcoder/scc.hpp
+      title: test/atcoder/scc.hpp
+    - icon: ':warning:'
+      path: test/atcoder/segtree.hpp
+      title: test/atcoder/segtree.hpp
+    - icon: ':warning:'
+      path: test/atcoder/string.hpp
+      title: test/atcoder/string.hpp
+    - icon: ':warning:'
+      path: test/atcoder/twosat.hpp
+      title: test/atcoder/twosat.hpp
   verificationCategories:
   - name: test
     pages:
@@ -102,6 +220,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/SparseTableDisjoint.test.cpp
       title: test/SparseTableDisjoint.test.cpp
+    - icon: ':x:'
+      path: test/TaylorShift.test.cpp
+      title: test/TaylorShift.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/TwoEdgeConnectedComponents.test.cpp
       title: test/TwoEdgeConnectedComponents.test.cpp

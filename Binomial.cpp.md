@@ -1,0 +1,56 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/Modint-Binomial.test.cpp
+    title: test/Modint-Binomial.test.cpp
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':heavy_check_mark:'
+  attributes:
+    links: []
+  bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\ntemplate <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n\
+    \    Binomial(int n) {\n        assert(n > 0);\n        inv.resize(n + 1);\n \
+    \       fact.resize(n + 1);\n        factinv.resize(n + 1);\n        inv[0] =\
+    \ fact[0] = factinv[0] = 1;\n        for (int i = 1; i <= n; i++) fact[i] = fact[i\
+    \ - 1] * i;\n        factinv[n] = fact[n].inv();\n        inv[n] = fact[n - 1]\
+    \ * factinv[n];\n        for (int i = n - 1; i >= 1; i--) {\n            factinv[i]\
+    \ = factinv[i + 1] * (i + 1);\n            inv[i] = fact[i - 1] * factinv[i];\n\
+    \        }\n    }\n    T C(int n, int r) {\n        if (n < 0 || n < r || r <\
+    \ 0) return 0;\n        return fact[n] * factinv[n - r] * factinv[r];\n    }\n\
+    \    T P(int n, int r) {\n        if (n < 0 || n < r || r < 0) return 0;\n   \
+    \     return fact[n] * factinv[n - r];\n    }\n    T H(int n, int r) {\n     \
+    \   if (n == 0 && r == 0) return 1;\n        if (n < 0 || r < 0) return 0;\n \
+    \       return r == 0 ? 1 : C(n + r - 1, r);\n    }\n};\n"
+  code: "#include <bits/stdc++.h>\nusing namespace std;\ntemplate <typename T>\nstruct\
+    \ Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int n) {\n     \
+    \   assert(n > 0);\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n\
+    \        factinv.resize(n + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n\
+    \        for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n]\
+    \ = fact[n].inv();\n        inv[n] = fact[n - 1] * factinv[n];\n        for (int\
+    \ i = n - 1; i >= 1; i--) {\n            factinv[i] = factinv[i + 1] * (i + 1);\n\
+    \            inv[i] = fact[i - 1] * factinv[i];\n        }\n    }\n    T C(int\
+    \ n, int r) {\n        if (n < 0 || n < r || r < 0) return 0;\n        return\
+    \ fact[n] * factinv[n - r] * factinv[r];\n    }\n    T P(int n, int r) {\n   \
+    \     if (n < 0 || n < r || r < 0) return 0;\n        return fact[n] * factinv[n\
+    \ - r];\n    }\n    T H(int n, int r) {\n        if (n == 0 && r == 0) return\
+    \ 1;\n        if (n < 0 || r < 0) return 0;\n        return r == 0 ? 1 : C(n +\
+    \ r - 1, r);\n    }\n};"
+  dependsOn: []
+  isVerificationFile: false
+  path: Binomial.cpp
+  requiredBy: []
+  timestamp: '2024-05-26 13:38:27+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/Modint-Binomial.test.cpp
+documentation_of: Binomial.cpp
+layout: document
+redirect_from:
+- /library/Binomial.cpp
+- /library/Binomial.cpp.html
+title: Binomial.cpp
+---
