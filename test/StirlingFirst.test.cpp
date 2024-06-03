@@ -1,3 +1,4 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind"
 #include "Series.cpp"
 using mint = atcoder::modint998244353;
 void solve() {
