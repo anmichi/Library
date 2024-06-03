@@ -208,7 +208,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/LCA.test.cpp
       title: test/LCA.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/ModSqrt.test.cpp
       title: test/ModSqrt.test.cpp
     - icon: ':heavy_check_mark:'

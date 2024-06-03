@@ -15,6 +15,9 @@ data:
     path: mod_sqrt.cpp
     title: mod_sqrt.cpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/ModSqrt.test.cpp
+    title: test/ModSqrt.test.cpp
   - icon: ':x:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
@@ -81,6 +84,7 @@ data:
   verifiedWith:
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
+  - test/ModSqrt.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: template.cpp
 layout: document

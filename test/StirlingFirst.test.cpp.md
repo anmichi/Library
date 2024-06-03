@@ -190,7 +190,7 @@ data:
     \    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    solve();\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
-    \n#include \"Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
+    \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
     \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n,\
     \ bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n\
@@ -210,7 +210,7 @@ data:
   isVerificationFile: true
   path: test/StirlingFirst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 20:34:03+09:00'
+  timestamp: '2024-06-03 20:36:27+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/StirlingFirst.test.cpp
