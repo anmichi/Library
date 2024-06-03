@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
   - icon: ':question:'
@@ -36,28 +36,31 @@ data:
     title: template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    links: []
-  bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\ntemplate <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n\
-    \    Binomial(int n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n\
-    \        factinv.resize(n + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n\
-    \        for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n]\
-    \ = fact[n].inv();\n        inv[n] = fact[n - 1] * factinv[n];\n        for (int\
-    \ i = n - 1; i >= 1; i--) {\n            factinv[i] = factinv[i + 1] * (i + 1);\n\
-    \            inv[i] = fact[i - 1] * factinv[i];\n        }\n    }\n    T C(int\
-    \ n, int r) {\n        if (n < 0 || n < r || r < 0) return 0;\n        return\
-    \ fact[n] * factinv[n - r] * factinv[r];\n    }\n    T P(int n, int r) {\n   \
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
+    links:
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
+  bundledCode: "#line 1 \"test/StirlingSecond.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    \n#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
+    \ <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int\
+    \ n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
+    \ + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n        for (int i = 1; i\
+    \ <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n] = fact[n].inv();\n\
+    \        inv[n] = fact[n - 1] * factinv[n];\n        for (int i = n - 1; i >=\
+    \ 1; i--) {\n            factinv[i] = factinv[i + 1] * (i + 1);\n            inv[i]\
+    \ = fact[i - 1] * factinv[i];\n        }\n    }\n    T C(int n, int r) {\n   \
     \     if (n < 0 || n < r || r < 0) return 0;\n        return fact[n] * factinv[n\
-    \ - r];\n    }\n    T H(int n, int r) {\n        if (n == 0 && r == 0) return\
-    \ 1;\n        if (n < 0 || r < 0) return 0;\n        return r == 0 ? 1 : C(n +\
-    \ r - 1, r);\n    }\n};\n#line 1 \"FormalPowerSeries.cpp\"\n#include <atcoder/convolution>\n\
-    #line 2 \"template.cpp\"\nusing namespace std;\nusing ll = long long;\n#define\
-    \ rep(i, n) for (int i = 0; i < n; i++)\n#define all(v) v.begin(), v.end()\ntemplate\
+    \ - r] * factinv[r];\n    }\n    T P(int n, int r) {\n        if (n < 0 || n <\
+    \ r || r < 0) return 0;\n        return fact[n] * factinv[n - r];\n    }\n   \
+    \ T H(int n, int r) {\n        if (n == 0 && r == 0) return 1;\n        if (n\
+    \ < 0 || r < 0) return 0;\n        return r == 0 ? 1 : C(n + r - 1, r);\n    }\n\
+    };\n#line 1 \"FormalPowerSeries.cpp\"\n#include <atcoder/convolution>\n#line 2\
+    \ \"template.cpp\"\nusing namespace std;\nusing ll = long long;\n#define rep(i,\
+    \ n) for (int i = 0; i < n; i++)\n#define all(v) v.begin(), v.end()\ntemplate\
     \ <class T, class U>\ninline bool chmax(T &a, U b) {\n    if (a < b) {\n     \
     \   a = b;\n        return true;\n    }\n    return false;\n}\ntemplate <class\
     \ T, class U>\ninline bool chmin(T &a, U b) {\n    if (a > b) {\n        a = b;\n\
@@ -181,12 +184,13 @@ data:
     \ 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
     \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
     \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\n#line\
-    \ 2 \"test/StirlingSecond.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
+    \ 3 \"test/StirlingSecond.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
     void solve() {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto\
     \ f = stirling_second(n, bin);\n    for (auto x : f) cout << x.val() << \" \"\
     ;\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
     \    /*int t;\n    cin >> t;\n    while (t--)*/\n    solve();\n}\n"
-  code: "#include \"Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    \n#include \"Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
     \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_second(n,\
     \ bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\n\
     int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    /*int t;\n\
@@ -206,8 +210,8 @@ data:
   isVerificationFile: true
   path: test/StirlingSecond.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-03 20:34:03+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/StirlingSecond.test.cpp
 layout: document

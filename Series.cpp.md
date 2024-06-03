@@ -36,12 +36,12 @@ data:
   - icon: ':x:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/StirlingSecond.test.cpp
     title: test/StirlingSecond.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -207,7 +207,7 @@ data:
   path: Series.cpp
   requiredBy: []
   timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp

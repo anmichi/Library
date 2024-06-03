@@ -5,7 +5,7 @@ data:
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
   - icon: ':question:'
@@ -33,7 +33,7 @@ data:
   - icon: ':x:'
     path: test/StirlingFirst.test.cpp
     title: test/StirlingFirst.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/StirlingSecond.test.cpp
     title: test/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
