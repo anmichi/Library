@@ -12,13 +12,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: BIT.cpp
       title: BIT.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Binomial.cpp
       title: Binomial.cpp
     - icon: ':heavy_check_mark:'
       path: DualSegtree.cpp
       title: DualSegtree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: FormalPowerSeries.cpp
       title: FormalPowerSeries.cpp
     - icon: ':heavy_check_mark:'
@@ -36,10 +36,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: Segtree.cpp
       title: Segtree.cpp
+    - icon: ':x:'
+      path: Series.cpp
+      title: Series.cpp
     - icon: ':heavy_check_mark:'
       path: SparseTable.cpp
       title: SparseTable.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: TaylorShift.cpp
       title: TaylorShift.cpp
     - icon: ':heavy_check_mark:'
@@ -48,7 +51,7 @@ data:
     - icon: ':warning:'
       path: UnionFind.cpp
       title: UnionFind.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: mod_sqrt.cpp
       title: mod_sqrt.cpp
     - icon: ':heavy_check_mark:'
@@ -60,7 +63,7 @@ data:
     - icon: ':warning:'
       path: rerooting.cpp
       title: rerooting.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template.cpp
       title: template.cpp
     - icon: ':warning:'
@@ -68,7 +71,7 @@ data:
       title: template_old.cpp
   - name: atcoder
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: atcoder/convolution.hpp
       title: atcoder/convolution.hpp
     - icon: ':warning:'
@@ -77,10 +80,10 @@ data:
     - icon: ':warning:'
       path: atcoder/fenwicktree.hpp
       title: atcoder/fenwicktree.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: atcoder/internal_bit.hpp
       title: atcoder/internal_bit.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: atcoder/internal_math.hpp
       title: atcoder/internal_math.hpp
     - icon: ':warning:'
@@ -89,7 +92,7 @@ data:
     - icon: ':warning:'
       path: atcoder/internal_scc.hpp
       title: atcoder/internal_scc.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: atcoder/internal_type_traits.hpp
       title: atcoder/internal_type_traits.hpp
     - icon: ':warning:'
@@ -104,7 +107,7 @@ data:
     - icon: ':warning:'
       path: atcoder/mincostflow.hpp
       title: atcoder/mincostflow.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: atcoder/modint.hpp
       title: atcoder/modint.hpp
     - icon: ':warning:'
@@ -220,6 +223,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/SparseTableDisjoint.test.cpp
       title: test/SparseTableDisjoint.test.cpp
+    - icon: ':x:'
+      path: test/StirlingFirst.test.cpp
+      title: test/StirlingFirst.test.cpp
+    - icon: ':x:'
+      path: test/StirlingSecond.test.cpp
+      title: test/StirlingSecond.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/TaylorShift.test.cpp
       title: test/TaylorShift.test.cpp

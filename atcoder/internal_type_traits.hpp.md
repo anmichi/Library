@@ -2,19 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: Series.cpp
+    title: Series.cpp
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
   - icon: ':warning:'
     path: atcoder/fenwicktree.hpp
     title: atcoder/fenwicktree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
   - icon: ':heavy_check_mark:'
@@ -30,12 +33,18 @@ data:
     path: test/atcoder/modint.hpp
     title: test/atcoder/modint.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/StirlingFirst.test.cpp
+    title: test/StirlingFirst.test.cpp
+  - icon: ':x:'
+    path: test/StirlingSecond.test.cpp
+    title: test/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"atcoder/internal_type_traits.hpp\"\n\n\n\n#include <cassert>\n\
@@ -133,6 +142,7 @@ data:
   - test/atcoder/modint.hpp
   - test/atcoder/fenwicktree.hpp
   - test/atcoder/convolution.hpp
+  - Series.cpp
   - FormalPowerSeries.cpp
   - atcoder/modint.hpp
   - atcoder/fenwicktree.hpp
@@ -140,8 +150,10 @@ data:
   - modint_io.cpp
   - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/StirlingSecond.test.cpp
+  - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: atcoder/internal_type_traits.hpp
 layout: document

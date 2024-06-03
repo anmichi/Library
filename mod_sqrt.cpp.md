@@ -1,23 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: Series.cpp
+    title: Series.cpp
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/StirlingFirst.test.cpp
+    title: test/StirlingFirst.test.cpp
+  - icon: ':x:'
+    path: test/StirlingSecond.test.cpp
+    title: test/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -64,11 +73,14 @@ data:
   isVerificationFile: false
   path: mod_sqrt.cpp
   requiredBy:
+  - Series.cpp
   - FormalPowerSeries.cpp
   - TaylorShift.cpp
   timestamp: '2024-06-03 19:26:53+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/StirlingSecond.test.cpp
+  - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: mod_sqrt.cpp
 layout: document

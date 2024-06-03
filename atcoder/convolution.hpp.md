@@ -1,32 +1,41 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_bit.hpp
     title: atcoder/internal_bit.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
+    path: Series.cpp
+    title: Series.cpp
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/StirlingFirst.test.cpp
+    title: test/StirlingFirst.test.cpp
+  - icon: ':x:'
+    path: test/StirlingSecond.test.cpp
+    title: test/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"atcoder/convolution.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -223,11 +232,14 @@ data:
   isVerificationFile: false
   path: atcoder/convolution.hpp
   requiredBy:
+  - Series.cpp
   - FormalPowerSeries.cpp
   - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/StirlingSecond.test.cpp
+  - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp
 documentation_of: atcoder/convolution.hpp
 layout: document

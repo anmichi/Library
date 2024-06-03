@@ -8,6 +8,9 @@ data:
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
   - icon: ':question:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
+  - icon: ':question:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
   - icon: ':question:'
@@ -28,10 +31,7 @@ data:
   - icon: ':question:'
     path: template.cpp
     title: template.cpp
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: Series.cpp
-    title: Series.cpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/StirlingFirst.test.cpp
@@ -39,12 +39,9 @@ data:
   - icon: ':x:'
     path: test/StirlingSecond.test.cpp
     title: test/StirlingSecond.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/TaylorShift.test.cpp
-    title: test/TaylorShift.test.cpp
   _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -177,15 +174,26 @@ data:
     \ f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint> g(n, mint(1));\n\
     \    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n    f = (f\
     \ * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i] *= bin.factinv[i];\n\
-    \    return f;\n}\n"
-  code: "#include \"Binomial.cpp\"\n#include \"FormalPowerSeries.cpp\"\n// f(x + a)\n\
-    template <typename mint>\nFormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint>\
-    \ f, mint a, Binomial<mint>& bin) {\n    int n = f.size();\n    for (int i = 0;\
-    \ i < n; i++) f[i] *= bin.fact[i];\n    f = f.rev();\n    FormalPowerSeries<mint>\
-    \ g(n, mint(1));\n    for (int i = 1; i < n; i++) g[i] = g[i - 1] * a * bin.inv[i];\n\
-    \    f = (f * g).pre(n);\n    f = f.rev();\n    for (int i = 0; i < n; i++) f[i]\
-    \ *= bin.factinv[i];\n    return f;\n}"
+    \    return f;\n}\n#line 2 \"Series.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
+    \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
+    \    auto f = stirling1(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >> 1),\
+    \ bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n   \
+    \ return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int n,\
+    \ Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn =\
+    \ 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
+    \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
+    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\n"
+  code: "#include \"TaylorShift.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
+    \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
+    \    auto f = stirling1(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >> 1),\
+    \ bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n   \
+    \ return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int n,\
+    \ Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn =\
+    \ 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
+    \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
+    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}"
   dependsOn:
+  - TaylorShift.cpp
   - Binomial.cpp
   - FormalPowerSeries.cpp
   - atcoder/convolution.hpp
@@ -196,19 +204,17 @@ data:
   - mod_sqrt.cpp
   - template.cpp
   isVerificationFile: false
-  path: TaylorShift.cpp
-  requiredBy:
-  - Series.cpp
+  path: Series.cpp
+  requiredBy: []
   timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/StirlingSecond.test.cpp
   - test/StirlingFirst.test.cpp
-  - test/TaylorShift.test.cpp
-documentation_of: TaylorShift.cpp
+documentation_of: Series.cpp
 layout: document
 redirect_from:
-- /library/TaylorShift.cpp
-- /library/TaylorShift.cpp.html
-title: TaylorShift.cpp
+- /library/Series.cpp
+- /library/Series.cpp.html
+title: Series.cpp
 ---
