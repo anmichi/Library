@@ -9,10 +9,10 @@
 "test/Geometry.pararell-orthogonal.test.cpp": "2024-03-05 22:13:40 +0900",
 "test/Geometry.segments-distance.test.cpp": "2024-03-05 22:13:40 +0900",
 "test/LCA.test.cpp": "2024-03-07 04:25:08 +0900",
-"test/ModSqrt.test.cpp": "2024-05-26 13:38:27 +0900",
 "test/Modint-Binomial.test.cpp": "2024-05-26 13:38:27 +0900",
 "test/Segtree.test.cpp": "2024-03-05 22:13:40 +0900",
 "test/SparseTable.test.cpp": "2024-06-02 17:26:00 +0900",
 "test/SparseTableDisjoint.test.cpp": "2024-06-02 17:26:00 +0900",
+"test/TaylorShift.test.cpp": "2024-06-03 19:26:53 +0900",
 "test/TwoEdgeConnectedComponents.test.cpp": "2024-03-05 22:13:40 +0900"
 }
