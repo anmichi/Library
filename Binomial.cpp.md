@@ -1,11 +1,17 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/Modint-Binomial.test.cpp
     title: test/Modint-Binomial.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -42,11 +48,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: Binomial.cpp
-  requiredBy: []
+  requiredBy:
+  - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/Modint-Binomial.test.cpp
+  - test/TaylorShift.test.cpp
 documentation_of: Binomial.cpp
 layout: document
 redirect_from:

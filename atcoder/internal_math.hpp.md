@@ -2,16 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
+    path: FormalPowerSeries.cpp
+    title: FormalPowerSeries.cpp
+  - icon: ':heavy_check_mark:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
+  - icon: ':heavy_check_mark:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
   - icon: ':warning:'
     path: atcoder/math.hpp
     title: atcoder/math.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: modint_io.cpp
     title: modint_io.cpp
   - icon: ':warning:'
@@ -23,10 +29,13 @@ data:
   - icon: ':warning:'
     path: test/atcoder/modint.hpp
     title: test/atcoder/modint.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://en.wikipedia.org/wiki/Barrett_reduction
@@ -163,13 +172,16 @@ data:
   - test/atcoder/modint.hpp
   - test/atcoder/convolution.hpp
   - test/atcoder/math.hpp
+  - FormalPowerSeries.cpp
   - atcoder/modint.hpp
   - atcoder/convolution.hpp
   - atcoder/math.hpp
   - modint_io.cpp
+  - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/TaylorShift.test.cpp
 documentation_of: atcoder/internal_math.hpp
 layout: document
 redirect_from:

@@ -18,7 +18,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DualSegtree.cpp
       title: DualSegtree.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: FormalPowerSeries.cpp
       title: FormalPowerSeries.cpp
     - icon: ':heavy_check_mark:'
@@ -34,15 +34,12 @@ data:
       path: MaxFlow.cpp
       title: MaxFlow.cpp
     - icon: ':heavy_check_mark:'
-      path: ModSqrt.cpp
-      title: ModSqrt.cpp
-    - icon: ':heavy_check_mark:'
       path: Segtree.cpp
       title: Segtree.cpp
     - icon: ':heavy_check_mark:'
       path: SparseTable.cpp
       title: SparseTable.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: TaylorShift.cpp
       title: TaylorShift.cpp
     - icon: ':heavy_check_mark:'
@@ -51,7 +48,10 @@ data:
     - icon: ':warning:'
       path: UnionFind.cpp
       title: UnionFind.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
+      path: mod_sqrt.cpp
+      title: mod_sqrt.cpp
+    - icon: ':heavy_check_mark:'
       path: modint_io.cpp
       title: modint_io.cpp
     - icon: ':heavy_check_mark:'
@@ -68,7 +68,7 @@ data:
       title: template_old.cpp
   - name: atcoder
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: atcoder/convolution.hpp
       title: atcoder/convolution.hpp
     - icon: ':warning:'
@@ -77,10 +77,10 @@ data:
     - icon: ':warning:'
       path: atcoder/fenwicktree.hpp
       title: atcoder/fenwicktree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: atcoder/internal_bit.hpp
       title: atcoder/internal_bit.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: atcoder/internal_math.hpp
       title: atcoder/internal_math.hpp
     - icon: ':warning:'
@@ -89,7 +89,7 @@ data:
     - icon: ':warning:'
       path: atcoder/internal_scc.hpp
       title: atcoder/internal_scc.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: atcoder/internal_type_traits.hpp
       title: atcoder/internal_type_traits.hpp
     - icon: ':warning:'
@@ -104,7 +104,7 @@ data:
     - icon: ':warning:'
       path: atcoder/mincostflow.hpp
       title: atcoder/mincostflow.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: atcoder/modint.hpp
       title: atcoder/modint.hpp
     - icon: ':warning:'
@@ -205,7 +205,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/LCA.test.cpp
       title: test/LCA.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/ModSqrt.test.cpp
       title: test/ModSqrt.test.cpp
     - icon: ':heavy_check_mark:'
@@ -220,7 +220,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/SparseTableDisjoint.test.cpp
       title: test/SparseTableDisjoint.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/TaylorShift.test.cpp
       title: test/TaylorShift.test.cpp
     - icon: ':heavy_check_mark:'

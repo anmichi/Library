@@ -2,7 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
+    path: FormalPowerSeries.cpp
+    title: FormalPowerSeries.cpp
+  - icon: ':heavy_check_mark:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
+  - icon: ':heavy_check_mark:'
     path: atcoder/convolution.hpp
     title: atcoder/convolution.hpp
   - icon: ':warning:'
@@ -20,10 +26,13 @@ data:
   - icon: ':warning:'
     path: test/atcoder/segtree.hpp
     title: test/atcoder/segtree.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"atcoder/internal_bit.hpp\"\n\n\n\n#ifdef _MSC_VER\n#include\
@@ -51,12 +60,15 @@ data:
   - test/atcoder/lazysegtree.hpp
   - test/atcoder/convolution.hpp
   - test/atcoder/segtree.hpp
+  - FormalPowerSeries.cpp
   - atcoder/lazysegtree.hpp
   - atcoder/convolution.hpp
   - atcoder/segtree.hpp
+  - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/TaylorShift.test.cpp
 documentation_of: atcoder/internal_bit.hpp
 layout: document
 redirect_from:

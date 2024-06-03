@@ -1,20 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/internal_math.hpp
     title: atcoder/internal_math.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/internal_type_traits.hpp
     title: atcoder/internal_type_traits.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: atcoder/modint.hpp
     title: atcoder/modint.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"modint_io.cpp\"\n#include <atcoder/modint>\n#include <iostream>\n\
@@ -35,8 +38,9 @@ data:
   path: modint_io.cpp
   requiredBy: []
   timestamp: '2024-05-26 13:38:27+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/TaylorShift.test.cpp
 documentation_of: modint_io.cpp
 layout: document
 redirect_from:

@@ -4,11 +4,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: template.cpp
     title: template.cpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: FormalPowerSeries.cpp
+    title: FormalPowerSeries.cpp
+  - icon: ':heavy_check_mark:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/ModSqrt.test.cpp
-    title: test/ModSqrt.test.cpp
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -33,7 +39,7 @@ data:
     \   y -= a / b * x;\n    return d;\n}\nll modpow(ll a, ll b, ll m) {\n    ll res\
     \ = 1;\n    while (b) {\n        if (b & 1) {\n            res *= a;\n       \
     \     res %= m;\n        }\n        a *= a;\n        a %= m;\n        b >>= 1;\n\
-    \    }\n    return res;\n}\n#line 2 \"ModSqrt.cpp\"\nint64_t mod_sqrt(const int64_t&\
+    \    }\n    return res;\n}\n#line 2 \"mod_sqrt.cpp\"\nint64_t mod_sqrt(const int64_t&\
     \ a, const int64_t& p) {\n    assert(0 <= a && a < p);\n    if (a < 2) return\
     \ a;\n    if (modpow(a, (p - 1) >> 1, p) != 1) return -1;\n    int64_t q = p -\
     \ 1, m = 0;\n    while (!(q & 1)) {\n        q >>= 1;\n        m++;\n    }\n \
@@ -56,16 +62,18 @@ data:
   dependsOn:
   - template.cpp
   isVerificationFile: false
-  path: ModSqrt.cpp
-  requiredBy: []
-  timestamp: '2024-05-26 13:38:27+09:00'
+  path: mod_sqrt.cpp
+  requiredBy:
+  - FormalPowerSeries.cpp
+  - TaylorShift.cpp
+  timestamp: '2024-06-03 19:26:53+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/ModSqrt.test.cpp
-documentation_of: ModSqrt.cpp
+  - test/TaylorShift.test.cpp
+documentation_of: mod_sqrt.cpp
 layout: document
 redirect_from:
-- /library/ModSqrt.cpp
-- /library/ModSqrt.cpp.html
-title: ModSqrt.cpp
+- /library/mod_sqrt.cpp
+- /library/mod_sqrt.cpp.html
+title: mod_sqrt.cpp
 ---

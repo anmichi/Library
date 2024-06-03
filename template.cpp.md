@@ -3,12 +3,18 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: ModSqrt.cpp
-    title: ModSqrt.cpp
+    path: FormalPowerSeries.cpp
+    title: FormalPowerSeries.cpp
+  - icon: ':heavy_check_mark:'
+    path: TaylorShift.cpp
+    title: TaylorShift.cpp
+  - icon: ':heavy_check_mark:'
+    path: mod_sqrt.cpp
+    title: mod_sqrt.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/ModSqrt.test.cpp
-    title: test/ModSqrt.test.cpp
+    path: test/TaylorShift.test.cpp
+    title: test/TaylorShift.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -57,11 +63,13 @@ data:
   isVerificationFile: false
   path: template.cpp
   requiredBy:
-  - ModSqrt.cpp
+  - mod_sqrt.cpp
+  - FormalPowerSeries.cpp
+  - TaylorShift.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/ModSqrt.test.cpp
+  - test/TaylorShift.test.cpp
 documentation_of: template.cpp
 layout: document
 redirect_from:
