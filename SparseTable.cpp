@@ -53,6 +53,7 @@ struct disjointsparsetable {
         }
     }
     T query(int l, int r) {
+        if (l == r) return e();
         if (l >= --r) return table[0][l];
         int len = logtable[l ^ r];
         return op(table[len][l], table[len][r]);
