@@ -42,13 +42,13 @@ data:
     \ 1], v[k]);\n            }\n        }\n        logtable.resize(1 << len);\n \
     \       for (int i = 2; i < logtable.size(); i++) {\n            logtable[i] =\
     \ logtable[(i >> 1)] + 1;\n        }\n    }\n    T query(int l, int r) {\n   \
-    \     if (l >= --r) return table[0][l];\n        int len = logtable[l ^ r];\n\
-    \        return op(table[len][l], table[len][r]);\n    };\n};\n#line 3 \"test/SparseTable.test.cpp\"\
-    \nint op(int a, int b) { return min(a, b); }\nint e() { return INT_MAX; }\nint\
-    \ main() {\n    int n, q;\n    cin >> n >> q;\n    vector<int> a(n);\n    for\
-    \ (int& x : a) cin >> x;\n    sparsetable<int, op, e> st(a);\n    while (q--)\
-    \ {\n        int l, r;\n        cin >> l >> r;\n        cout << st.query(l, r)\
-    \ << endl;\n    }\n}\n"
+    \     if (l == r) return e();\n        if (l >= --r) return table[0][l];\n   \
+    \     int len = logtable[l ^ r];\n        return op(table[len][l], table[len][r]);\n\
+    \    };\n};\n#line 3 \"test/SparseTable.test.cpp\"\nint op(int a, int b) { return\
+    \ min(a, b); }\nint e() { return INT_MAX; }\nint main() {\n    int n, q;\n   \
+    \ cin >> n >> q;\n    vector<int> a(n);\n    for (int& x : a) cin >> x;\n    sparsetable<int,\
+    \ op, e> st(a);\n    while (q--) {\n        int l, r;\n        cin >> l >> r;\n\
+    \        cout << st.query(l, r) << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
     ../SparseTable.cpp\"\nint op(int a, int b) { return min(a, b); }\nint e() { return\
     \ INT_MAX; }\nint main() {\n    int n, q;\n    cin >> n >> q;\n    vector<int>\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/SparseTable.test.cpp
   requiredBy: []
-  timestamp: '2024-06-02 17:26:00+09:00'
+  timestamp: '2024-06-06 00:36:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/SparseTable.test.cpp

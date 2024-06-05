@@ -42,14 +42,15 @@ data:
     \ k < r; k++) table[i][k] = op(table[i][k - 1], v[k]);\n            }\n      \
     \  }\n        logtable.resize(1 << len);\n        for (int i = 2; i < logtable.size();\
     \ i++) {\n            logtable[i] = logtable[(i >> 1)] + 1;\n        }\n    }\n\
-    \    T query(int l, int r) {\n        if (l >= --r) return table[0][l];\n    \
-    \    int len = logtable[l ^ r];\n        return op(table[len][l], table[len][r]);\n\
-    \    };\n};\n#line 3 \"test/SparseTableDisjoint.test.cpp\"\nint op(int a, int\
-    \ b) { return min(a, b); }\nint e() { return 1000000000; }\nint main() {\n   \
-    \ cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n, m;\n    cin >> n >>\
-    \ m;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin >> a[i];\n  \
-    \  disjointsparsetable<int, op, e> st(a);\n    while (m--) {\n        int l, r;\n\
-    \        cin >> l >> r;\n        cout << st.query(l, r) << \"\\n\";\n    }\n}\n"
+    \    T query(int l, int r) {\n        if (l == r) return e();\n        if (l >=\
+    \ --r) return table[0][l];\n        int len = logtable[l ^ r];\n        return\
+    \ op(table[len][l], table[len][r]);\n    };\n};\n#line 3 \"test/SparseTableDisjoint.test.cpp\"\
+    \nint op(int a, int b) { return min(a, b); }\nint e() { return 1000000000; }\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    int n, m;\n\
+    \    cin >> n >> m;\n    vector<int> a(n);\n    for (int i = 0; i < n; i++) cin\
+    \ >> a[i];\n    disjointsparsetable<int, op, e> st(a);\n    while (m--) {\n  \
+    \      int l, r;\n        cin >> l >> r;\n        cout << st.query(l, r) << \"\
+    \\n\";\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n#include \"\
     ../SparseTable.cpp\"\nint op(int a, int b) { return min(a, b); }\nint e() { return\
     \ 1000000000; }\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
@@ -62,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/SparseTableDisjoint.test.cpp
   requiredBy: []
-  timestamp: '2024-06-02 17:26:00+09:00'
+  timestamp: '2024-06-06 00:36:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/SparseTableDisjoint.test.cpp

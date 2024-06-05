@@ -41,8 +41,9 @@ data:
     \ = op(table[i][k - 1], v[k]);\n            }\n        }\n        logtable.resize(1\
     \ << len);\n        for (int i = 2; i < logtable.size(); i++) {\n            logtable[i]\
     \ = logtable[(i >> 1)] + 1;\n        }\n    }\n    T query(int l, int r) {\n \
-    \       if (l >= --r) return table[0][l];\n        int len = logtable[l ^ r];\n\
-    \        return op(table[len][l], table[len][r]);\n    };\n};\n"
+    \       if (l == r) return e();\n        if (l >= --r) return table[0][l];\n \
+    \       int len = logtable[l ^ r];\n        return op(table[len][l], table[len][r]);\n\
+    \    };\n};\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\ntemplate <class T, T (*op)(T,\
     \ T), T (*e)()>\nstruct sparsetable {\n    vector<vector<T>> table;\n    vector<int>\
     \ logtable;\n    sparsetable(vector<T> v) {\n        int len = 0;\n        while\
@@ -69,14 +70,14 @@ data:
     \ k < r; k++) table[i][k] = op(table[i][k - 1], v[k]);\n            }\n      \
     \  }\n        logtable.resize(1 << len);\n        for (int i = 2; i < logtable.size();\
     \ i++) {\n            logtable[i] = logtable[(i >> 1)] + 1;\n        }\n    }\n\
-    \    T query(int l, int r) {\n        if (l >= --r) return table[0][l];\n    \
-    \    int len = logtable[l ^ r];\n        return op(table[len][l], table[len][r]);\n\
-    \    };\n};"
+    \    T query(int l, int r) {\n        if (l == r) return e();\n        if (l >=\
+    \ --r) return table[0][l];\n        int len = logtable[l ^ r];\n        return\
+    \ op(table[len][l], table[len][r]);\n    };\n};"
   dependsOn: []
   isVerificationFile: false
   path: SparseTable.cpp
   requiredBy: []
-  timestamp: '2024-06-02 17:26:00+09:00'
+  timestamp: '2024-06-06 00:36:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/SparseTableDisjoint.test.cpp
