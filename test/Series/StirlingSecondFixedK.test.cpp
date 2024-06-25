@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k"
-#include "../Series.cpp"
-using mint = atcoder::modint998244353;
+#include "../../Series.cpp"
 void solve() {
+    using mint = atcoder::modint998244353;
     int n, k;
     cin >> n >> k;
     Binomial<mint> bin(n);

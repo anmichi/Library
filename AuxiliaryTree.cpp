@@ -2,19 +2,8 @@
 #include "LCA.cpp"
 using namespace std;
 struct auxiliary_tree : lca_tree {
-    vector<int> in;
     vector<vector<int>> G;
-    auxiliary_tree(vector<vector<int>>& g) : lca_tree(g), in((int)g.size()), G((int)g.size()) {
-        int t = 0;
-        dfs(0, -1, t, g);
-    }
-    void dfs(int v, int p, int& t, vector<vector<int>>& g) {
-        in[v] = t++;
-        for (auto u : g[v]) {
-            if (u != p) dfs(u, v, t, g);
-        }
-    }
-    using lca_tree::depth;
+    auxiliary_tree(vector<vector<int>>& g) : lca_tree(g), G(n) {}
     pair<int, vector<int>> query(vector<int> vs, bool decending = false) {
         // decending:親から子の方向のみ辺を貼る
         assert(!vs.empty());
@@ -23,7 +12,7 @@ struct auxiliary_tree : lca_tree {
         stack<int> st;
         st.push(vs[0]);
         for (int i = 0; i < m - 1; i++) {
-            int w = lca_tree::query(vs[i], vs[i + 1]);
+            int w = lca(vs[i], vs[i + 1]);
             if (w != vs[i]) {
                 int l = st.top();
                 st.pop();

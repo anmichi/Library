@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/product_of_polynomial_sequence"
 #include "../FormalPowerSeries.cpp"
 using mint = atcoder::modint998244353;
-void solve() {
+int main() {
     int n;
     cin >> n;
     vector<FormalPowerSeries<mint>> f(n);

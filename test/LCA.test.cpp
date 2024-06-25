@@ -15,6 +15,6 @@ int main() {
     while (q--) {
         int u, v;
         cin >> u >> v;
-        cout << lt.query(u, v) << "\n";
+        cout << lt.lca(u, v) << "\n";
     }
 }

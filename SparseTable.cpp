@@ -4,6 +4,7 @@ template <class T, T (*op)(T, T), T (*e)()>
 struct sparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
+    sparsetable() = default;
     sparsetable(vector<T> v) {
         int len = 0;
         while ((1 << len) <= v.size()) len++;
@@ -30,6 +31,7 @@ template <class T, T (*op)(T, T), T (*e)()>
 struct disjointsparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
+    disjointsparsetable() = default;
     disjointsparsetable(vector<T> v) {
         int len = 0;
         while ((1 << len) <= v.size()) len++;

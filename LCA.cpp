@@ -1,49 +1,40 @@
 #include <bits/stdc++.h>
+#include "SparseTable.cpp"
 using namespace std;
+pair<int, int> lcatree_op(pair<int, int> a, pair<int, int> b) { return min(a, b); }
+pair<int, int> lcatree_e() { return {1000000000, -1}; }
 struct lca_tree {
     int n, size;
-    vector<vector<int>> par;
-    vector<int> depth;
-    lca_tree(vector<vector<int>> g, int root = 0) : n((int)g.size()), size(log2(n) + 2), par(size, vector<int>(n, -1)), depth(vector<int>(n, n)) {
-        queue<int> que;
+    vector<int> in, ord, depth;
+    sparsetable<pair<int, int>, lcatree_op, lcatree_e> st;
+    lca_tree(vector<vector<int>> g, int root = 0) : n((int)g.size()), size(log2(n) + 2), in(n), depth(n, n) {
         depth[root] = 0;
-        que.push(root);
-        while (!que.empty()) {
-            int p = que.front();
-            que.pop();
-            for (int i : g[p]) {
-                if (depth[i] > depth[p] + 1) {
-                    depth[i] = depth[p] + 1;
-                    par[0][i] = p;
-                    que.push(i);
+        function<void(int, int)> dfs = [&](int v, int p) {
+            in[v] = (int)ord.size();
+            ord.push_back(v);
+            for (int u : g[v]) {
+                if (u == p) continue;
+                if (depth[u] > depth[v] + 1) {
+                    depth[u] = depth[v] + 1;
+                    dfs(u, v);
+                    ord.push_back(v);
                 }
             }
+        };
+        dfs(root, -1);
+        vector<pair<int, int>> vec((int)ord.size());
+        for (int i = 0; i < (int)ord.size(); i++) {
+            vec[i] = make_pair(depth[ord[i]], ord[i]);
         }
-        for (int k = 0; k < size - 1; k++) {
-            for (int i = 0; i < n; i++) {
-                if (par[k][i] == -1)
-                    par[k + 1][i] = -1;
-                else
-                    par[k + 1][i] = par[k][par[k][i]];
-            }
-        }
+        st = vec;
     }
-    int query(int u, int v) {
-        if (depth[u] > depth[v]) swap(u, v);
-        for (int k = size - 1; k >= 0; k--) {
-            if (((depth[v] - depth[u]) >> k) & 1) v = par[k][v];
-            if (u == v) return u;
-        }
-        for (int k = size - 1; k >= 0; k--) {
-            if (par[k][u] != par[k][v]) {
-                u = par[k][u];
-                v = par[k][v];
-            }
-        }
-        return par[0][u];
+    int lca(int u, int v) {
+        if (in[u] > in[v]) swap(u, v);
+        if (u == v) return u;
+        return st.query(in[u], in[v]).second;
     }
     int dist(int u, int v) {
-        int l = query(u, v);
+        int l = lca(u, v);
         return depth[u] + depth[v] - 2 * depth[l];
     }
 };

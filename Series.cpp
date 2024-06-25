@@ -30,3 +30,13 @@ vector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>& bin) {
     for (int i = k; i <= n; i++) res[i - k] = f[i] * bin.fact[i] * bin.factinv[k];
     return res;
 }
+template <typename mint>
+vector<mint> bernoulli(int n, Binomial<mint>& bin) {
+    // bin require n+1
+    using fps = FormalPowerSeries<mint>;
+    fps f(n + 1);
+    for (int i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];
+    f = f.inv(n + 1);
+    for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];
+    return f;
+}

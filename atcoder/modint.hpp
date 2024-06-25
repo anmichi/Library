@@ -18,8 +18,10 @@ namespace internal {
 struct modint_base {};
 struct static_modint_base : modint_base {};
 
-template <class T> using is_modint = std::is_base_of<modint_base, T>;
-template <class T> using is_modint_t = std::enable_if_t<is_modint<T>::value>;
+template <class T>
+using is_modint = std::is_base_of<modint_base, T>;
+template <class T>
+using is_modint_t = std::enable_if_t<is_modint<T>::value>;
 
 }  // namespace internal
 
@@ -27,7 +29,7 @@ template <int m, std::enable_if_t<(1 <= m)>* = nullptr>
 struct static_modint : internal::static_modint_base {
     using mint = static_modint;
 
-  public:
+   public:
     static constexpr int mod() { return m; }
     static mint raw(int v) {
         mint x;
@@ -113,35 +115,24 @@ struct static_modint : internal::static_modint_base {
         }
     }
 
-    friend mint operator+(const mint& lhs, const mint& rhs) {
-        return mint(lhs) += rhs;
-    }
-    friend mint operator-(const mint& lhs, const mint& rhs) {
-        return mint(lhs) -= rhs;
-    }
-    friend mint operator*(const mint& lhs, const mint& rhs) {
-        return mint(lhs) *= rhs;
-    }
-    friend mint operator/(const mint& lhs, const mint& rhs) {
-        return mint(lhs) /= rhs;
-    }
-    friend bool operator==(const mint& lhs, const mint& rhs) {
-        return lhs._v == rhs._v;
-    }
-    friend bool operator!=(const mint& lhs, const mint& rhs) {
-        return lhs._v != rhs._v;
-    }
+    friend mint operator+(const mint& lhs, const mint& rhs) { return mint(lhs) += rhs; }
+    friend mint operator-(const mint& lhs, const mint& rhs) { return mint(lhs) -= rhs; }
+    friend mint operator*(const mint& lhs, const mint& rhs) { return mint(lhs) *= rhs; }
+    friend mint operator/(const mint& lhs, const mint& rhs) { return mint(lhs) /= rhs; }
+    friend bool operator==(const mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }
+    friend bool operator!=(const mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }
 
-  private:
+   private:
     unsigned int _v;
     static constexpr unsigned int umod() { return m; }
     static constexpr bool prime = internal::is_prime<m>;
 };
 
-template <int id> struct dynamic_modint : internal::modint_base {
+template <int id>
+struct dynamic_modint : internal::modint_base {
     using mint = dynamic_modint;
 
-  public:
+   public:
     static int mod() { return (int)(bt.umod()); }
     static void set_mod(int m) {
         assert(1 <= m);
@@ -224,31 +215,20 @@ template <int id> struct dynamic_modint : internal::modint_base {
         return eg.second;
     }
 
-    friend mint operator+(const mint& lhs, const mint& rhs) {
-        return mint(lhs) += rhs;
-    }
-    friend mint operator-(const mint& lhs, const mint& rhs) {
-        return mint(lhs) -= rhs;
-    }
-    friend mint operator*(const mint& lhs, const mint& rhs) {
-        return mint(lhs) *= rhs;
-    }
-    friend mint operator/(const mint& lhs, const mint& rhs) {
-        return mint(lhs) /= rhs;
-    }
-    friend bool operator==(const mint& lhs, const mint& rhs) {
-        return lhs._v == rhs._v;
-    }
-    friend bool operator!=(const mint& lhs, const mint& rhs) {
-        return lhs._v != rhs._v;
-    }
+    friend mint operator+(const mint& lhs, const mint& rhs) { return mint(lhs) += rhs; }
+    friend mint operator-(const mint& lhs, const mint& rhs) { return mint(lhs) -= rhs; }
+    friend mint operator*(const mint& lhs, const mint& rhs) { return mint(lhs) *= rhs; }
+    friend mint operator/(const mint& lhs, const mint& rhs) { return mint(lhs) /= rhs; }
+    friend bool operator==(const mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }
+    friend bool operator!=(const mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }
 
-  private:
+   private:
     unsigned int _v;
     static internal::barrett bt;
     static unsigned int umod() { return bt.umod(); }
 };
-template <int id> internal::barrett dynamic_modint<id>::bt = 998244353;
+template <int id>
+internal::barrett dynamic_modint<id>::bt = 998244353;
 
 using modint998244353 = static_modint<998244353>;
 using modint1000000007 = static_modint<1000000007>;
@@ -262,7 +242,8 @@ using is_static_modint = std::is_base_of<internal::static_modint_base, T>;
 template <class T>
 using is_static_modint_t = std::enable_if_t<is_static_modint<T>::value>;
 
-template <class> struct is_dynamic_modint : public std::false_type {};
+template <class>
+struct is_dynamic_modint : public std::false_type {};
 template <int id>
 struct is_dynamic_modint<dynamic_modint<id>> : public std::true_type {};
 
