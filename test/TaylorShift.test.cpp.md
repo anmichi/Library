@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Binomial.cpp
     title: Binomial.cpp
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -210,7 +210,7 @@ data:
   isVerificationFile: true
   path: test/TaylorShift.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 23:12:06+09:00'
+  timestamp: '2024-06-25 16:25:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/TaylorShift.test.cpp

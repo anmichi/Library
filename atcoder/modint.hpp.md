@@ -11,10 +11,10 @@ data:
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -27,18 +27,21 @@ data:
     path: test/atcoder/convolution.hpp
     title: test/atcoder/convolution.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/FPSprod.test.cpp
     title: test/FPSprod.test.cpp
+  - icon: ':x:'
+    path: test/Series/Bernoulli.test.cpp
+    title: test/Series/Bernoulli.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingFirst.test.cpp
-    title: test/StirlingFirst.test.cpp
+    path: test/Series/StirlingFirst.test.cpp
+    title: test/Series/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecond.test.cpp
-    title: test/StirlingSecond.test.cpp
+    path: test/Series/StirlingSecond.test.cpp
+    title: test/Series/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecondFixedK.test.cpp
-    title: test/StirlingSecondFixedK.test.cpp
+    path: test/Series/StirlingSecondFixedK.test.cpp
+    title: test/Series/StirlingSecondFixedK.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
@@ -51,11 +54,11 @@ data:
     #include <atcoder/internal_type_traits>\n#include <cassert>\n#include <numeric>\n\
     #include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace\
     \ atcoder {\n\nnamespace internal {\n\nstruct modint_base {};\nstruct static_modint_base\
-    \ : modint_base {};\n\ntemplate <class T> using is_modint = std::is_base_of<modint_base,\
-    \ T>;\ntemplate <class T> using is_modint_t = std::enable_if_t<is_modint<T>::value>;\n\
+    \ : modint_base {};\n\ntemplate <class T>\nusing is_modint = std::is_base_of<modint_base,\
+    \ T>;\ntemplate <class T>\nusing is_modint_t = std::enable_if_t<is_modint<T>::value>;\n\
     \n}  // namespace internal\n\ntemplate <int m, std::enable_if_t<(1 <= m)>* = nullptr>\n\
     struct static_modint : internal::static_modint_base {\n    using mint = static_modint;\n\
-    \n  public:\n    static constexpr int mod() { return m; }\n    static mint raw(int\
+    \n   public:\n    static constexpr int mod() { return m; }\n    static mint raw(int\
     \ v) {\n        mint x;\n        x._v = v;\n        return x;\n    }\n\n    static_modint()\
     \ : _v(0) {}\n    template <class T, internal::is_signed_int_t<T>* = nullptr>\n\
     \    static_modint(T v) {\n        long long x = (long long)(v % (long long)(umod()));\n\
@@ -83,19 +86,18 @@ data:
     \       if (prime) {\n            assert(_v);\n            return pow(umod() -\
     \ 2);\n        } else {\n            auto eg = internal::inv_gcd(_v, m);\n   \
     \         assert(eg.first == 1);\n            return eg.second;\n        }\n \
-    \   }\n\n    friend mint operator+(const mint& lhs, const mint& rhs) {\n     \
-    \   return mint(lhs) += rhs;\n    }\n    friend mint operator-(const mint& lhs,\
-    \ const mint& rhs) {\n        return mint(lhs) -= rhs;\n    }\n    friend mint\
-    \ operator*(const mint& lhs, const mint& rhs) {\n        return mint(lhs) *= rhs;\n\
-    \    }\n    friend mint operator/(const mint& lhs, const mint& rhs) {\n      \
-    \  return mint(lhs) /= rhs;\n    }\n    friend bool operator==(const mint& lhs,\
-    \ const mint& rhs) {\n        return lhs._v == rhs._v;\n    }\n    friend bool\
-    \ operator!=(const mint& lhs, const mint& rhs) {\n        return lhs._v != rhs._v;\n\
-    \    }\n\n  private:\n    unsigned int _v;\n    static constexpr unsigned int\
-    \ umod() { return m; }\n    static constexpr bool prime = internal::is_prime<m>;\n\
-    };\n\ntemplate <int id> struct dynamic_modint : internal::modint_base {\n    using\
-    \ mint = dynamic_modint;\n\n  public:\n    static int mod() { return (int)(bt.umod());\
-    \ }\n    static void set_mod(int m) {\n        assert(1 <= m);\n        bt = internal::barrett(m);\n\
+    \   }\n\n    friend mint operator+(const mint& lhs, const mint& rhs) { return\
+    \ mint(lhs) += rhs; }\n    friend mint operator-(const mint& lhs, const mint&\
+    \ rhs) { return mint(lhs) -= rhs; }\n    friend mint operator*(const mint& lhs,\
+    \ const mint& rhs) { return mint(lhs) *= rhs; }\n    friend mint operator/(const\
+    \ mint& lhs, const mint& rhs) { return mint(lhs) /= rhs; }\n    friend bool operator==(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }\n    friend bool operator!=(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }\n\n   private:\n  \
+    \  unsigned int _v;\n    static constexpr unsigned int umod() { return m; }\n\
+    \    static constexpr bool prime = internal::is_prime<m>;\n};\n\ntemplate <int\
+    \ id>\nstruct dynamic_modint : internal::modint_base {\n    using mint = dynamic_modint;\n\
+    \n   public:\n    static int mod() { return (int)(bt.umod()); }\n    static void\
+    \ set_mod(int m) {\n        assert(1 <= m);\n        bt = internal::barrett(m);\n\
     \    }\n    static mint raw(int v) {\n        mint x;\n        x._v = v;\n   \
     \     return x;\n    }\n\n    dynamic_modint() : _v(0) {}\n    template <class\
     \ T, internal::is_signed_int_t<T>* = nullptr>\n    dynamic_modint(T v) {\n   \
@@ -121,21 +123,20 @@ data:
     \ & 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n       \
     \ return r;\n    }\n    mint inv() const {\n        auto eg = internal::inv_gcd(_v,\
     \ mod());\n        assert(eg.first == 1);\n        return eg.second;\n    }\n\n\
-    \    friend mint operator+(const mint& lhs, const mint& rhs) {\n        return\
-    \ mint(lhs) += rhs;\n    }\n    friend mint operator-(const mint& lhs, const mint&\
-    \ rhs) {\n        return mint(lhs) -= rhs;\n    }\n    friend mint operator*(const\
-    \ mint& lhs, const mint& rhs) {\n        return mint(lhs) *= rhs;\n    }\n   \
-    \ friend mint operator/(const mint& lhs, const mint& rhs) {\n        return mint(lhs)\
-    \ /= rhs;\n    }\n    friend bool operator==(const mint& lhs, const mint& rhs)\
-    \ {\n        return lhs._v == rhs._v;\n    }\n    friend bool operator!=(const\
-    \ mint& lhs, const mint& rhs) {\n        return lhs._v != rhs._v;\n    }\n\n \
-    \ private:\n    unsigned int _v;\n    static internal::barrett bt;\n    static\
-    \ unsigned int umod() { return bt.umod(); }\n};\ntemplate <int id> internal::barrett\
-    \ dynamic_modint<id>::bt = 998244353;\n\nusing modint998244353 = static_modint<998244353>;\n\
-    using modint1000000007 = static_modint<1000000007>;\nusing modint = dynamic_modint<-1>;\n\
-    \nnamespace internal {\n\ntemplate <class T>\nusing is_static_modint = std::is_base_of<internal::static_modint_base,\
+    \    friend mint operator+(const mint& lhs, const mint& rhs) { return mint(lhs)\
+    \ += rhs; }\n    friend mint operator-(const mint& lhs, const mint& rhs) { return\
+    \ mint(lhs) -= rhs; }\n    friend mint operator*(const mint& lhs, const mint&\
+    \ rhs) { return mint(lhs) *= rhs; }\n    friend mint operator/(const mint& lhs,\
+    \ const mint& rhs) { return mint(lhs) /= rhs; }\n    friend bool operator==(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }\n    friend bool operator!=(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }\n\n   private:\n  \
+    \  unsigned int _v;\n    static internal::barrett bt;\n    static unsigned int\
+    \ umod() { return bt.umod(); }\n};\ntemplate <int id>\ninternal::barrett dynamic_modint<id>::bt\
+    \ = 998244353;\n\nusing modint998244353 = static_modint<998244353>;\nusing modint1000000007\
+    \ = static_modint<1000000007>;\nusing modint = dynamic_modint<-1>;\n\nnamespace\
+    \ internal {\n\ntemplate <class T>\nusing is_static_modint = std::is_base_of<internal::static_modint_base,\
     \ T>;\n\ntemplate <class T>\nusing is_static_modint_t = std::enable_if_t<is_static_modint<T>::value>;\n\
-    \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
+    \ntemplate <class>\nstruct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
     \n}  // namespace internal\n\n}  // namespace atcoder\n\n\n"
@@ -143,11 +144,11 @@ data:
     #include <atcoder/internal_type_traits>\n#include <cassert>\n#include <numeric>\n\
     #include <type_traits>\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#endif\n\nnamespace\
     \ atcoder {\n\nnamespace internal {\n\nstruct modint_base {};\nstruct static_modint_base\
-    \ : modint_base {};\n\ntemplate <class T> using is_modint = std::is_base_of<modint_base,\
-    \ T>;\ntemplate <class T> using is_modint_t = std::enable_if_t<is_modint<T>::value>;\n\
+    \ : modint_base {};\n\ntemplate <class T>\nusing is_modint = std::is_base_of<modint_base,\
+    \ T>;\ntemplate <class T>\nusing is_modint_t = std::enable_if_t<is_modint<T>::value>;\n\
     \n}  // namespace internal\n\ntemplate <int m, std::enable_if_t<(1 <= m)>* = nullptr>\n\
     struct static_modint : internal::static_modint_base {\n    using mint = static_modint;\n\
-    \n  public:\n    static constexpr int mod() { return m; }\n    static mint raw(int\
+    \n   public:\n    static constexpr int mod() { return m; }\n    static mint raw(int\
     \ v) {\n        mint x;\n        x._v = v;\n        return x;\n    }\n\n    static_modint()\
     \ : _v(0) {}\n    template <class T, internal::is_signed_int_t<T>* = nullptr>\n\
     \    static_modint(T v) {\n        long long x = (long long)(v % (long long)(umod()));\n\
@@ -175,19 +176,18 @@ data:
     \       if (prime) {\n            assert(_v);\n            return pow(umod() -\
     \ 2);\n        } else {\n            auto eg = internal::inv_gcd(_v, m);\n   \
     \         assert(eg.first == 1);\n            return eg.second;\n        }\n \
-    \   }\n\n    friend mint operator+(const mint& lhs, const mint& rhs) {\n     \
-    \   return mint(lhs) += rhs;\n    }\n    friend mint operator-(const mint& lhs,\
-    \ const mint& rhs) {\n        return mint(lhs) -= rhs;\n    }\n    friend mint\
-    \ operator*(const mint& lhs, const mint& rhs) {\n        return mint(lhs) *= rhs;\n\
-    \    }\n    friend mint operator/(const mint& lhs, const mint& rhs) {\n      \
-    \  return mint(lhs) /= rhs;\n    }\n    friend bool operator==(const mint& lhs,\
-    \ const mint& rhs) {\n        return lhs._v == rhs._v;\n    }\n    friend bool\
-    \ operator!=(const mint& lhs, const mint& rhs) {\n        return lhs._v != rhs._v;\n\
-    \    }\n\n  private:\n    unsigned int _v;\n    static constexpr unsigned int\
-    \ umod() { return m; }\n    static constexpr bool prime = internal::is_prime<m>;\n\
-    };\n\ntemplate <int id> struct dynamic_modint : internal::modint_base {\n    using\
-    \ mint = dynamic_modint;\n\n  public:\n    static int mod() { return (int)(bt.umod());\
-    \ }\n    static void set_mod(int m) {\n        assert(1 <= m);\n        bt = internal::barrett(m);\n\
+    \   }\n\n    friend mint operator+(const mint& lhs, const mint& rhs) { return\
+    \ mint(lhs) += rhs; }\n    friend mint operator-(const mint& lhs, const mint&\
+    \ rhs) { return mint(lhs) -= rhs; }\n    friend mint operator*(const mint& lhs,\
+    \ const mint& rhs) { return mint(lhs) *= rhs; }\n    friend mint operator/(const\
+    \ mint& lhs, const mint& rhs) { return mint(lhs) /= rhs; }\n    friend bool operator==(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }\n    friend bool operator!=(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }\n\n   private:\n  \
+    \  unsigned int _v;\n    static constexpr unsigned int umod() { return m; }\n\
+    \    static constexpr bool prime = internal::is_prime<m>;\n};\n\ntemplate <int\
+    \ id>\nstruct dynamic_modint : internal::modint_base {\n    using mint = dynamic_modint;\n\
+    \n   public:\n    static int mod() { return (int)(bt.umod()); }\n    static void\
+    \ set_mod(int m) {\n        assert(1 <= m);\n        bt = internal::barrett(m);\n\
     \    }\n    static mint raw(int v) {\n        mint x;\n        x._v = v;\n   \
     \     return x;\n    }\n\n    dynamic_modint() : _v(0) {}\n    template <class\
     \ T, internal::is_signed_int_t<T>* = nullptr>\n    dynamic_modint(T v) {\n   \
@@ -213,21 +213,20 @@ data:
     \ & 1) r *= x;\n            x *= x;\n            n >>= 1;\n        }\n       \
     \ return r;\n    }\n    mint inv() const {\n        auto eg = internal::inv_gcd(_v,\
     \ mod());\n        assert(eg.first == 1);\n        return eg.second;\n    }\n\n\
-    \    friend mint operator+(const mint& lhs, const mint& rhs) {\n        return\
-    \ mint(lhs) += rhs;\n    }\n    friend mint operator-(const mint& lhs, const mint&\
-    \ rhs) {\n        return mint(lhs) -= rhs;\n    }\n    friend mint operator*(const\
-    \ mint& lhs, const mint& rhs) {\n        return mint(lhs) *= rhs;\n    }\n   \
-    \ friend mint operator/(const mint& lhs, const mint& rhs) {\n        return mint(lhs)\
-    \ /= rhs;\n    }\n    friend bool operator==(const mint& lhs, const mint& rhs)\
-    \ {\n        return lhs._v == rhs._v;\n    }\n    friend bool operator!=(const\
-    \ mint& lhs, const mint& rhs) {\n        return lhs._v != rhs._v;\n    }\n\n \
-    \ private:\n    unsigned int _v;\n    static internal::barrett bt;\n    static\
-    \ unsigned int umod() { return bt.umod(); }\n};\ntemplate <int id> internal::barrett\
-    \ dynamic_modint<id>::bt = 998244353;\n\nusing modint998244353 = static_modint<998244353>;\n\
-    using modint1000000007 = static_modint<1000000007>;\nusing modint = dynamic_modint<-1>;\n\
-    \nnamespace internal {\n\ntemplate <class T>\nusing is_static_modint = std::is_base_of<internal::static_modint_base,\
+    \    friend mint operator+(const mint& lhs, const mint& rhs) { return mint(lhs)\
+    \ += rhs; }\n    friend mint operator-(const mint& lhs, const mint& rhs) { return\
+    \ mint(lhs) -= rhs; }\n    friend mint operator*(const mint& lhs, const mint&\
+    \ rhs) { return mint(lhs) *= rhs; }\n    friend mint operator/(const mint& lhs,\
+    \ const mint& rhs) { return mint(lhs) /= rhs; }\n    friend bool operator==(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v == rhs._v; }\n    friend bool operator!=(const\
+    \ mint& lhs, const mint& rhs) { return lhs._v != rhs._v; }\n\n   private:\n  \
+    \  unsigned int _v;\n    static internal::barrett bt;\n    static unsigned int\
+    \ umod() { return bt.umod(); }\n};\ntemplate <int id>\ninternal::barrett dynamic_modint<id>::bt\
+    \ = 998244353;\n\nusing modint998244353 = static_modint<998244353>;\nusing modint1000000007\
+    \ = static_modint<1000000007>;\nusing modint = dynamic_modint<-1>;\n\nnamespace\
+    \ internal {\n\ntemplate <class T>\nusing is_static_modint = std::is_base_of<internal::static_modint_base,\
     \ T>;\n\ntemplate <class T>\nusing is_static_modint_t = std::enable_if_t<is_static_modint<T>::value>;\n\
-    \ntemplate <class> struct is_dynamic_modint : public std::false_type {};\ntemplate\
+    \ntemplate <class>\nstruct is_dynamic_modint : public std::false_type {};\ntemplate\
     \ <int id>\nstruct is_dynamic_modint<dynamic_modint<id>> : public std::true_type\
     \ {};\n\ntemplate <class T>\nusing is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;\n\
     \n}  // namespace internal\n\n}  // namespace atcoder\n\n#endif  // ATCODER_MODINT_HPP\n"
@@ -237,20 +236,21 @@ data:
   isVerificationFile: false
   path: atcoder/modint.hpp
   requiredBy:
+  - atcoder/convolution.hpp
+  - TaylorShift.cpp
+  - FormalPowerSeries.cpp
+  - modint_io.cpp
   - test/atcoder/convolution.hpp
   - Series.cpp
-  - FormalPowerSeries.cpp
-  - atcoder/convolution.hpp
-  - modint_io.cpp
-  - TaylorShift.cpp
-  timestamp: '2024-05-26 13:38:27+09:00'
+  timestamp: '2024-06-25 16:25:20+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/StirlingSecondFixedK.test.cpp
-  - test/StirlingSecond.test.cpp
-  - test/StirlingFirst.test.cpp
-  - test/FPSprod.test.cpp
   - test/TaylorShift.test.cpp
+  - test/Series/StirlingSecond.test.cpp
+  - test/Series/StirlingFirst.test.cpp
+  - test/Series/StirlingSecondFixedK.test.cpp
+  - test/Series/Bernoulli.test.cpp
+  - test/FPSprod.test.cpp
 documentation_of: atcoder/modint.hpp
 layout: document
 redirect_from:

@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: BIT.cpp
       title: BIT.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Binomial.cpp
       title: Binomial.cpp
     - icon: ':heavy_check_mark:'
@@ -21,7 +21,7 @@ data:
     - icon: ':question:'
       path: FormalPowerSeries.cpp
       title: FormalPowerSeries.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Geometry.cpp
       title: Geometry.cpp
     - icon: ':heavy_check_mark:'
@@ -36,13 +36,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: Segtree.cpp
       title: Segtree.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Series.cpp
       title: Series.cpp
     - icon: ':heavy_check_mark:'
       path: SparseTable.cpp
       title: SparseTable.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: TaylorShift.cpp
       title: TaylorShift.cpp
     - icon: ':heavy_check_mark:'
@@ -190,22 +190,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/DualSegtree.test.cpp
       title: test/DualSegtree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/FPSprod.test.cpp
       title: test/FPSprod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/Geomerty.crosspoint.test.cpp
       title: test/Geomerty.crosspoint.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/Geometry.ccw.test.cpp
       title: test/Geometry.ccw.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/Geometry.intersection.test.cpp
       title: test/Geometry.intersection.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/Geometry.pararell-orthogonal.test.cpp
       title: test/Geometry.pararell-orthogonal.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/Geometry.segments-distance.test.cpp
       title: test/Geometry.segments-distance.test.cpp
     - icon: ':heavy_check_mark:'
@@ -227,19 +227,24 @@ data:
       path: test/SparseTableDisjoint.test.cpp
       title: test/SparseTableDisjoint.test.cpp
     - icon: ':heavy_check_mark:'
-      path: test/StirlingFirst.test.cpp
-      title: test/StirlingFirst.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/StirlingSecond.test.cpp
-      title: test/StirlingSecond.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/StirlingSecondFixedK.test.cpp
-      title: test/StirlingSecondFixedK.test.cpp
-    - icon: ':heavy_check_mark:'
       path: test/TaylorShift.test.cpp
       title: test/TaylorShift.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/TwoEdgeConnectedComponents.test.cpp
       title: test/TwoEdgeConnectedComponents.test.cpp
+  - name: test/Series
+    pages:
+    - icon: ':x:'
+      path: test/Series/Bernoulli.test.cpp
+      title: test/Series/Bernoulli.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/Series/StirlingFirst.test.cpp
+      title: test/Series/StirlingFirst.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/Series/StirlingSecond.test.cpp
+      title: test/Series/StirlingSecond.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/Series/StirlingSecondFixedK.test.cpp
+      title: test/Series/StirlingSecondFixedK.test.cpp
 layout: toppage
 ---

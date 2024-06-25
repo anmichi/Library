@@ -27,9 +27,9 @@ data:
     title: template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/product_of_polynomial_sequence
@@ -152,20 +152,18 @@ data:
     \ int)> calc = [&](int l, int r) {\n        if (r - l == 1) return f[l];\n   \
     \     int m = (l + r) / 2;\n        return calc(l, m) * calc(m, r);\n    };\n\
     \    return calc(0, n);\n}\n#line 3 \"test/FPSprod.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
-    void solve() {\n    int n;\n    cin >> n;\n    vector<FormalPowerSeries<mint>>\
-    \ f(n);\n    for (int i = 0; i < n; i++) {\n        int d;\n        cin >> d;\n\
-    \        f[i].resize(d + 1);\n        for (auto &x : f[i]) {\n            int\
-    \ a;\n            cin >> a;\n            x = a;\n        }\n    }\n    auto g\
-    \ = FPS_Product<mint>(f);\n    for (mint x : g) cout << x.val() << \" \";\n  \
-    \  cout << endl;\n}\n"
+    int main() {\n    int n;\n    cin >> n;\n    vector<FormalPowerSeries<mint>> f(n);\n\
+    \    for (int i = 0; i < n; i++) {\n        int d;\n        cin >> d;\n      \
+    \  f[i].resize(d + 1);\n        for (auto &x : f[i]) {\n            int a;\n \
+    \           cin >> a;\n            x = a;\n        }\n    }\n    auto g = FPS_Product<mint>(f);\n\
+    \    for (mint x : g) cout << x.val() << \" \";\n    cout << endl;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
     \n#include \"../FormalPowerSeries.cpp\"\nusing mint = atcoder::modint998244353;\n\
-    void solve() {\n    int n;\n    cin >> n;\n    vector<FormalPowerSeries<mint>>\
-    \ f(n);\n    for (int i = 0; i < n; i++) {\n        int d;\n        cin >> d;\n\
-    \        f[i].resize(d + 1);\n        for (auto &x : f[i]) {\n            int\
-    \ a;\n            cin >> a;\n            x = a;\n        }\n    }\n    auto g\
-    \ = FPS_Product<mint>(f);\n    for (mint x : g) cout << x.val() << \" \";\n  \
-    \  cout << endl;\n}"
+    int main() {\n    int n;\n    cin >> n;\n    vector<FormalPowerSeries<mint>> f(n);\n\
+    \    for (int i = 0; i < n; i++) {\n        int d;\n        cin >> d;\n      \
+    \  f[i].resize(d + 1);\n        for (auto &x : f[i]) {\n            int a;\n \
+    \           cin >> a;\n            x = a;\n        }\n    }\n    auto g = FPS_Product<mint>(f);\n\
+    \    for (mint x : g) cout << x.val() << \" \";\n    cout << endl;\n}"
   dependsOn:
   - FormalPowerSeries.cpp
   - atcoder/convolution.hpp
@@ -178,8 +176,8 @@ data:
   isVerificationFile: true
   path: test/FPSprod.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 23:12:06+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-06-25 16:25:20+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/FPSprod.test.cpp
 layout: document

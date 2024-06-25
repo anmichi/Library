@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Binomial.cpp
     title: Binomial.cpp
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -36,15 +36,15 @@ data:
     title: template.cpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
     links:
-    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
-  bundledCode: "#line 1 \"test/StirlingSecond.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
+  bundledCode: "#line 1 \"test/Series/Bernoulli.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
     \n#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
     \ <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int\
     \ n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
@@ -193,17 +193,20 @@ data:
     \    fps f(n + 1);\n    for (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n\
     \    f = f.pow(k, n + 1);\n    vector<mint> res(n - k + 1);\n    for (int i =\
     \ k; i <= n; i++) res[i - k] = f[i] * bin.fact[i] * bin.factinv[k];\n    return\
-    \ res;\n}\n#line 3 \"test/StirlingSecond.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
-    void solve() {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto\
-    \ f = stirling_second(n, bin);\n    for (auto x : f) cout << x.val() << \" \"\
-    ;\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    /*int t;\n    cin >> t;\n    while (t--)*/\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind\"\
-    \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
-    \ {\n    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_second(n,\
-    \ bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\n\
-    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    /*int t;\n\
-    \    cin >> t;\n    while (t--)*/\n    solve();\n}\n"
+    \ res;\n}\ntemplate <typename mint>\nvector<mint> bernoulli(int n, Binomial<mint>&\
+    \ bin) {\n    // bin require n+1\n    using fps = FormalPowerSeries<mint>;\n \
+    \   fps f(n + 1);\n    for (int i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];\n\
+    \    f = f.inv(n + 1);\n    for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];\n\
+    \    return f;\n}\n#line 3 \"test/Series/Bernoulli.test.cpp\"\nvoid solve() {\n\
+    \    using mint = atcoder::modint998244353;\n    int n;\n    cin >> n;\n    Binomial<mint>\
+    \ bin(n + 1);\n    for (auto x : bernoulli(n, bin)) cout << x.val() << \" \";\n\
+    \    cout << endl;\n}\n\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
+    \    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
+    \n#include \"../../Series.cpp\"\nvoid solve() {\n    using mint = atcoder::modint998244353;\n\
+    \    int n;\n    cin >> n;\n    Binomial<mint> bin(n + 1);\n    for (auto x :\
+    \ bernoulli(n, bin)) cout << x.val() << \" \";\n    cout << endl;\n}\n\nint main()\
+    \ {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n}\n"
   dependsOn:
   - Series.cpp
   - TaylorShift.cpp
@@ -217,15 +220,15 @@ data:
   - mod_sqrt.cpp
   - template.cpp
   isVerificationFile: true
-  path: test/StirlingSecond.test.cpp
+  path: test/Series/Bernoulli.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 23:12:06+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-06-25 16:25:20+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/StirlingSecond.test.cpp
+documentation_of: test/Series/Bernoulli.test.cpp
 layout: document
 redirect_from:
-- /verify/test/StirlingSecond.test.cpp
-- /verify/test/StirlingSecond.test.cpp.html
-title: test/StirlingSecond.test.cpp
+- /verify/test/Series/Bernoulli.test.cpp
+- /verify/test/Series/Bernoulli.test.cpp.html
+title: test/Series/Bernoulli.test.cpp
 ---

@@ -36,8 +36,8 @@ data:
   isVerificationFile: false
   path: atcoder/internal_queue.hpp
   requiredBy:
-  - test/atcoder/maxflow.hpp
   - atcoder/maxflow.hpp
+  - test/atcoder/maxflow.hpp
   timestamp: '2024-05-26 13:38:27+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

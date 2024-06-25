@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Binomial.cpp
     title: Binomial.cpp
   - icon: ':question:'
@@ -29,25 +29,28 @@ data:
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/Series/Bernoulli.test.cpp
+    title: test/Series/Bernoulli.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingFirst.test.cpp
-    title: test/StirlingFirst.test.cpp
+    path: test/Series/StirlingFirst.test.cpp
+    title: test/Series/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecond.test.cpp
-    title: test/StirlingSecond.test.cpp
+    path: test/Series/StirlingSecond.test.cpp
+    title: test/Series/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecondFixedK.test.cpp
-    title: test/StirlingSecondFixedK.test.cpp
+    path: test/Series/StirlingSecondFixedK.test.cpp
+    title: test/Series/StirlingSecondFixedK.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -206,13 +209,14 @@ data:
   path: TaylorShift.cpp
   requiredBy:
   - Series.cpp
-  timestamp: '2024-06-03 23:12:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-06-25 16:25:20+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/StirlingSecondFixedK.test.cpp
-  - test/StirlingSecond.test.cpp
-  - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp
+  - test/Series/StirlingSecond.test.cpp
+  - test/Series/StirlingFirst.test.cpp
+  - test/Series/StirlingSecondFixedK.test.cpp
+  - test/Series/Bernoulli.test.cpp
 documentation_of: TaylorShift.cpp
 layout: document
 redirect_from:

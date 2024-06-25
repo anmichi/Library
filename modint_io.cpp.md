@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: modint_io.cpp
   requiredBy: []
-  timestamp: '2024-05-26 13:38:27+09:00'
+  timestamp: '2024-06-25 16:25:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/TaylorShift.test.cpp

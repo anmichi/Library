@@ -2,31 +2,34 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/Modint-Binomial.test.cpp
     title: test/Modint-Binomial.test.cpp
+  - icon: ':x:'
+    path: test/Series/Bernoulli.test.cpp
+    title: test/Series/Bernoulli.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingFirst.test.cpp
-    title: test/StirlingFirst.test.cpp
+    path: test/Series/StirlingFirst.test.cpp
+    title: test/Series/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecond.test.cpp
-    title: test/StirlingSecond.test.cpp
+    path: test/Series/StirlingSecond.test.cpp
+    title: test/Series/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecondFixedK.test.cpp
-    title: test/StirlingSecondFixedK.test.cpp
+    path: test/Series/StirlingSecondFixedK.test.cpp
+    title: test/Series/StirlingSecondFixedK.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -61,16 +64,17 @@ data:
   isVerificationFile: false
   path: Binomial.cpp
   requiredBy:
-  - Series.cpp
   - TaylorShift.cpp
+  - Series.cpp
   timestamp: '2024-06-03 20:31:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/StirlingSecondFixedK.test.cpp
-  - test/Modint-Binomial.test.cpp
-  - test/StirlingSecond.test.cpp
-  - test/StirlingFirst.test.cpp
   - test/TaylorShift.test.cpp
+  - test/Series/StirlingSecond.test.cpp
+  - test/Series/StirlingFirst.test.cpp
+  - test/Series/StirlingSecondFixedK.test.cpp
+  - test/Series/Bernoulli.test.cpp
+  - test/Modint-Binomial.test.cpp
 documentation_of: Binomial.cpp
 layout: document
 redirect_from:

@@ -5,10 +5,10 @@ data:
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -33,18 +33,21 @@ data:
     path: test/atcoder/modint.hpp
     title: test/atcoder/modint.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/FPSprod.test.cpp
     title: test/FPSprod.test.cpp
+  - icon: ':x:'
+    path: test/Series/Bernoulli.test.cpp
+    title: test/Series/Bernoulli.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingFirst.test.cpp
-    title: test/StirlingFirst.test.cpp
+    path: test/Series/StirlingFirst.test.cpp
+    title: test/Series/StirlingFirst.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecond.test.cpp
-    title: test/StirlingSecond.test.cpp
+    path: test/Series/StirlingSecond.test.cpp
+    title: test/Series/StirlingSecond.test.cpp
   - icon: ':heavy_check_mark:'
-    path: test/StirlingSecondFixedK.test.cpp
-    title: test/StirlingSecondFixedK.test.cpp
+    path: test/Series/StirlingSecondFixedK.test.cpp
+    title: test/Series/StirlingSecondFixedK.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/TaylorShift.test.cpp
     title: test/TaylorShift.test.cpp
@@ -184,24 +187,25 @@ data:
   isVerificationFile: false
   path: atcoder/internal_math.hpp
   requiredBy:
-  - test/atcoder/modint.hpp
-  - test/atcoder/convolution.hpp
-  - test/atcoder/math.hpp
-  - Series.cpp
-  - FormalPowerSeries.cpp
+  - atcoder/math.hpp
   - atcoder/modint.hpp
   - atcoder/convolution.hpp
-  - atcoder/math.hpp
-  - modint_io.cpp
   - TaylorShift.cpp
+  - FormalPowerSeries.cpp
+  - modint_io.cpp
+  - test/atcoder/math.hpp
+  - test/atcoder/modint.hpp
+  - test/atcoder/convolution.hpp
+  - Series.cpp
   timestamp: '2024-05-26 13:38:27+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/StirlingSecondFixedK.test.cpp
-  - test/StirlingSecond.test.cpp
-  - test/StirlingFirst.test.cpp
-  - test/FPSprod.test.cpp
   - test/TaylorShift.test.cpp
+  - test/Series/StirlingSecond.test.cpp
+  - test/Series/StirlingFirst.test.cpp
+  - test/Series/StirlingSecondFixedK.test.cpp
+  - test/Series/Bernoulli.test.cpp
+  - test/FPSprod.test.cpp
 documentation_of: atcoder/internal_math.hpp
 layout: document
 redirect_from:

@@ -214,7 +214,7 @@ data:
   isVerificationFile: false
   path: test/atcoder/convolution.hpp
   requiredBy: []
-  timestamp: '2024-05-26 13:38:27+09:00'
+  timestamp: '2024-06-25 16:25:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: test/atcoder/convolution.hpp

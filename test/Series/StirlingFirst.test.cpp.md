@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Binomial.cpp
     title: Binomial.cpp
   - icon: ':question:'
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Series.cpp
     title: Series.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -41,14 +41,14 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
     links:
-    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
-  bundledCode: "#line 1 \"test/StirlingSecondFixedK.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\n\
-    #line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
-    \ <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int\
-    \ n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
+  bundledCode: "#line 1 \"test/Series/StirlingFirst.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\n#line 1 \"\
+    Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate <typename\
+    \ T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int n)\
+    \ {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
     \ + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n        for (int i = 1; i\
     \ <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n] = fact[n].inv();\n\
     \        inv[n] = fact[n - 1] * factinv[n];\n        for (int i = n - 1; i >=\
@@ -194,17 +194,21 @@ data:
     \    fps f(n + 1);\n    for (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n\
     \    f = f.pow(k, n + 1);\n    vector<mint> res(n - k + 1);\n    for (int i =\
     \ k; i <= n; i++) res[i - k] = f[i] * bin.fact[i] * bin.factinv[k];\n    return\
-    \ res;\n}\n#line 3 \"test/StirlingSecondFixedK.test.cpp\"\nusing mint = atcoder::modint998244353;\n\
-    void solve() {\n    int n, k;\n    cin >> n >> k;\n    Binomial<mint> bin(n);\n\
-    \    auto f = stirling_second_fixedK(n, k, bin);\n    for (auto x : f) cout <<\
-    \ x.val() << \" \";\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n   \
-    \ ios::sync_with_stdio(false);\n    solve();\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
-    \n#include \"../Series.cpp\"\nusing mint = atcoder::modint998244353;\nvoid solve()\
-    \ {\n    int n, k;\n    cin >> n >> k;\n    Binomial<mint> bin(n);\n    auto f\
-    \ = stirling_second_fixedK(n, k, bin);\n    for (auto x : f) cout << x.val() <<\
-    \ \" \";\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n\
-    \    solve();\n}\n"
+    \ res;\n}\ntemplate <typename mint>\nvector<mint> bernoulli(int n, Binomial<mint>&\
+    \ bin) {\n    // bin require n+1\n    using fps = FormalPowerSeries<mint>;\n \
+    \   fps f(n + 1);\n    for (int i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];\n\
+    \    f = f.inv(n + 1);\n    for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];\n\
+    \    return f;\n}\n#line 3 \"test/Series/StirlingFirst.test.cpp\"\nvoid solve()\
+    \ {\n    using mint = atcoder::modint998244353;\n    int n;\n    cin >> n;\n \
+    \   Binomial<mint> bin(n);\n    auto f = stirling_first(n, bin);\n    for (auto\
+    \ x : f) cout << x.val() << \" \";\n    cout << endl;\n}\nint main() {\n    cin.tie(0);\n\
+    \    ios::sync_with_stdio(false);\n    solve();\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind\"\
+    \n#include \"../../Series.cpp\"\nvoid solve() {\n    using mint = atcoder::modint998244353;\n\
+    \    int n;\n    cin >> n;\n    Binomial<mint> bin(n);\n    auto f = stirling_first(n,\
+    \ bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n}\n\
+    int main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n\
+    }\n"
   dependsOn:
   - Series.cpp
   - TaylorShift.cpp
@@ -218,15 +222,15 @@ data:
   - mod_sqrt.cpp
   - template.cpp
   isVerificationFile: true
-  path: test/StirlingSecondFixedK.test.cpp
+  path: test/Series/StirlingFirst.test.cpp
   requiredBy: []
-  timestamp: '2024-06-03 23:12:06+09:00'
+  timestamp: '2024-06-25 16:25:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/StirlingSecondFixedK.test.cpp
+documentation_of: test/Series/StirlingFirst.test.cpp
 layout: document
 redirect_from:
-- /verify/test/StirlingSecondFixedK.test.cpp
-- /verify/test/StirlingSecondFixedK.test.cpp.html
-title: test/StirlingSecondFixedK.test.cpp
+- /verify/test/Series/StirlingFirst.test.cpp
+- /verify/test/Series/StirlingFirst.test.cpp.html
+title: test/Series/StirlingFirst.test.cpp
 ---

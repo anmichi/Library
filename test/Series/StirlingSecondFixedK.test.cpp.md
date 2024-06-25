@@ -8,6 +8,9 @@ data:
     path: FormalPowerSeries.cpp
     title: FormalPowerSeries.cpp
   - icon: ':question:'
+    path: Series.cpp
+    title: Series.cpp
+  - icon: ':question:'
     path: TaylorShift.cpp
     title: TaylorShift.cpp
   - icon: ':question:'
@@ -32,40 +35,33 @@ data:
     path: template.cpp
     title: template.cpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/Series/Bernoulli.test.cpp
-    title: test/Series/Bernoulli.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/Series/StirlingFirst.test.cpp
-    title: test/Series/StirlingFirst.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/Series/StirlingSecond.test.cpp
-    title: test/Series/StirlingSecond.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/Series/StirlingSecondFixedK.test.cpp
-    title: test/Series/StirlingSecondFixedK.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
-    \ std;\ntemplate <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n\
-    \    Binomial(int n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n\
-    \        factinv.resize(n + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n\
-    \        for (int i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n]\
-    \ = fact[n].inv();\n        inv[n] = fact[n - 1] * factinv[n];\n        for (int\
-    \ i = n - 1; i >= 1; i--) {\n            factinv[i] = factinv[i + 1] * (i + 1);\n\
-    \            inv[i] = fact[i - 1] * factinv[i];\n        }\n    }\n    T C(int\
-    \ n, int r) {\n        if (n < 0 || n < r || r < 0) return 0;\n        return\
-    \ fact[n] * factinv[n - r] * factinv[r];\n    }\n    T P(int n, int r) {\n   \
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
+    links:
+    - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
+  bundledCode: "#line 1 \"test/Series/StirlingSecondFixedK.test.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
+    \n#line 1 \"Binomial.cpp\"\n#include <bits/stdc++.h>\nusing namespace std;\ntemplate\
+    \ <typename T>\nstruct Binomial {\n    vector<T> inv, fact, factinv;\n    Binomial(int\
+    \ n) {\n        inv.resize(n + 1);\n        fact.resize(n + 1);\n        factinv.resize(n\
+    \ + 1);\n        inv[0] = fact[0] = factinv[0] = 1;\n        for (int i = 1; i\
+    \ <= n; i++) fact[i] = fact[i - 1] * i;\n        factinv[n] = fact[n].inv();\n\
+    \        inv[n] = fact[n - 1] * factinv[n];\n        for (int i = n - 1; i >=\
+    \ 1; i--) {\n            factinv[i] = factinv[i + 1] * (i + 1);\n            inv[i]\
+    \ = fact[i - 1] * factinv[i];\n        }\n    }\n    T C(int n, int r) {\n   \
     \     if (n < 0 || n < r || r < 0) return 0;\n        return fact[n] * factinv[n\
-    \ - r];\n    }\n    T H(int n, int r) {\n        if (n == 0 && r == 0) return\
-    \ 1;\n        if (n < 0 || r < 0) return 0;\n        return r == 0 ? 1 : C(n +\
-    \ r - 1, r);\n    }\n};\n#line 1 \"FormalPowerSeries.cpp\"\n#include <atcoder/convolution>\n\
-    #line 2 \"template.cpp\"\nusing namespace std;\nusing ll = long long;\n#define\
-    \ rep(i, n) for (int i = 0; i < n; i++)\n#define all(v) v.begin(), v.end()\ntemplate\
+    \ - r] * factinv[r];\n    }\n    T P(int n, int r) {\n        if (n < 0 || n <\
+    \ r || r < 0) return 0;\n        return fact[n] * factinv[n - r];\n    }\n   \
+    \ T H(int n, int r) {\n        if (n == 0 && r == 0) return 1;\n        if (n\
+    \ < 0 || r < 0) return 0;\n        return r == 0 ? 1 : C(n + r - 1, r);\n    }\n\
+    };\n#line 1 \"FormalPowerSeries.cpp\"\n#include <atcoder/convolution>\n#line 2\
+    \ \"template.cpp\"\nusing namespace std;\nusing ll = long long;\n#define rep(i,\
+    \ n) for (int i = 0; i < n; i++)\n#define all(v) v.begin(), v.end()\ntemplate\
     \ <class T, class U>\ninline bool chmax(T &a, U b) {\n    if (a < b) {\n     \
     \   a = b;\n        return true;\n    }\n    return false;\n}\ntemplate <class\
     \ T, class U>\ninline bool chmin(T &a, U b) {\n    if (a > b) {\n        a = b;\n\
@@ -202,26 +198,20 @@ data:
     \ bin) {\n    // bin require n+1\n    using fps = FormalPowerSeries<mint>;\n \
     \   fps f(n + 1);\n    for (int i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];\n\
     \    f = f.inv(n + 1);\n    for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];\n\
-    \    return f;\n}\n"
-  code: "#include \"TaylorShift.cpp\"\ntemplate <typename mint>\nFormalPowerSeries<mint>\
-    \ stirling_first(int n, Binomial<mint>& bin) {\n    if (n == 0) return FormalPowerSeries<mint>{1};\n\
-    \    auto f = stirling_first(n >> 1, bin);\n    f *= TaylorShift(f, -mint(n >>\
-    \ 1), bin);\n    if (n & 1) f = (f << 1) - f * (n - 1);  // multiply x-(n-1)\n\
-    \    return f;\n}\ntemplate <typename mint>\nvector<mint> stirling_second(int\
-    \ n, Binomial<mint>& bin) {\n    vector<mint> f(n + 1), g(n + 1);\n    mint sgn\
-    \ = 1;\n    for (int i = 0; i <= n; i++) {\n        f[i] = mint(i).pow(n) * bin.factinv[i];\n\
-    \        g[i] = sgn * bin.factinv[i];\n        sgn = -sgn;\n    }\n    auto h\
-    \ = atcoder::convolution(f, g);\n    h.resize(n + 1);\n    return h;\n}\ntemplate\
-    \ <typename mint>\nvector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>&\
-    \ bin) {\n    using fps = FormalPowerSeries<mint>;\n    fps f(n + 1);\n    for\
-    \ (int i = 1; i <= n; i++) f[i] = bin.factinv[i];\n    f = f.pow(k, n + 1);\n\
-    \    vector<mint> res(n - k + 1);\n    for (int i = k; i <= n; i++) res[i - k]\
-    \ = f[i] * bin.fact[i] * bin.factinv[k];\n    return res;\n}\ntemplate <typename\
-    \ mint>\nvector<mint> bernoulli(int n, Binomial<mint>& bin) {\n    // bin require\
-    \ n+1\n    using fps = FormalPowerSeries<mint>;\n    fps f(n + 1);\n    for (int\
-    \ i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];\n    f = f.inv(n + 1);\n    for\
-    \ (int i = 1; i <= n; i++) f[i] *= bin.fact[i];\n    return f;\n}"
+    \    return f;\n}\n#line 3 \"test/Series/StirlingSecondFixedK.test.cpp\"\nvoid\
+    \ solve() {\n    using mint = atcoder::modint998244353;\n    int n, k;\n    cin\
+    \ >> n >> k;\n    Binomial<mint> bin(n);\n    auto f = stirling_second_fixedK(n,\
+    \ k, bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n\
+    }\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n\
+    }\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k\"\
+    \n#include \"../../Series.cpp\"\nvoid solve() {\n    using mint = atcoder::modint998244353;\n\
+    \    int n, k;\n    cin >> n >> k;\n    Binomial<mint> bin(n);\n    auto f = stirling_second_fixedK(n,\
+    \ k, bin);\n    for (auto x : f) cout << x.val() << \" \";\n    cout << endl;\n\
+    }\nint main() {\n    cin.tie(0);\n    ios::sync_with_stdio(false);\n    solve();\n\
+    }\n"
   dependsOn:
+  - Series.cpp
   - TaylorShift.cpp
   - Binomial.cpp
   - FormalPowerSeries.cpp
@@ -232,20 +222,16 @@ data:
   - atcoder/internal_type_traits.hpp
   - mod_sqrt.cpp
   - template.cpp
-  isVerificationFile: false
-  path: Series.cpp
+  isVerificationFile: true
+  path: test/Series/StirlingSecondFixedK.test.cpp
   requiredBy: []
   timestamp: '2024-06-25 16:25:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
-  verifiedWith:
-  - test/Series/StirlingSecond.test.cpp
-  - test/Series/StirlingFirst.test.cpp
-  - test/Series/StirlingSecondFixedK.test.cpp
-  - test/Series/Bernoulli.test.cpp
-documentation_of: Series.cpp
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/Series/StirlingSecondFixedK.test.cpp
 layout: document
 redirect_from:
-- /library/Series.cpp
-- /library/Series.cpp.html
-title: Series.cpp
+- /verify/test/Series/StirlingSecondFixedK.test.cpp
+- /verify/test/Series/StirlingSecondFixedK.test.cpp.html
+title: test/Series/StirlingSecondFixedK.test.cpp
 ---
