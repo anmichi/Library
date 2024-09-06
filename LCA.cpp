@@ -6,7 +6,7 @@ pair<int, int> lcatree_e() { return {1000000000, -1}; }
 struct lca_tree {
     int n, size;
     vector<int> in, ord, depth;
-    sparsetable<pair<int, int>, lcatree_op, lcatree_e> st;
+    disjointsparsetable<pair<int, int>, lcatree_op, lcatree_e> st;
     lca_tree(vector<vector<int>> g, int root = 0) : n((int)g.size()), size(log2(n) + 2), in(n), depth(n, n) {
         depth[root] = 0;
         function<void(int, int)> dfs = [&](int v, int p) {

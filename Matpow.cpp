@@ -4,7 +4,7 @@ template <class T>
 struct Matrix {
     int n;
     vector<vector<T>> m;
-    Matrix() : Matrix(0) {}
+    Matrix() = default;
     Matrix(int x) : Matrix(vector<vector<T>>(x, vector<T>(x, 0))) {}
     Matrix(const vector<vector<T>>& a) {
         n = a.size();
@@ -38,8 +38,8 @@ struct Matrix {
     Matrix& operator*=(const Matrix& a) {
         Matrix res(n);
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                for (int k = 0; k < n; k++) {
+            for (int k = 0; k < n; k++) {
+                for (int j = 0; j < n; j++) {
                     res[i][j] += m[i][k] * a[k][j];
                     res[i][j] %= mod;
                 }
