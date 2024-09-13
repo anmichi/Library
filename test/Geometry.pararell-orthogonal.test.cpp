@@ -4,12 +4,11 @@ int main() {
     int q;
     cin >> q;
     while (q--) {
-        point A, B, C, D;
-        cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y >> D.x >> D.y;
-        line L(A, B), M(C, D);
-        if (isParallel(L, M))
+        Geometry::intSegment L, M;
+        cin >> L.A.x >> L.A.y >> L.B.x >> L.B.y >> M.A.x >> M.A.y >> M.B.x >> M.B.y;
+        if (L.isParallelTo(M))
             cout << 2 << endl;
-        else if (isOrthogonal(L, M))
+        else if (L.isOrthogonalTo(M))
             cout << 1 << endl;
         else
             cout << 0 << endl;

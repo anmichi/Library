@@ -5,9 +5,8 @@ int main() {
     int q;
     cin >> q;
     while (q--) {
-        point A, B, C, D;
-        cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y >> D.x >> D.y;
-        line L(A, B), M(C, D);
-        printf("%.12lf\n", s_s_d(L, M));
+        Geometry::Segment L, M;
+        cin >> L.A.x >> L.A.y >> L.B.x >> L.B.y >> M.A.x >> M.A.y >> M.B.x >> M.B.y;
+        printf("%.12lf\n", L.distanceFrom(M));
     }
 }

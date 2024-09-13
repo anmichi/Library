@@ -2,13 +2,13 @@
 #define ERROR "1e-8"
 #include "../Geometry.cpp"
 int main() {
+    using Point = Geometry::Vec2<long long>;
     int q;
     cin >> q;
     while (q--) {
-        point A, B, C, D;
-        cin >> A.x >> A.y >> B.x >> B.y >> C.x >> C.y >> D.x >> D.y;
-        line L(A, B), M(C, D);
-        point res = crosspoint(L, M);
+        Geometry::Line L, M;
+        cin >> L.A.x >> L.A.y >> L.B.x >> L.B.y >> M.A.x >> M.A.y >> M.B.x >> M.B.y;
+        auto res = crosspoint(L, M);
         printf("%.12lf %.12lf\n", res.x, res.y);
     }
 }

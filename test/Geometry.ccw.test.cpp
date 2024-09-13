@@ -1,12 +1,13 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/1/CGL_1_C"
 #include "../Geometry.cpp"
 int main() {
-    point A, B;
+    using Point = Geometry::Vec2<int>;
+    Point A, B;
     cin >> A.x >> A.y >> B.x >> B.y;
     int q;
     cin >> q;
     while (q--) {
-        point C;
+        Point C;
         cin >> C.x >> C.y;
         int res = ccw(A, B, C);
         if (res == 1) cout << "COUNTER_CLOCKWISE" << endl;
