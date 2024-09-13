@@ -22,10 +22,6 @@ constexpr T square(const T &a) {
     return a * a;
 }
 template <class T>
-constexpr T square(const T &a) {
-    return a * a;
-}
-template <class T>
 struct Vec2 {
     T x, y;
     Vec2() = default;
@@ -74,6 +70,8 @@ struct Vec2 {
     friend constexpr T dot(const Vec2 &A, const Vec2 &B, const Vec2 &C) { return (B - A).dot(C - A); }
     friend constexpr T cross(const Vec2 &P, const Vec2 &Q) { return P.cross(Q); }
     friend constexpr T cross(const Vec2 &A, const Vec2 &B, const Vec2 &C) { return (B - A).cross(C - A); }
+    friend constexpr T dist(const Vec2 &P, const Vec2 &Q) { return P.dist(Q); }
+    friend constexpr T distSq(const Vec2 &P, const Vec2 &Q) { return P.distSq(Q); }
 };
 template <class T>
 constexpr int ccw(const Vec2<T> &A, const Vec2<T> &B, const Vec2<T> &C) {
@@ -110,6 +108,33 @@ struct Segment : Line {
         if (intersect(L)) return 0;
         return min({Line::distanceFrom(L.A), Line::distanceFrom(L.B), Line(L).distanceFrom(A), Line(L).distanceFrom(B)});
     }
+};
+struct intLine {
+    using T = long long;
+    using Point = Vec2<T>;
+    Point A, B;
+    intLine() = default;
+    intLine(Point A, Point B) : A(A), B(B) {}
+    constexpr Point vec() const { return B - A; }
+    constexpr bool isParallelTo(const intLine &L) const { return isZero(cross(vec(), L.vec())); }
+    constexpr bool isOrthogonalTo(const intLine &L) const { return isZero(dot(vec(), L.vec())); }
+    constexpr T distanceSqFrom(const Point &P) const { return square(cross(P - A, vec())) / vec().abs2(); }
+    // constexpr Point crosspoint(const intLine &L) const { return A + vec() * (cross(A - L.A, L.vec())) / cross(L.vec(), vec()); }
+};
+struct intSegment : intLine {
+    intSegment() = default;
+    intSegment(Point A, Point B) : intLine(A, B) {}
+    constexpr bool intersect(const intSegment &L) const { return ccw(L.A, L.B, A) * ccw(L.A, L.B, B) <= 0 && ccw(A, B, L.A) * ccw(A, B, L.B) <= 0; }
+    constexpr T distanceSqFrom(const Point &P) {
+        if (dot(P - A, vec()) < 0) return P.distSq(A);
+        if (dot(P - B, vec()) > 0) return P.distSq(B);
+        return intLine::distanceSqFrom(P);
+    }
+    constexpr T distanceSqFrom(const intSegment &L) {
+        if (intersect(L)) return 0;
+        return min({intLine::distanceSqFrom(L.A), intLine::distanceSqFrom(L.B), intLine(L).distanceSqFrom(A), intLine(L).distanceSqFrom(B)});
+    }
+    friend constexpr bool intersect(const intSegment &L, const intSegment &M) { return L.intersect(M); }
 };
 template <class T>
 vector<T> convex_hull(vector<T> ps) {
