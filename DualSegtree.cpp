@@ -4,6 +4,8 @@ template <class S, S (*op)(S, S), S (*e)()>
 struct dual_segtree {
     int sz = 1, log = 0;
     vector<S> lz;
+    dual_segtree() = default;
+    dual_segtree(int n) : dual_segtree(vector<S>(n, e())) {}
     dual_segtree(vector<S> a) {
         int n = a.size();
         while (sz < n) {
