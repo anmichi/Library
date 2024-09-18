@@ -10,8 +10,8 @@ struct Mo {
         int q = lr.size();
         int bs = max<int>(1, sqrt(n));
         vector<int> ord(q);
-        iota(all(ord), 0);
-        sort(all(ord), [&](int a, int b) {
+        iota(begin(ord), end(ord), 0);
+        sort(begin(ord), end(ord), [&](int a, int b) {
             int ablock = lr[a].first / bs, bblock = lr[b].first / bs;
             if (ablock != bblock) return ablock < bblock;
             return lr[a].second < lr[b].second;

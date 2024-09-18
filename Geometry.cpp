@@ -82,7 +82,7 @@ constexpr int ccw(const Vec2<T> &A, const Vec2<T> &B, const Vec2<T> &C) {
     return 0;
 }
 struct Line {
-    using T = long double;
+    using T = double;
     using Point = Vec2<T>;
     Point A, B;
     Line() = default;
@@ -95,7 +95,6 @@ struct Line {
     friend constexpr Point crosspoint(const Line &L, const Line &M) { return L.crosspoint(M); }
 };
 struct Segment : Line {
-    Point A, B;
     Segment() = default;
     Segment(Point A, Point B) : Line(A, B) {}
     constexpr bool intersect(const Segment &L) const { return ccw(L.A, L.B, A) * ccw(L.A, L.B, B) <= 0 && ccw(A, B, L.A) * ccw(A, B, L.B) <= 0; }
@@ -106,7 +105,7 @@ struct Segment : Line {
     }
     constexpr T distanceFrom(const Segment &L) const {
         if (intersect(L)) return 0;
-        return min({Line::distanceFrom(L.A), Line::distanceFrom(L.B), Line(L).distanceFrom(A), Line(L).distanceFrom(B)});
+        return min({Segment::distanceFrom(L.A), Segment::distanceFrom(L.B), Segment(L).distanceFrom(A), Segment(L).distanceFrom(B)});
     }
 };
 struct intLine {
@@ -132,7 +131,8 @@ struct intSegment : intLine {
     }
     constexpr T distanceSqFrom(const intSegment &L) {
         if (intersect(L)) return 0;
-        return min({intLine::distanceSqFrom(L.A), intLine::distanceSqFrom(L.B), intLine(L).distanceSqFrom(A), intLine(L).distanceSqFrom(B)});
+        return min(
+            {intSegment::distanceSqFrom(L.A), intSegment::distanceSqFrom(L.B), intSegment(L).distanceSqFrom(A), intSegment(L).distanceSqFrom(B)});
     }
     friend constexpr bool intersect(const intSegment &L, const intSegment &M) { return L.intersect(M); }
 };

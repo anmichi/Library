@@ -2,7 +2,6 @@
 // competitive-verifier: ERROR 1e-8
 #include "../Geometry.cpp"
 int main() {
-    using Point = Geometry::Vec2<long long>;
     int q;
     cin >> q;
     while (q--) {

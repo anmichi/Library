@@ -12,6 +12,7 @@ int main() {
         assert(qr[i].first.second + 1 == qr[i + 1].first.first);
     }
     cout << qr.size() << endl;
-    for (auto [rng, z] : qr | views::reverse) cout << z << " ";
+    reverse(qr.begin(), qr.end());
+    for (auto [rng, z] : qr) cout << z << " ";
     cout << endl;
 }
