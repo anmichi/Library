@@ -1,5 +1,5 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C"
-#define ERROR "1e-8"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_C
+// competitive-verifier: ERROR 1e-8
 #include "../Geometry.cpp"
 int main() {
     using Point = Geometry::Vec2<long long>;

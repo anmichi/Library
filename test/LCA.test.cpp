@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/lca"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
 #include "../LCA.cpp"
 int main() {
     cin.tie(0);

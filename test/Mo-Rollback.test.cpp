@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_mode_query"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_mode_query
 #include "../Mo-Rollback.cpp"
 #define all(v) v.begin(), v.end()
 #define rep(i, n) for (int i = 0; i < n; i++)

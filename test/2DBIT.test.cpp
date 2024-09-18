@@ -1,5 +1,5 @@
 #include "../2DBIT.cpp"
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_5_B"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DSL_5_B
 template <class T, class U>
 inline bool chmax(T &a, U b) {
     if (a < b) {

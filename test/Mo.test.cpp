@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_count_distinct"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_count_distinct
 #include "../Mo.cpp"
 int cnt[500010];
 int main() {

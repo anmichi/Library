@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
 #include "../../Series.cpp"
 void solve() {
     using mint = atcoder::modint998244353;

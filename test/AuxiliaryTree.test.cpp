@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/0439"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0439
 #include "../AuxiliaryTree.cpp"
 
 #define rep(i, n) for (int i = 0; i < n; i++)

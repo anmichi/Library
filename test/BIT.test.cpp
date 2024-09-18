@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
 #include "../BIT.cpp"
 using ll = long long;
 int main() {

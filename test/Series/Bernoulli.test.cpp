@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/bernoulli_number
 #include "../../Series.cpp"
 void solve() {
     using mint = atcoder::modint998244353;
