@@ -6,7 +6,7 @@ int main() {
     cin >> q;
     while (q--) {
         Geometry::intSegment L, M;
-        cin >> L.A.x >> L.A.y >> L.B.x >> L.B.y >> M.A.x >> M.A.y >> M.B.x >> M.B.y;
+        cin >> L >> M;
         cout << intersect(L, M) << endl;
     }
 }

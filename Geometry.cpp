@@ -160,4 +160,12 @@ vector<T> convex_hull(vector<T> ps) {
     }
     return qs;
 }
+
+template <typename T>
+inline istream &operator>>(istream &is, Vec2<T> &rhs) {
+    return is >> rhs.x >> rhs.y;
+}
+inline istream &operator>>(istream &is, Line &rhs) { return is >> rhs.A >> rhs.B; }
+inline istream &operator>>(istream &is, intLine &rhs) { return is >> rhs.A >> rhs.B; }
+
 };  // namespace Geometry

@@ -3,12 +3,12 @@
 int main() {
     using Point = Geometry::Vec2<long long>;
     Point A, B;
-    cin >> A.x >> A.y >> B.x >> B.y;
+    cin >> A >> B;
     int q;
     cin >> q;
     while (q--) {
         Point C;
-        cin >> C.x >> C.y;
+        cin >> C;
         int res = ccw(A, B, C);
         if (res == 1) cout << "COUNTER_CLOCKWISE" << endl;
         if (res == -1) cout << "CLOCKWISE" << endl;

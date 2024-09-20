@@ -6,7 +6,7 @@ int main() {
     cin >> q;
     while (q--) {
         Geometry::Line L, M;
-        cin >> L.A.x >> L.A.y >> L.B.x >> L.B.y >> M.A.x >> M.A.y >> M.B.x >> M.B.y;
+        cin >> L >> M;
         auto res = crosspoint(L, M);
         printf("%.12lf %.12lf\n", res.x, res.y);
     }
