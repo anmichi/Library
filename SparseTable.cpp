@@ -7,7 +7,7 @@ struct sparsetable {
     sparsetable() = default;
     sparsetable(vector<T> v) {
         int len = 0;
-        while ((1 << len) <= v.size()) len++;
+        while ((1 << len) <= (int)v.size()) len++;
         table.assign(len, vector<T>(1 << len));
         for (int i = 0; i < (int)v.size(); i++) table[0][i] = v[i];
         for (int i = 1; i < len; i++) {
@@ -15,8 +15,8 @@ struct sparsetable {
                 table[i][j] = op(table[i - 1][j], table[i - 1][j + (1 << (i - 1))]);
             }
         }
-        logtable.resize(v.size() + 1);
-        for (int i = 2; i < logtable.size(); i++) {
+        logtable.resize((int)v.size() + 1);
+        for (int i = 2; i < (int)logtable.size(); i++) {
             logtable[i] = logtable[(i >> 1)] + 1;
         }
     }
