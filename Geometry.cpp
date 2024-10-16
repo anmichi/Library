@@ -26,28 +26,28 @@ struct Vec2 {
     T x, y;
     Vec2() = default;
     Vec2(T x, T y) : x(x), y(y) {};
-    constexpr Vec2 &operator+=(const Vec2 &P) const {
+    constexpr Vec2 &operator+=(const Vec2 &P) {
         x += P.x, y += P.y;
-        return (*this);
+        return *this;
     }
-    constexpr Vec2 &operator-=(const Vec2 &P) const {
+    constexpr Vec2 &operator-=(const Vec2 &P) {
         x -= P.x, y -= P.y;
-        return (*this);
+        return *this;
     }
-    constexpr Vec2 &operator*=(const T &k) const {
+    constexpr Vec2 &operator*=(const T k) {
         x *= k, y *= k;
-        return (*this);
+        return *this;
     }
-    constexpr Vec2 &operator/=(const T &k) const {
+    constexpr Vec2 &operator/=(const T k) {
         x /= k, y /= k;
-        return (*this);
+        return *this;
     }
     constexpr Vec2 operator+() const { return *this; }
     constexpr Vec2 operator-() const { return {-x, -y}; }
     constexpr Vec2 operator+(const Vec2 &P) const { return {x + P.x, y + P.y}; }
     constexpr Vec2 operator-(const Vec2 &P) const { return {x - P.x, y - P.y}; }
-    constexpr Vec2 operator*(const T &k) const { return {x * k, y * k}; }
-    constexpr Vec2 operator/(const T &k) const { return {x / k, y / k}; }
+    constexpr Vec2 operator*(const T k) const { return {x * k, y * k}; }
+    constexpr Vec2 operator/(const T k) const { return {x / k, y / k}; }
     constexpr bool operator==(const Vec2 &P) const { return isZero(x - P.x) && isZero(y - P.y); }
     constexpr bool operator!=(const Vec2 &P) const { return !(*this == P); }
     constexpr bool operator<(const Vec2 &P) const {
