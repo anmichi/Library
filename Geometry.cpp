@@ -165,7 +165,16 @@ template <typename T>
 inline istream &operator>>(istream &is, Vec2<T> &rhs) {
     return is >> rhs.x >> rhs.y;
 }
+template <typename T>
+inline ostream &operator<<(ostream &os, Vec2<T> &rhs) {
+    return os << rhs.x << " " << rhs.y;
+}
 inline istream &operator>>(istream &is, Line &rhs) { return is >> rhs.A >> rhs.B; }
+inline ostream &operator<<(ostream &os, Line &rhs) { return os << rhs.A << rhs.B; }
+inline istream &operator>>(istream &is, Segment &rhs) { return is >> rhs.A >> rhs.B; }
+inline ostream &operator<<(ostream &os, Segment &rhs) { return os << rhs.A << rhs.B; }
 inline istream &operator>>(istream &is, intLine &rhs) { return is >> rhs.A >> rhs.B; }
-
+inline ostream &operator<<(ostream &os, intLine &rhs) { return os << rhs.A << rhs.B; }
+inline istream &operator>>(istream &is, intSegment &rhs) { return is >> rhs.A >> rhs.B; }
+inline ostream &operator<<(ostream &os, intSegment &rhs) { return os << rhs.A << rhs.B; }
 };  // namespace Geometry
