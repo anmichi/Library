@@ -24,8 +24,6 @@ jobs:
 
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v2
-        with:
-          cache-pip: true
 
       # Initialize your own environment for resolving.
       - name: oj-resolve
