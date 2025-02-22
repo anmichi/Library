@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Mo {
+struct MoRollback {
     int n;
     vector<pair<int, int>> lr;
-    Mo(int n) : n(n) {}
+    MoRollback(int n) : n(n) {}
     void add(int l, int r) { /* [l, r) */ lr.emplace_back(l, r); }
     template <typename A, typename S, typename R, typename C, typename O>
     void build(const A& add, const S& snapshot, const R& rollback, const C& clear, const O& out) {

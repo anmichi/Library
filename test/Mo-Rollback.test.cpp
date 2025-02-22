@@ -13,7 +13,7 @@ int main() {
     sort(all(xx));
     xx.erase(unique(all(xx)), xx.end());
     rep(i, n) a[i] = lower_bound(all(xx), a[i]) - xx.begin();
-    Mo mo(n);
+    MoRollback mo(n);
     rep(i, q) {
         int l, r;
         cin >> l >> r;
