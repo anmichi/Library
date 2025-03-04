@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/117
 #include "../Binomial.cpp"
-#include "../modint_old.cpp"
+#include "../modint.cpp"
 int main() {
     Binomial<modint<1000000007>> bin(2000000);
     int t;
