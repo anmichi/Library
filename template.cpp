@@ -90,6 +90,10 @@ inline istream &operator>>(istream &is, vector<T> &v) {
     for (auto &e : v) is >> e;
     return is;
 }
+template <typename T, typename U>
+inline ostream &operator<<(ostream &os, const pair<T, U> &rhs) {
+    return os << rhs.first << " " << rhs.second;
+}
 template <typename T>
 inline ostream &operator<<(ostream &os, const vector<T> &v) {
     for (auto itr = v.begin(), end_itr = v.end(); itr != end_itr;) {
