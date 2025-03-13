@@ -33,10 +33,30 @@ vector<mint> stirling_second_fixedK(int n, int k, Binomial<mint>& bin) {
 template <typename mint>
 vector<mint> bernoulli(int n, Binomial<mint>& bin) {
     // bin require n+1
+    assert((int)bin.factinv.size() >= n + 2);
     using fps = FormalPowerSeries<mint>;
     fps f(n + 1);
     for (int i = 0; i <= n; i++) f[i] = bin.factinv[i + 1];
     f = f.inv(n + 1);
     for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];
     return f;
+}
+template <typename mint>
+vector<mint> bell(int n, Binomial<mint>& bin) {
+    using fps = FormalPowerSeries<mint>;
+    fps f(n + 1);
+    for (int i = 1; i <= n; i++) f[i] = bin.factinv[i];
+    f = f.exp(n + 1);
+    for (int i = 1; i <= n; i++) f[i] *= bin.fact[i];
+    return f;
+}
+template <typename mint>
+vector<mint> partition(int n) {
+    FormalPowerSeries<mint> po(n + 1);
+    po[0] = 1;
+    for (int k = 1; k <= n; k++) {
+        if (1LL * k * (3 * k + 1) / 2 <= n) po[k * (3 * k + 1) / 2] += (k % 2 ? -1 : 1);
+        if (1LL * k * (3 * k - 1) / 2 <= n) po[k * (3 * k - 1) / 2] += (k % 2 ? -1 : 1);
+    }
+    return po.inv();
 }

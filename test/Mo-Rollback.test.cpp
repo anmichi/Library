@@ -20,28 +20,32 @@ int main() {
         mo.add(l, r);
     }
     using P = pair<int, int>;
+    vector<P> ans(q);
     P res{0, -1};
     vector<int> cnt(xx.size());
-    vector<pair<P, P>> history;
+    vector<int> history;
+    P memo_res{0, -1};
     auto add = [&](int i) {
-        history.push_back({res, {a[i], cnt[a[i]]}});
+        history.push_back(a[i]);
         cnt[a[i]]++;
         res = max(res, P{cnt[a[i]], a[i]});
     };
-    auto snapshot = [&]() { history.clear(); };
+    auto snapshot = [&]() {
+        history.clear();
+        memo_res = res;
+    };
     auto rollback = [&]() {
         while (history.size()) {
-            res = history.back().first;
-            cnt[history.back().second.first] = history.back().second.second;
+            cnt[history.back()]--;
             history.pop_back();
         }
+        res = memo_res;
     };
     auto clear = [&]() {
-        res = {0, -1};
+        res = memo_res = {0, -1};
         cnt.assign(xx.size(), 0);
         history.clear();
     };
-    vector<P> ans(q);
     auto answer = [&](int i) { ans[i] = res; };
     mo.build(add, snapshot, rollback, clear, answer);
     rep(i, q) cout << xx[ans[i].second] << " " << ans[i].first << "\n";
