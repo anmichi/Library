@@ -1,11 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-template <class T>
+template <class T, bool isMax = false>
 struct CHT_Monotone {
-    // 追加クエリの傾き：単調減少
-    // 取得クエリのx座標：単調増加
-    // 最小値を返す
-    // 最大値のとき：a,b -1倍
+    // 追加クエリの傾き：単調減少 xor isMax
+    // 取得クエリのx座標：単調増加 xor isMax
     // (単調増加,単調減少)のとき：a,x -1倍
     struct Line {
         T a, b;
@@ -22,7 +20,7 @@ struct CHT_Monotone {
     }
     T query(T x) {
         if (q.empty()) return numeric_limits<T>::max() / 2;
-        while (q.size() > 1 && q[0].y(x) >= q[1].y(x)) {
+        while (q.size() > 1 && ((q[0].y(x) > q[1].y(x)) ^ isMax)) {
             q.pop_front();
         }
         return q[0].y(x);
