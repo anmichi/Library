@@ -1,4 +1,4 @@
-#include "template.cpp"
+#include "../template.cpp"
 int64_t mod_sqrt(const int64_t& a, const int64_t& p) {
     assert(0 <= a && a < p);
     if (a < 2) return a;

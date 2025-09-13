@@ -1,6 +1,14 @@
 #include <atcoder/convolution>
 #include "mod_sqrt.cpp"
-template <typename mint>
+
+template <class T>
+vector<T> convolution_naive(vector<T> a, vector<T> b) {
+    if (a.empty() && b.empty()) return {};
+    vector<T> c(a.size() + b.size() - 1);
+    rep(i, a.size()) rep(j, b.size()) c[i + j] += a[i] * b[j];
+    return c;
+}
+template <typename mint, bool naive_mul = false>
 struct FormalPowerSeries : vector<mint> {
     using vector<mint>::vector;
     using FPS = FormalPowerSeries;
@@ -31,8 +39,13 @@ struct FormalPowerSeries : vector<mint> {
             this->clear();
             return *this;
         }
-        assert(mint::mod() == 998244353);
-        vector<mint> prod = atcoder::convolution(*this, r);
+        vector<mint> prod;
+        if (naive_mul) {
+            prod = convolution_naive(*this, r);
+        } else {
+            assert(mint::mod() == 998244353);
+            prod = atcoder::convolution(*this, r);
+        }
         this->resize((int)prod.size());
         for (int i = 0; i < (int)this->size(); i++) (*this)[i] = prod[i];
         return *this;
