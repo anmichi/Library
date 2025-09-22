@@ -1,5 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/partition_function
-#include "../../Series.cpp"
+#include "../../FPS/Series.cpp"
+
 void solve() {
     using mint = atcoder::modint998244353;
     int n;

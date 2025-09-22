@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/staticrmq
-#include "../SparseTable.cpp"
+#include "../Data-Structure/SparseTable.cpp"
 int op(int a, int b) { return min(a, b); }
 int e() { return INT_MAX; }
 int main() {

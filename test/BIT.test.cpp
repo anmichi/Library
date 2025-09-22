@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
-#include "../BIT.cpp"
+#include "../Data-Structure/BIT.cpp"
 using ll = long long;
 int main() {
     int n, q;

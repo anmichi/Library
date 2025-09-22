@@ -1,4 +1,4 @@
-#include "Binomial.cpp"
+#include "../Binomial.cpp"
 #include "FormalPowerSeries.cpp"
 // f(x + a)
 template <typename mint>

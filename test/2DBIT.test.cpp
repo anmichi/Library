@@ -1,4 +1,4 @@
-#include "../2DBIT.cpp"
+#include "../Data-Structure/2DBIT.cpp"
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/DSL_5_B
 template <class T, class U>
 inline bool chmax(T &a, U b) {

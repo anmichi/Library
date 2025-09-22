@@ -1,3 +1,4 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/matrix_det
 #include "../../Matrix.cpp"
 #include "../../modint.cpp"
 #include "../../template.cpp"

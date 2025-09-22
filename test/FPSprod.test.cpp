@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/product_of_polynomial_sequence
-#include "../FormalPowerSeries.cpp"
+#include "../FPS/FormalPowerSeries.cpp"
 using mint = atcoder::modint998244353;
 int main() {
     int n;
