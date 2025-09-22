@@ -1,4 +1,4 @@
-#include "../atcoder/convolution"
+#include <atcoder/convolution>
 #include "mod_sqrt.cpp"
 
 template <class T>
