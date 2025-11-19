@@ -1,3 +1,4 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 namespace Geometry {
@@ -5,17 +6,18 @@ namespace Geometry {
 constexpr double eps = 1e-10;
 template <class T>
 constexpr int sign(const T &a) {
-    if (fabs(a) < eps) return 0;
+    if (isZero(a)) return 0;
     if (a > 0) return 1;
     return -1;
 }
 template <class T, class U>
 constexpr bool equal(const T &a, const U &b) {
-    return sign(a - b) == 0;
+    return isZero(a - b);
 }
 template <class T>
 constexpr bool isZero(const T &a) {
-    return sign(a) == 0;
+    if (is_floating_point<T>()) return fabs(a) < eps;
+    return a == 0;
 }
 template <class T>
 constexpr T square(const T &a) {
@@ -62,7 +64,7 @@ struct Vec2 {
     constexpr T cross(const Vec2 &v) const { return x * v.y - y * v.x; }
     constexpr T dist(const Vec2 &P) const { return (P - (*this)).abs(); }
     constexpr T distSq(const Vec2 &P) const { return (P - (*this)).abs2(); }
-    constexpr T unitVec() const { return (*this) / abs(); }
+    constexpr Vec2 unitVec() const { return (*this) / abs(); }
     Vec2 &unitize() { return *this /= abs(); }
     friend constexpr T abs2(const Vec2 &P) { return P.abs2(); }
     friend constexpr T abs(const Vec2 &P) { return P.abs(); }
@@ -90,7 +92,10 @@ struct Line {
     constexpr Point vec() const { return B - A; }
     constexpr bool isParallelTo(const Line &L) const { return isZero(cross(vec(), L.vec())); }
     constexpr bool isOrthogonalTo(const Line &L) const { return isZero(dot(vec(), L.vec())); }
-    constexpr T distanceFrom(const Point &P) const { return abs(cross(P - A, vec())) / vec().abs(); }
+    constexpr T distanceFrom(const Point &P) const {
+        if (vec().abs() < eps) return (P - A).abs();
+        return abs(cross(P - A, vec())) / vec().abs();
+    }
     constexpr Point crosspoint(const Line &L) const { return A + vec() * (cross(A - L.A, L.vec())) / cross(L.vec(), vec()); }
     friend constexpr Point crosspoint(const Line &L, const Line &M) { return L.crosspoint(M); }
 };

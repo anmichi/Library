@@ -48,8 +48,7 @@ struct barrett {
         unsigned long long x;
         _umul128(z, im, &x);
 #else
-        unsigned long long x =
-            (unsigned long long)(((unsigned __int128)(z)*im) >> 64);
+        unsigned long long x = (unsigned long long)(((unsigned __int128)(z)*im) >> 64);
 #endif
         unsigned int v = (unsigned int)(z - x * _m);
         if (_m <= v) v += _m;
@@ -97,7 +96,8 @@ constexpr bool is_prime_constexpr(int n) {
     }
     return true;
 }
-template <int n> constexpr bool is_prime = is_prime_constexpr(n);
+template <int n>
+constexpr bool is_prime = is_prime_constexpr(n);
 
 // @param b `1 <= b`
 // @return pair(g, x) s.t. g = gcd(a, b), xa = g (mod b), 0 <= x < b/g
@@ -171,7 +171,8 @@ constexpr int primitive_root_constexpr(int m) {
         if (ok) return g;
     }
 }
-template <int m> constexpr int primitive_root = primitive_root_constexpr(m);
+template <int m>
+constexpr int primitive_root = primitive_root_constexpr(m);
 
 }  // namespace internal
 
