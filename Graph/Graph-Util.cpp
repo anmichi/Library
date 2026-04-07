@@ -1,4 +1,4 @@
-#include "../Graph-Template.cpp"
+#include "Graph-Template.cpp"
 template <class T>
 vector<T> dijkstra(Graph<T> &g, int s = 0) {
     using P = pair<T, int>;
