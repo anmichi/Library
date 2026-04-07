@@ -1,4 +1,5 @@
 #pragma once
+#include <bits/stdc++.h>
 #include <atcoder/convolution>
 using namespace std;
 template <typename mint>

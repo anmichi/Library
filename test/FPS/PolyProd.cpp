@@ -1,7 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/product_of_polynomial_sequence
 #include "../../FPS/Polynomial-Product.hpp"
 using mint = atcoder::modint998244353;
-#include <bits/stdc++.h>
 int main() {
     int n;
     cin >> n;
