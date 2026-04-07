@@ -6,7 +6,7 @@ int main() {
     while (q--) {
         ll x;
         cin >> x;
-        auto pf = factorize(x);
+        auto pf = prime::factorize(x);
         sort(pf.begin(), pf.end());
         cout << pf.size();
         for (ll p : pf) cout << " " << p;

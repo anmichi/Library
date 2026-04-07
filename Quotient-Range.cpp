@@ -5,7 +5,7 @@ vector<pair<pair<T, T>, T>> quotient_range(T n) {
     //[l,r]:quotient=z
     //[l,r]:increasing
     // z:decreasing
-    // z=0 is not included
+    // z=0 is not included!!!
     T m = 1;
     vector<pair<pair<T, T>, T>> ret;
     while (m * m <= n) {

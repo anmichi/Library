@@ -1,4 +1,4 @@
-#include "../Graph-RangeEdge.cpp"
+#include "../../Graph/RangeEdge.cpp"
 // verified with "https://codeforces.com/contest/786/problem/B"
 using namespace std;
 int main() {
@@ -25,7 +25,7 @@ int main() {
         }
     }
     auto dp = g.dijkstra({s - 1});
-    for (ll &x : dp) {
+    for (ll& x : dp) {
         if (x == numeric_limits<ll>::max()) x = -1;
     }
     cout << dp << endl;

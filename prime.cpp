@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-__int128_t modpow(__int128_t a, ll b, ll m) {
+namespace prime {
+__int128_t modpow128(__int128_t a, ll b, ll m) {
     __int128_t res = 1;
     while (b) {
         if (b & 1) {
@@ -23,7 +24,7 @@ bool is_prime(ll n) {
     for (ll a : (n < 4759123141 ? vector<ll>{2, 7, 61} : vector<ll>{2, 325, 9375, 28178, 450775, 9780504, 1795265022})) {
         if (a % n == 0) continue;
         ll t = d;
-        __int128_t y = modpow(a, t, n);
+        __int128_t y = modpow128(a, t, n);
         while (t != n - 1 && y != 1 && y != n - 1) {
             y = y * y % n;
             t <<= 1;
@@ -91,7 +92,7 @@ ll primitive_root(ll p) {
     for (int g = 2;; g++) {
         bool ok = true;
         for (ll& f : pf) {
-            if (modpow(g, (p - 1) / f, p) == 1) {
+            if (modpow128(g, (p - 1) / f, p) == 1) {
                 ok = false;
                 break;
             }
@@ -99,3 +100,4 @@ ll primitive_root(ll p) {
         if (ok) return g;
     }
 }
+};  // namespace prime

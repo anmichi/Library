@@ -1,4 +1,5 @@
 #include "../prime.cpp"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/primitive_root
 int main() {
     cin.tie(0)->sync_with_stdio(false);
     int q;
@@ -6,6 +7,6 @@ int main() {
     while (q--) {
         ll x;
         cin >> x;
-        cout << primitive_root(x) << "\n";
+        cout << prime::primitive_root(x) << "\n";
     }
 }

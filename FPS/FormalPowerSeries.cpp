@@ -1,5 +1,8 @@
+#pragma once
+#include <bits/stdc++.h>
+using namespace std;
 #include <atcoder/convolution>
-#include "mod_sqrt.cpp"
+// #include "mod_sqrt.cpp"
 
 template <typename mint, bool naive_mul = false>
 struct FormalPowerSeries : vector<mint> {
@@ -156,6 +159,7 @@ struct FormalPowerSeries : vector<mint> {
         }
         return FPS(deg, mint(0));
     }
+    /*
     FPS sqrt(int deg = -1) const {
         const int n = this->size();
         if (deg == -1) deg = n;
@@ -184,20 +188,10 @@ struct FormalPowerSeries : vector<mint> {
         }
         return ret.pre(deg);
     }
+    */
     mint eval(mint x) const {
         mint r = 0, w = 1;
         for (auto& v : *this) r += w * v, w *= x;
         return r;
     }
 };
-template <typename mint>
-FormalPowerSeries<mint> FPS_Product(vector<FormalPowerSeries<mint>> f) {
-    int n = (int)f.size();
-    if (n == 0) return {1};
-    function<FormalPowerSeries<mint>(int, int)> calc = [&](int l, int r) {
-        if (r - l == 1) return f[l];
-        int m = (l + r) / 2;
-        return calc(l, m) * calc(m, r);
-    };
-    return calc(0, n);
-}

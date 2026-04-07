@@ -12,7 +12,7 @@ using pbds_trie = trie<string, null_type, trie_string_access_traits<>, pat_trie_
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define all(v) v.begin(), v.end()
 template <class T, class U>
-inline bool chmax(T &a, U b) {
+inline bool chmax(T& a, U b) {
     if (a < b) {
         a = b;
         return true;
@@ -20,7 +20,7 @@ inline bool chmax(T &a, U b) {
     return false;
 }
 template <class T, class U>
-inline bool chmin(T &a, U b) {
+inline bool chmin(T& a, U b) {
     if (a > b) {
         a = b;
         return true;
@@ -32,7 +32,7 @@ constexpr int64_t llINF = 3000000000000000000;
 constexpr double eps = 1e-10;
 const double pi = acos(-1);
 template <class T>
-inline void compress(vector<T> &a) {
+inline void compress(vector<T>& a) {
     sort(a.begin(), a.end());
     a.erase(unique(a.begin(), a.end()), a.end());
 }
@@ -51,7 +51,7 @@ struct linear_sieve {
         }
     }
 };
-ll extgcd(ll a, ll b, ll &x, ll &y) {
+ll extgcd(ll a, ll b, ll& x, ll& y) {
     // ax+by=gcd(|a|,|b|)
     if (a < 0 || b < 0) {
         ll d = extgcd(abs(a), abs(b), x, y);
@@ -69,7 +69,7 @@ ll extgcd(ll a, ll b, ll &x, ll &y) {
     return d;
 }
 ll modpow(ll a, ll b, ll m) {
-    ll res = 1;
+    ll res = 1 % m;
     while (b) {
         if (b & 1) {
             res *= a;
@@ -82,20 +82,20 @@ ll modpow(ll a, ll b, ll m) {
     return res;
 }
 template <typename T, typename U>
-inline istream &operator>>(istream &is, pair<T, U> &rhs) {
+inline istream& operator>>(istream& is, pair<T, U>& rhs) {
     return is >> rhs.first >> rhs.second;
 }
 template <typename T>
-inline istream &operator>>(istream &is, vector<T> &v) {
-    for (auto &e : v) is >> e;
+inline istream& operator>>(istream& is, vector<T>& v) {
+    for (auto& e : v) is >> e;
     return is;
 }
 template <typename T, typename U>
-inline ostream &operator<<(ostream &os, const pair<T, U> &rhs) {
+inline ostream& operator<<(ostream& os, const pair<T, U>& rhs) {
     return os << rhs.first << " " << rhs.second;
 }
 template <typename T>
-inline ostream &operator<<(ostream &os, const vector<T> &v) {
+inline ostream& operator<<(ostream& os, const vector<T>& v) {
     for (auto itr = v.begin(), end_itr = v.end(); itr != end_itr;) {
         os << *itr;
         if (++itr != end_itr) os << " ";

@@ -8,7 +8,7 @@ struct MoRollback {
     template <typename A, typename S, typename R, typename C, typename O>
     void build(const A& add, const S& snapshot, const R& rollback, const C& clear, const O& out) {
         int q = lr.size();
-        int bs = max<int>(1, sqrt(n));
+        int bs = max<int>(1, sqrt(q));
         vector<int> ord(q);
         iota(begin(ord), end(ord), 0);
         sort(begin(ord), end(ord), [&](int a, int b) {

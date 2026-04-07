@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/polynomial_taylor_shift
-#include "../FPS/TaylorShift.cpp"
+#include "../../FPS/TaylorShift.cpp"
 #include "../modint_acl_io.cpp"
 int main() {
     using mint = atcoder::modint998244353;
@@ -8,7 +8,7 @@ int main() {
     mint c;
     cin >> c;
     FormalPowerSeries<mint> f(n);
-    for (auto &x : f) cin >> x;
+    for (auto& x : f) cin >> x;
     Binomial<mint> bin(n);
     FormalPowerSeries<mint> g = TaylorShift<mint>(f, c, bin);
     rep(i, n) cout << g[i] << " ";
