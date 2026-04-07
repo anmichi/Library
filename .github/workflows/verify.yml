@@ -34,9 +34,7 @@ jobs:
           output-path: verify_files.json
           # Specify patterns
           # include: your-own-include/
-          exclude: |
-            atcoder/
-            ac-library/
+          # exclude: your-own-exclude/
           # If you have config.toml
           config: .competitive-verifier/config.toml
       - name: parse-doxygen
