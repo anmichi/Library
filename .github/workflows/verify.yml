@@ -36,7 +36,7 @@ jobs:
           # include: your-own-include/
           # exclude: your-own-exclude/
           # If you have config.toml
-          # config: .verify-helper/config.toml
+          config: .competitive-verifier/config.toml
       - name: parse-doxygen
         uses: competitive-verifier/actions/parse-doxygen@v2
         with:
@@ -52,7 +52,7 @@ jobs:
         run: |
           echo "count=$(find .competitive-verifier/bundled/ -type f | wc -l)" >> $GITHUB_OUTPUT
       - name: Upload bundled
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: steps.test-bundled.outputs.count > 0
         with:
           name: Bundled-${{ runner.os }}
@@ -92,7 +92,7 @@ jobs:
           YUKICODER_TOKEN: ${{secrets.YUKICODER_TOKEN}}
 
       - name: Upload result artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Result-${{ runner.os }}-${{ matrix.index }}
           path: ${{runner.temp}}/result.json
