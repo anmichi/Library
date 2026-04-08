@@ -1,5 +1,5 @@
 #pragma once
-#include "FormalPowerSeries.cpp"
+#include "FormalPowerSeries.hpp"
 template <typename mint>
 pair<FormalPowerSeries<mint>, FormalPowerSeries<mint>> RationalSum(vector<FormalPowerSeries<mint>> ps, vector<FormalPowerSeries<mint>> qs) {
     int n = (int)ps.size();

@@ -1,5 +1,5 @@
 #include <atcoder/modint>
-#include "../Convolution_GCD_LCM.cpp"
+#include "../Convolution_GCD_LCM.hpp"
 int main() {
     int n;
     cin >> n;

@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../Data-Structure/SparseTable.cpp"
+#include "../Data-Structure/SparseTable.hpp"
 using namespace std;
 pair<int, int> lcatree_op(pair<int, int> a, pair<int, int> b) { return min(a, b); }
 pair<int, int> lcatree_e() { return {1000000000, -1}; }

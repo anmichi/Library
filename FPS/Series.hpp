@@ -1,4 +1,4 @@
-#include "TaylorShift.cpp"
+#include "TaylorShift.hpp"
 template <typename mint>
 FormalPowerSeries<mint> stirling_first(int n, Binomial<mint>& bin) {
     if (n == 0) return FormalPowerSeries<mint>{1};

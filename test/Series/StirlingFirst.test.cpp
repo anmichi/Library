@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind
-#include "../../FPS/Series.cpp"
+#include "../../FPS/Series.hpp"
 
 void solve() {
     using mint = atcoder::modint998244353;

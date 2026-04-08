@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_B
-#include "../Geometry.cpp"
+#include "../Geometry.hpp"
 int main() {
     using Point = Geometry::Vec2<int>;
     int q;

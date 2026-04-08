@@ -1,4 +1,4 @@
-#include "../FPS/mod_sqrt.cpp"
+#include "../FPS/mod_sqrt.hpp"
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/sqrt_mod
 int main() {
     cin.tie(0);

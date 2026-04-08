@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "LCA.cpp"
+#include "LCA.hpp"
 using namespace std;
 struct auxiliary_tree : lca_tree {
     vector<vector<int>> G;

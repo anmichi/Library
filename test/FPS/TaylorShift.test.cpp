@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/polynomial_taylor_shift
-#include "../../FPS/TaylorShift.cpp"
-#include "../../modint_acl_io.cpp"
+#include "../../FPS/TaylorShift.hpp"
+#include "../../modint_acl_io.hpp"
 int main() {
     using mint = atcoder::modint998244353;
     int n;

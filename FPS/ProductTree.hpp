@@ -1,5 +1,5 @@
 #pragma once
-#include "FormalPowerSeries.cpp"
+#include "FormalPowerSeries.hpp"
 template <class mint>
 vector<FormalPowerSeries<mint>> ProductTree(const vector<mint>& xs) {
     // product of (x - xs[i])

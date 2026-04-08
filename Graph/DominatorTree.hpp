@@ -1,4 +1,4 @@
-#include "../template.cpp"
+#include "../template.hpp"
 struct DominatorTree {
     vector<vector<int>> g, rg;  // directed
     DominatorTree(vector<vector<int>> g, int root = 0) : g(g) {

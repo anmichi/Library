@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/problems/0439
-#include "../Tree/AuxiliaryTree.cpp"
+#include "../Tree/AuxiliaryTree.hpp"
 
 #define rep(i, n) for (int i = 0; i < n; i++)
 template <class T, class U>

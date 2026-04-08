@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/703
-#include "../CHT-Monotone.cpp"
+#include "../CHT-Monotone.hpp"
 using ll = long long;
 void solve() {
     int n;

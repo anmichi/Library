@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/aplusb
-#include "../Quotient-Range.cpp"
+#include "../Quotient-Range.hpp"
 #define rep(i, n) for (int i = 0; i < n; i++)
 set<int> enum_ceil(int n) {
     set<int> st;

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/enumerate_quotients
-#include "../Quotient-Range.cpp"
+#include "../Quotient-Range.hpp"
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/static_range_count_distinct
-#include "../Mo.cpp"
+#include "../Mo.hpp"
 int cnt[500010];
 int main() {
     cin.tie(0);

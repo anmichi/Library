@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/two_edge_connected_components
-#include "../Graph/TwoEdgeConnectedComponents.cpp"
+#include "../Graph/TwoEdgeConnectedComponents.hpp"
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);

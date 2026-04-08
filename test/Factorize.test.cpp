@@ -1,4 +1,4 @@
-#include "../prime.cpp"
+#include "../prime.hpp"
 int main() {
     cin.tie(0)->sync_with_stdio(false);
     int q;

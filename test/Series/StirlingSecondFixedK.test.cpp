@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_fixed_k
-#include "../../FPS/Series.cpp"
+#include "../../FPS/Series.hpp"
 
 void solve() {
     using mint = atcoder::modint998244353;

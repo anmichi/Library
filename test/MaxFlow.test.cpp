@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=ja
-#include "../MaxFlow.cpp"
+#include "../MaxFlow.hpp"
 int main() {
     int v, e;
     cin >> v >> e;

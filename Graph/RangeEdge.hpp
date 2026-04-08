@@ -1,4 +1,4 @@
-#include "template.cpp"
+#include "../template.hpp"
 template <class T>
 struct RangeEdgeGraph {
     int n, sz;

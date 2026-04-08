@@ -1,4 +1,4 @@
-#include "../../Graph/RangeEdge.cpp"
+#include "../../Graph/RangeEdge.hpp"
 // verified with "https://codeforces.com/contest/786/problem/B"
 using namespace std;
 int main() {

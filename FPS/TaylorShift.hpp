@@ -1,5 +1,5 @@
-#include "../Binomial.cpp"
-#include "FormalPowerSeries.cpp"
+#include "../Binomial.hpp"
+#include "FormalPowerSeries.hpp"
 // f(x + a)
 template <typename mint>
 FormalPowerSeries<mint> TaylorShift(FormalPowerSeries<mint> f, mint a, Binomial<mint>& bin) {
