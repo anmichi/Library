@@ -8,6 +8,7 @@ template <typename mint, bool naive_mul = false>
 struct FormalPowerSeries : vector<mint> {
     using vector<mint>::vector;
     using FPS = FormalPowerSeries;
+    FormalPowerSeries(const vector<mint>& v) : vector<mint>(v) {}
     FPS& operator+=(const FPS& r) {
         if (r.size() > this->size()) this->resize(r.size());
         for (int i = 0; i < (int)r.size(); i++) (*this)[i] += r[i];
@@ -35,16 +36,7 @@ struct FormalPowerSeries : vector<mint> {
             this->clear();
             return *this;
         }
-        vector<mint> prod;
-        if (naive_mul) {
-            prod.resize((int)this->size() + (int)r.size() - 1);
-            rep(i, (int)this->size()) rep(j, (int)r.size()) prod[i + j] += (*this)[i] * r[j];
-        } else {
-            assert(mint::mod() == 998244353);
-            prod = atcoder::convolution(*this, r);
-        }
-        this->resize((int)prod.size());
-        for (int i = 0; i < (int)this->size(); i++) (*this)[i] = prod[i];
+        *this = atcoder::convolution(*this, r);
         return *this;
     }
     FPS& operator*=(const mint& v) {
