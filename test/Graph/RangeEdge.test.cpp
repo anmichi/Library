@@ -4,7 +4,6 @@ using namespace std;
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-
     int n, q, s;
     cin >> n >> q >> s;
     RangeEdgeGraph<ll> g(n);

@@ -1,3 +1,4 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/factorize
 #include "../prime.hpp"
 int main() {
     cin.tie(0)->sync_with_stdio(false);
