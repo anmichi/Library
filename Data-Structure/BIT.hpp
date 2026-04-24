@@ -2,38 +2,26 @@
 using namespace std;
 template <class T>
 struct BIT {
-    // 1-indexed
-    int n, beki = 1;
-    vector<T> bit;
-    BIT(int x) {
-        bit.resize(x + 1, 0);
-        n = x;
-        while (beki * 2 <= n) beki *= 2;
-    }
-    T sum(int i) {
-        T res = 0;
-        while (i > 0) {
-            res += bit[i];
-            i -= i & -i;
-        }
-        return res;
-    }
-    T sum(int l, int r) {
-        //[l,r]
-        return sum(r) - (l == 0 ? 0 : sum(l - 1));
-    }
+    vector<T> a;
+    BIT() = default;
+    BIT(int n) : a(n + 1) {}
     void add(int i, T x) {
-        while (i <= n) {
-            bit[i] += x;
-            i += i & -i;
-        }
+        i++;
+        while (i < (int)a.size()) a[i] += x, i += i & -i;
     }
-    int lowerbound(T w) {
-        if (w <= 0) return 0;
-        int x = 0;
-        for (int k = beki; k > 0; k >>= 1) {
-            if (x + k <= n && bit[x + k] < w) {
-                w -= bit[x + k];
+    //[0,r)
+    T sum(int r) {
+        T s = 0;
+        while (r) s += a[r], r -= r & -r;
+        return s;
+    }
+    T sum(int l, int r) { return sum(r) - sum(l); }
+    // minimize i s.t. sum(i) >= w
+    int lower_bound(T w) {
+        int x = 0, N = a.size() - 1;
+        for (int k = 1 << __lg(N); k; k >>= 1) {
+            if (x + k <= N && a[x + k] < w) {
+                w -= a[x + k];
                 x += k;
             }
         }

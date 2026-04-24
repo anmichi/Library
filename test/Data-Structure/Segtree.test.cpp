@@ -1,12 +1,13 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
-#include "../Data-Structure/Segtree.hpp"
+#include "../../Data-Structure/Segtree.hpp"
 long long op(long long a, long long b) { return a + b; }
 long long e() { return 0; }
 int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n, q;
     cin >> n >> q;
     vector<long long> a(n);
-    for (long long &x : a) cin >> x;
+    for (long long& x : a) cin >> x;
     segtree<long long, op, e> seg(a);
     while (q--) {
         int t, x, y;
@@ -14,6 +15,6 @@ int main() {
         if (t == 0)
             seg.add(x, y);
         else
-            cout << seg.prod(x, y) << endl;
+            cout << seg.prod(x, y) << "\n";
     }
 }

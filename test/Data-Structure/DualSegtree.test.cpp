@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_D
-#include "../Data-Structure/DualSegtree.hpp"
+#include "../../Data-Structure/DualSegtree.hpp"
 int op(int a, int b) { return (b == -1 ? a : b); }
 int e() { return -1; }
 int main() {
