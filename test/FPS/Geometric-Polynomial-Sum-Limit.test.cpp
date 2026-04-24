@@ -1,3 +1,4 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial_limit
 #include "../../FPS/Geometric-Polynomial-Sum.hpp"
 #include "../../modint.hpp"
 int main() {
