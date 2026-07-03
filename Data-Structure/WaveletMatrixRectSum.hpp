@@ -3,14 +3,14 @@
 // https://ei1333.github.io/library/structure/wavelet/wavelet-matrix.hpp
 template <typename T, int MAXLOG, typename D>
 struct WaveletMatrixRectSum {
-    size_t length;
+    int length;
     SuccinctIndexableDictionary matrix[MAXLOG];
     vector<D> xs[MAXLOG];
     int mid[MAXLOG];
 
     WaveletMatrixRectSum() = default;
 
-    WaveletMatrixRectSum(vector<T> y, vector<D> w) : length(y.size()) {
+    WaveletMatrixRectSum(vector<T> y, vector<D> w) : length((int)y.size()) {
         assert(y.size() == w.size());
         vector<pair<T, T>> v(length);
         for (int i = 0; i < length; i++) v[i] = {y[i], w[i]};

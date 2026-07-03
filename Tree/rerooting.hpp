@@ -47,3 +47,4 @@ void dfs2(int v, int par = -1, S dp_par = e()) {
     }
     dp[v] = fv(dp[v], v);
 }
+// ans:dpに格納
