@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-template <class S, S (*op)(S, S), S (*e)()>
+template <class S, auto op, auto e>
 struct dual_segtree {
     int sz = 1, log = 0;
     vector<S> lz;

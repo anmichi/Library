@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-template <class T, T (*op)(T, T)>
+template <class T, auto op>
 struct sparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
@@ -26,7 +26,7 @@ struct sparsetable {
         return op(table[len][l], table[len][r - (1 << len)]);
     }
 };
-template <class T, T (*op)(T, T)>
+template <class T, auto op>
 struct disjointsparsetable {
     vector<vector<T>> table;
     vector<int> logtable;
