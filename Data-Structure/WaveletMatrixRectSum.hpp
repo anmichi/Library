@@ -12,9 +12,9 @@ struct WaveletMatrixRectSum {
 
     WaveletMatrixRectSum(vector<T> y, vector<D> w) : length((int)y.size()) {
         assert(y.size() == w.size());
-        vector<pair<T, T>> v(length);
+        vector<pair<T, D>> v(length);
         for (int i = 0; i < length; i++) v[i] = {y[i], w[i]};
-        vector<pair<T, T>> l(length), r(length);
+        vector<pair<T, D>> l(length), r(length);
         for (int level = MAXLOG - 1; level >= 0; level--) {
             matrix[level] = SuccinctIndexableDictionary(length + 1);
             int left = 0, right = 0;
@@ -39,21 +39,26 @@ struct WaveletMatrixRectSum {
     }
 
     pair<int, int> succ(bool f, int l, int r, int level) {
-        return {matrix[level].rank(f, l) + mid[level] * f, matrix[level].rank(f, r) + mid[level] * f};
+        return {matrix[level].rank(f, l) + mid[level] * f,
+                matrix[level].rank(f, r) + mid[level] * f};
     }
     // sum v[i] s.t. (l <= i < r) && (v[i] < upper)
     D rect_sum(int l, int r, T upper) {
         D ret = 0;
         for (int level = MAXLOG - 1; level >= 0; level--) {
             bool f = ((upper >> level) & 1);
-            if (f) ret += xs[level][matrix[level].rank(false, r)] - xs[level][matrix[level].rank(false, l)];
+            if (f)
+                ret += xs[level][matrix[level].rank(false, r)] -
+                       xs[level][matrix[level].rank(false, l)];
             tie(l, r) = succ(f, l, r, level);
         }
         return ret;
     }
 
     // sum v[i] s.t. (l <= i < r) && (lower <= v[i] < upper)
-    D rect_sum(int l, int r, T lower, T upper) { return rect_sum(l, r, upper) - rect_sum(l, r, lower); }
+    D rect_sum(int l, int r, T lower, T upper) {
+        return rect_sum(l, r, upper) - rect_sum(l, r, lower);
+    }
 };
 
 template <typename T, int MAXLOG, typename D>
@@ -73,5 +78,7 @@ struct CompressedWaveletMatrixRectSum {
 
     D rect_sum(int l, int r, T upper) { return mat.rect_sum(l, r, get(upper)); }
 
-    D rect_sum(int l, int r, T lower, T upper) { return mat.rect_sum(l, r, get(lower), get(upper)); }
+    D rect_sum(int l, int r, T lower, T upper) {
+        return mat.rect_sum(l, r, get(lower), get(upper));
+    }
 };
