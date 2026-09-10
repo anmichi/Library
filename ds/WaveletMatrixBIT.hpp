@@ -1,5 +1,5 @@
-#include "BIT.hpp"
 #include "SuccinctIndexableDictionary.hpp"
+#include "bit.hpp"
 // https://ei1333.github.io/library/structure/wavelet/wavelet-matrix.hpp
 template <typename T, int MAXLOG, typename D>
 struct WaveletMatrixBIT {
