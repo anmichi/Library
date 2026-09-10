@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_A
-#include "../Geometry.hpp"
+#include "../geometry.hpp"
 int main() {
     int q;
     cin >> q;

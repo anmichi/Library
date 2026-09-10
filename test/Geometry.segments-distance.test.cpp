@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/4/CGL/2/CGL_2_D
 // competitive-verifier: ERROR 1e-8
-#include "../Geometry.hpp"
+#include "../geometry.hpp"
 int main() {
     int q;
     cin >> q;

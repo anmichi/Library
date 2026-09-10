@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://yukicoder.me/problems/no/117
-#include "../Binomial.hpp"
+#include "../binomial.hpp"
 #include "../modint.hpp"
 int main() {
     Binomial<modint<1000000007>> bin(2000000);

@@ -1,0 +1,26 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
+#include "../../ds/bit.hpp"
+using ll = long long;
+int main() {
+    int n, q;
+    cin >> n >> q;
+    BIT<ll> bit(n);
+    for (int i = 0; i < n; i++) {
+        int a;
+        cin >> a;
+        bit.add(i, a);
+    }
+    while (q--) {
+        int t;
+        cin >> t;
+        if (t == 0) {
+            int p, x;
+            cin >> p >> x;
+            bit.add(p, x);
+        } else {
+            int l, r;
+            cin >> l >> r;
+            cout << bit.sum(l, r) << "\n";
+        }
+    }
+}

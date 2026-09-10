@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/lca
-#include "../Tree/LCA.hpp"
+#include "../tree/lca.hpp"
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);

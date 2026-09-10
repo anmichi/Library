@@ -1,0 +1,13 @@
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/pow_of_matrix
+#include "../../matrix.hpp"
+#include "../../modint.hpp"
+int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+    int n;
+    long long k;
+    cin >> n >> k;
+    Matrix<modint<998244353>> a(n);
+    cin >> a;
+    cout << a.pow(k) << endl;
+}
