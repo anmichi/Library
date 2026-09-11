@@ -1,4 +1,4 @@
-#include "../../graph/range_edge.hpp"
+#include "graph/range_edge.hpp"
 // verified with "https://codeforces.com/contest/786/problem/B"
 using namespace std;
 using ll = long long;

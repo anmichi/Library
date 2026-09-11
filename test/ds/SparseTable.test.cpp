@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/staticrmq
-#include "../../ds/sparsetable.hpp"
+#include "ds/sparsetable.hpp"
 int op(int a, int b) { return min(a, b); }
 int main() {
     cin.tie(0)->sync_with_stdio(false);

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_kth_smallest
-#include "../../ds/WaveletMatrix.hpp"
+#include "ds/WaveletMatrix.hpp"
 void solve() {
     int n, q;
     cin >> n >> q;

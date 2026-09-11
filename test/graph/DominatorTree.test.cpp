@@ -1,4 +1,4 @@
-#include "../../graph/DominatorTree.hpp"
+#include "graph/dominator_tree.hpp"
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/dominatortree
 
 int main() {

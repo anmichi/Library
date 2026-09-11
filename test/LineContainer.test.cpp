@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/line_add_get_min
-#include "../cht_arbitary.hpp"
+#include "cht_arbitary.hpp"
 using ll = long long;
 int main() {
     cin.tie(0);

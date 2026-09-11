@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/gcd_convolution
 #include <atcoder/modint>
-#include "../convolution_gcdlcm.hpp"
+#include "convolution_gcdlcm.hpp"
 int main() {
     int n;
     cin >> n;

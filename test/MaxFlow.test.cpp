@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM
 // https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A&lang=ja
-#include "../maxflow.hpp"
+#include "maxflow.hpp"
 int main() {
     int v, e;
     cin >> v >> e;

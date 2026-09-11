@@ -6,7 +6,8 @@ struct TwoEdgeConnectedComponents {
     vector<vector<int>> g, new_g;
     vector<int> depth, imos, comp;
     vector<vector<int>> comps;
-    TwoEdgeConnectedComponents(vector<vector<int>> g_) : V((int)g_.size()), g(g_), depth(V, -1), imos(V), comp(V, -1) {
+    TwoEdgeConnectedComponents(vector<vector<int>> g_)
+        : V((int)g_.size()), g(g_), depth(V, -1), imos(V), comp(V, -1) {
         int t = -1;
         rep(i, V) {
             if (depth[i] == -1) {
@@ -29,7 +30,7 @@ struct TwoEdgeConnectedComponents {
                 imos[u]--, imos[v]++;
         }
     }
-    void dfs(int v, int &t) {
+    void dfs(int v, int& t) {
         comps[comp[v]].push_back(v);
         for (int u : g[v]) {
             if (depth[u] == depth[v] + 1 && comp[u] == -1) {
@@ -44,6 +45,6 @@ struct TwoEdgeConnectedComponents {
             }
         }
     }
-    vector<vector<int>> components() { return comps; }
-    vector<vector<int>> directed_forest() { return new_g; }
+    const vector<vector<int>>& components() const { return comps; }
+    const vector<vector<int>>& directed_forest() const { return new_g; }
 };

@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../ds/sparsetable.hpp"
+#include "ds/sparsetable.hpp"
 using namespace std;
 pair<int, int> lcatree_op(pair<int, int> a, pair<int, int> b) { return min(a, b); }
 struct lca_tree {

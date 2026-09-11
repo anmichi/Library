@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/multipoint_evaluation
-#include "../../fps/Multipoint-Evaluation.hpp"
+#include "fps/Multipoint-Evaluation.hpp"
 using mint = atcoder::modint998244353;
 void solve() {
     int n, m;

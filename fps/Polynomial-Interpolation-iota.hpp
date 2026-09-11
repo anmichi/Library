@@ -1,5 +1,5 @@
 #pragma once
-#include "../binomial.hpp"
+#include "binomial.hpp"
 template <class mint>
 mint InterpolationIota(vector<mint>& A, long long x, Binomial<mint>& bin) {
     int n = A.size() - 1;

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/range_kth_smallest
-#include "../../ds/dynamic_segtree.hpp"
+#include "ds/dynamic_segtree.hpp"
 
 int op(int a, int b) { return a + b; }
 int e() { return 0; }

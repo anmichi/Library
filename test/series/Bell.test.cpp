@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/bell_number
-#include "../../fps/Series.hpp"
+#include "fps/Series.hpp"
 void solve() {
     using mint = atcoder::modint998244353;
     int n;

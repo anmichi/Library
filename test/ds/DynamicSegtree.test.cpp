@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM
 // https://judge.yosupo.jp/problem/point_set_range_composite_large_array
-#include "../../ds/dynamic_segtree.hpp"
+#include "ds/dynamic_segtree.hpp"
 using ll = long long;
 using S = pair<ll, ll>;
 const ll mod = 998244353;

@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_range_sum
-#include "../../ds/segtree.hpp"
+#include "ds/segtree.hpp"
 long long op(long long a, long long b) { return a + b; }
 long long e() { return 0; }
 int main() {

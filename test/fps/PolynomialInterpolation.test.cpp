@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/polynomial_interpolation
-#include "../../fps/Polynomial-Interpolation.hpp"
+#include "fps/Polynomial-Interpolation.hpp"
 using mint = atcoder::modint998244353;
 void solve() {
     int n;

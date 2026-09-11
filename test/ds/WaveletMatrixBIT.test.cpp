@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_add_rectangle_sum
-#include "../../ds/WaveletMatrixBIT.hpp"
+#include "ds/WaveletMatrixBIT.hpp"
 void solve() {
     int n, q;
     cin >> n >> q;
