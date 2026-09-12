@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/product_of_polynomial_sequence
-#include "fps/Polynomial-Product.hpp"
+#include "fps/polynomial_product.hpp"
 using mint = atcoder::modint998244353;
 int main() {
     int n;

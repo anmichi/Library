@@ -1,6 +1,6 @@
 // competitive-verifier: PROBLEM
 // https://judge.yosupo.jp/problem/sum_of_exponential_times_polynomial_limit
-#include "fps/Geometric-Polynomial-Sum.hpp"
+#include "fps/geometric-polynomial-sum.hpp"
 #include "modint.hpp"
 int main() {
     cin.tie(nullptr)->sync_with_stdio(false);

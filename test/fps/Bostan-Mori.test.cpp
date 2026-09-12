@@ -1,9 +1,10 @@
 // competitive-verifier: PROBLEM
 // https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
-#include "fps/Bostan-Mori.hpp"
+#include "fps/bostan-mori.hpp"
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
 void solve() {
+    using mint = atcoder::modint998244353;
     int d;
     ll k;
     cin >> d >> k;

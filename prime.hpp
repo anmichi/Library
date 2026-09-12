@@ -21,7 +21,8 @@ bool is_prime(ll n) {
     if (n % 2 == 0) return false;
     ll d = n - 1;
     while (d % 2 == 0) d /= 2;
-    for (ll a : (n < 4759123141 ? vector<ll>{2, 7, 61} : vector<ll>{2, 325, 9375, 28178, 450775, 9780504, 1795265022})) {
+    for (ll a : (n < 4759123141 ? vector<ll>{2, 7, 61}
+                                : vector<ll>{2, 325, 9375, 28178, 450775, 9780504, 1795265022})) {
         if (a % n == 0) continue;
         ll t = d;
         __int128_t y = modpow128(a, t, n);
@@ -82,6 +83,7 @@ vector<ll> factorize(ll n) {
         rec(x / p);
     };
     rec(n);
+    sort(ans.begin(), ans.end());
     return ans;
 }
 ll primitive_root(ll p) {

@@ -8,7 +8,6 @@ int main() {
         ll x;
         cin >> x;
         auto pf = prime::factorize(x);
-        sort(pf.begin(), pf.end());
         cout << pf.size();
         for (ll p : pf) cout << " " << p;
         cout << "\n";
