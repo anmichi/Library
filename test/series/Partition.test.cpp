@@ -1,5 +1,5 @@
 // competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/partition_function
-#include "fps/Series.hpp"
+#include "fps/series.hpp"
 
 void solve() {
     using mint = atcoder::modint998244353;
