@@ -1,3 +1,4 @@
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 // https://ei1333.github.io/library/structure/wavelet/succinct-indexable-dictionary.hpp
@@ -24,7 +25,9 @@ struct SuccinctIndexableDictionary {
 
     bool operator[](int k) { return (bool((bit[k >> 5] >> (k & 31)) & 1)); }
 
-    int rank(int k) { return (sum[k >> 5] + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1))); }
+    int rank(int k) {
+        return (sum[k >> 5] + __builtin_popcount(bit[k >> 5] & ((1U << (k & 31)) - 1)));
+    }
 
     int rank(bool val, int k) { return (val ? rank(k) : k - rank(k)); }
 };

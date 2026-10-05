@@ -1,3 +1,4 @@
+#pragma once
 #include "binomial.hpp"
 #include "fps.hpp"
 // f(x + a)

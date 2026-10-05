@@ -42,7 +42,7 @@ struct WaveletMatrixRectSum {
         return {matrix[level].rank(f, l) + mid[level] * f,
                 matrix[level].rank(f, r) + mid[level] * f};
     }
-    // sum v[i] s.t. (l <= i < r) && (v[i] < upper)
+    // sum w[i] s.t. (l <= i < r) && (v[i] < upper)
     D rect_sum(int l, int r, T upper) {
         D ret = 0;
         for (int level = MAXLOG - 1; level >= 0; level--) {

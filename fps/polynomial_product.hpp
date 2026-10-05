@@ -3,7 +3,7 @@
 #include "convolution.hpp"
 using namespace std;
 template <typename mint>
-vector<mint> PolyProd(vector<vector<mint>> f) {
+vector<mint> PolyProd(vector<vector<mint>>& f) {
     int n = (int)f.size();
     if (n == 0) return {1};
     function<vector<mint>(int, int)> calc = [&](int l, int r) {
