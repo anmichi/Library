@@ -5,13 +5,15 @@ struct Mo {
     vector<pair<int, int>> lr;
 
     explicit Mo(int n) : n(n) {}
-
-    void add(int l, int r) { /* [l, r) */ lr.emplace_back(l, r); }
+    // [l, r)
+    void add(int l, int r) { lr.emplace_back(l, r); }
 
     template <typename AL, typename AR, typename EL, typename ER, typename O>
-    void build(const AL& add_left, const AR& add_right, const EL& erase_left, const ER& erase_right, const O& out) {
+    void build(const AL& add_left, const AR& add_right, const EL& erase_left, const ER& erase_right,
+               const O& out) {
         int q = (int)lr.size();
-        int bs = max<int>(1, sqrt(q));
+        if (q == 0) return;
+        int bs = max<int>(1, int(n / sqrt(q)));
         vector<int> ord(q);
         iota(begin(ord), end(ord), 0);
         sort(begin(ord), end(ord), [&](int a, int b) {

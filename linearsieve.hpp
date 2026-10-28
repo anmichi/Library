@@ -38,6 +38,7 @@ struct LinearSieve {
         }
         return phi;
     }
+
     vector<int> mobius() const {
         vector<int> mu(n + 1);
         mu[1] = 1;

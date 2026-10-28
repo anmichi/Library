@@ -13,7 +13,7 @@ int main() {
         int t, x, y;
         cin >> t >> x >> y;
         if (t == 0)
-            seg.add(x, y);
+            seg.set(x, seg.get(x) + y);
         else
             cout << seg.prod(x, y) << "\n";
     }

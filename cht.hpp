@@ -9,12 +9,14 @@ struct CHT {
         T y(T x) { return a * x + b; }
     };
     deque<Line> q;
-    bool noneed(Line a, Line b, Line c) { return (b.b - c.b) * (b.a - a.a) <= (a.b - b.b) * (c.a - b.a); }
+    bool noneed(Line a, Line b, Line c) {
+        return (b.b - c.b) * (b.a - a.a) <= (a.b - b.b) * (c.a - b.a);
+    }
     // 傾き: 単調減少 xor isMax
     // 逆のとき: a,x -1倍する
     void add(T a, T b) {
-        Line l = {a, b};
         if (isMax) a = -a, b = -b;
+        Line l = {a, b};
         while (q.size() > 1 && noneed(q[q.size() - 2], q[q.size() - 1], l)) {
             q.pop_back();
         }

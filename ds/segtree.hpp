@@ -19,6 +19,7 @@ struct segtree {
             dat[p] = op(dat[2 * p], dat[2 * p + 1]);
         }
     }
+    S get(int p) const { return dat[p + sz]; }
     S prod(int l, int r) {
         l += sz, r += sz;
         S vl = e(), vr = e();

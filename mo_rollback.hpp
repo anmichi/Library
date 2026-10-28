@@ -3,12 +3,16 @@ using namespace std;
 struct MoRollback {
     int n;
     vector<pair<int, int>> lr;
-    MoRollback(int n) : n(n) {}
-    void add(int l, int r) { /* [l, r) */ lr.emplace_back(l, r); }
+
+    explicit MoRollback(int n) : n(n) {}
+    // [l, r)
+    void add(int l, int r) { lr.emplace_back(l, r); }
+
     template <typename A, typename S, typename R, typename C, typename O>
     void build(const A& add, const S& snapshot, const R& rollback, const C& clear, const O& out) {
         int q = lr.size();
-        int bs = max<int>(1, sqrt(q));
+        if (q == 0) return;
+        int bs = max<int>(1, int(n / sqrt(q)));
         vector<int> ord(q);
         iota(begin(ord), end(ord), 0);
         sort(begin(ord), end(ord), [&](int a, int b) {
@@ -16,23 +20,24 @@ struct MoRollback {
             if (ablock != bblock) return ablock < bblock;
             return lr[a].second < lr[b].second;
         });
-        int l = bs, r = bs;
+        int block = -1, l = 0, r = 0;
         for (auto idx : ord) {
-            while (lr[idx].first >= l) {
+            auto [ql, qr] = lr[idx];
+            if (ql / bs != block) {
                 clear();
-                l += bs;
-                r = l;
+                block = ql / bs;
+                l = r = (block + 1) * bs;
             }
-            if (lr[idx].second < l) {
-                clear();
-                for (int i = lr[idx].first; i < lr[idx].second; i++) add(i);
+            if (qr <= l) {
+                snapshot();
+                for (int i = ql; i < qr; i++) add(i);
                 out(idx);
-                for (int i = lr[idx].first; i < lr[idx].second; i++) rollback();
+                rollback();
                 continue;
             }
-            while (r < lr[idx].second) add(r++);
+            while (r < qr) add(r++);
             snapshot();
-            for (int i = l - 1; i >= lr[idx].first; i--) add(i);
+            for (int i = l - 1; i >= ql; i--) add(i);
             out(idx);
             rollback();
         }

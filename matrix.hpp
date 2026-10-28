@@ -80,8 +80,8 @@ struct Matrix {
             if (b & 1) {
                 res *= x;
             }
-            x *= x;
             b >>= 1;
+            if (b) x *= x;
         }
         return res;
     }
@@ -90,31 +90,26 @@ struct Matrix {
         Matrix A(*this);
         T ret = 1;
         for (int i = 0; i < n; i++) {
-            int pivot = -1;
-            for (int j = i; j < n; j++) {
-                if (A[j][i] != 0) pivot = j;
-            }
-            if (pivot == -1) return T(0);
+            int pivot = i;
+            while (pivot < n && A[pivot][i] == 0) pivot++;
+            if (pivot == n) return T(0);
             if (i != pivot) {
                 ret *= -1;
                 swap(A[i], A[pivot]);
             }
             ret *= A[i][i];
-            T tmp = T(1) / A[i][i];
-            for (int j = 0; j < n; j++) {
-                A[i][j] *= tmp;
-            }
+            T inv = T(1) / A[i][i];
             for (int j = i + 1; j < n; j++) {
-                T a = A[j][i];
-                for (int k = 0; k < n; k++) {
+                T a = A[j][i] * inv;
+                if (a == 0) continue;
+                for (int k = i + 1; k < n; k++) {
                     A[j][k] -= A[i][k] * a;
                 }
             }
         }
         return ret;
     }
-    Matrix inverse() {
-        assert(determinant() != 0);
+    optional<Matrix> inverse() {
         int n = m.size();
         Matrix ret = identity(n);
         Matrix A(*this);
@@ -123,6 +118,7 @@ struct Matrix {
             for (int j = i; j < n; j++) {
                 if (A[j][i] != 0) pivot = j;
             }
+            if (pivot == -1) return nullopt;
             if (i != pivot) {
                 swap(ret[i], ret[pivot]);
                 swap(A[i], A[pivot]);

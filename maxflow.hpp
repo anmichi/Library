@@ -21,12 +21,12 @@ struct Dinic {
         fill(level.begin(), level.end(), -1);
         queue<int> que;
         level[s] = 0;
-        que.push(0);
+        que.push(s);
         while (!que.empty()) {
             int v = que.front();
             que.pop();
             for (int i = 0; i < g[v].size(); i++) {
-                edge &e = g[v][i];
+                edge& e = g[v][i];
                 if (e.cap > 0 && level[e.to] < 0) {
                     level[e.to] = level[v] + 1;
                     que.push(e.to);
@@ -36,8 +36,8 @@ struct Dinic {
     }
     Cap dfs(int v, int t, Cap f) {
         if (v == t) return f;
-        for (int &i = iter[v]; i < (int)g[v].size(); i++) {
-            edge &e = g[v][i];
+        for (int& i = iter[v]; i < (int)g[v].size(); i++) {
+            edge& e = g[v][i];
             if (e.cap > 0 && level[v] < level[e.to]) {
                 Cap d = dfs(e.to, t, min(f, e.cap));
                 if (d > 0) {

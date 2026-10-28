@@ -12,7 +12,9 @@ struct dynamic_segtree {
     vector<Node*> roots;
     dynamic_segtree() = default;
     dynamic_segtree(ll L0, ll R0) : L0(L0), R0(R0) { roots.push_back(new_node()); }
-    dynamic_segtree(const vector<S>& a) : L0(0), R0(int(a.size())) { roots.push_back(build(L0, R0, a)); }
+    dynamic_segtree(const vector<S>& a) : L0(0), R0(int(a.size())) {
+        roots.push_back(build(L0, R0, a));
+    }
     S prod(Node* root, ll l, ll r) {
         assert(L0 <= l && l <= r && r <= R0);
         if (l == r) return e();
@@ -33,7 +35,7 @@ struct dynamic_segtree {
         set(root, L0, R0, k, x);
     }
     void set(int t, ll k, S x) { set(roots[t], k, x); }
-    void set(int k, S x) { set(roots.back(), k, x); }
+    void set(ll k, S x) { set(roots.back(), k, x); }
     void duplicate(Node* root) {
         assert(persistent);
         roots.push_back(root);

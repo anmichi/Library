@@ -6,8 +6,8 @@ int main() {
     cin >> n;
     Matrix<modint<998244353>> a(n);
     cin >> a;
-    if (a.determinant() == 0)
-        cout << -1 << endl;
+    if (auto b = a.inverse())
+        cout << *b << endl;
     else
-        cout << a.inverse() << endl;
+        cout << -1 << endl;
 }
