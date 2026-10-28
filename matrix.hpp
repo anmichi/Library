@@ -1,14 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-template <class T>
+
+template <class T, int N = 0>
 struct Matrix {
-    vector<vector<T>> m;
+    conditional_t<N == 0, vector<vector<T>>, array<array<T, N>, N>> m{};
     Matrix() = default;
-    Matrix(int x) : m(vector(x, vector<T>(x, 0))) {}
-    Matrix(const vector<vector<T>> &a) : m(a) {}
-    vector<T> &operator[](int i) { return m[i]; }
-    const vector<T> &operator[](int i) const { return m[i]; }
+    Matrix([[maybe_unused]] int x) {
+        if constexpr (N == 0) {
+            m.assign(x, vector<T>(x, 0));
+        } else {
+            assert(x == N);
+        }
+    }
+    Matrix(const vector<vector<T>>& a) {
+        if constexpr (N == 0) {
+            m = a;
+        } else {
+            assert(int(a.size()) == N);
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) m[i][j] = a[i][j];
+            }
+        }
+    }
+    auto& operator[](int i) { return m[i]; }
+    const auto& operator[](int i) const { return m[i]; }
     static Matrix identity(int x) {
         Matrix res(x);
         for (int i = 0; i < x; i++) res[i][i] = 1;
@@ -18,23 +34,23 @@ struct Matrix {
 
     Matrix operator+() const { return (*this); }
     Matrix operator-() const { return Matrix(this->m.size()) - (*this); }
-    Matrix operator+(const Matrix &a) const {
+    Matrix operator+(const Matrix& a) const {
         Matrix x = (*this);
         return x += a;
     }
-    Matrix operator-(const Matrix &a) const {
+    Matrix operator-(const Matrix& a) const {
         Matrix x = (*this);
         return x -= a;
     }
-    Matrix operator*(const Matrix &a) const {
+    Matrix operator*(const Matrix& a) const {
         Matrix x = (*this);
         return x *= a;
     }
-    Matrix operator*(const T &a) const {
+    Matrix operator*(const T& a) const {
         Matrix x = (*this);
         return x *= a;
     }
-    Matrix &operator+=(const Matrix &a) {
+    Matrix& operator+=(const Matrix& a) {
         int n = m.size();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -43,7 +59,7 @@ struct Matrix {
         }
         return *this;
     }
-    Matrix &operator-=(const Matrix &a) {
+    Matrix& operator-=(const Matrix& a) {
         int n = m.size();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -52,7 +68,7 @@ struct Matrix {
         }
         return *this;
     }
-    Matrix &operator*=(const Matrix &a) {
+    Matrix& operator*=(const Matrix& a) {
         int n = m.size();
         Matrix res(n);
         for (int i = 0; i < n; i++) {
@@ -65,7 +81,7 @@ struct Matrix {
         m = res.m;
         return *this;
     }
-    Matrix &operator*=(const T &a) {
+    Matrix& operator*=(const T& a) {
         int n = m.size();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -182,7 +198,7 @@ struct Matrix {
         }
         return dp[n];
     }
-    friend ostream &operator<<(ostream &os, const Matrix &a) {
+    friend ostream& operator<<(ostream& os, const Matrix& a) {
         int n = a.m.size();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -193,7 +209,7 @@ struct Matrix {
         }
         return os;
     }
-    friend istream &operator>>(istream &is, Matrix &a) {
+    friend istream& operator>>(istream& is, Matrix& a) {
         int n = a.m.size();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
