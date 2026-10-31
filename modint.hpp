@@ -2,47 +2,74 @@
 using namespace std;
 template <int modulo>
 struct modint {
+    static_assert(1 <= modulo && modulo <= (1 << 30));
     int x;
-    modint() : x(0) {}
-    modint(int64_t y) : x(y >= 0 ? y % modulo : (modulo - (-y) % modulo) % modulo) {}
-    modint& operator+=(const modint& p) {
+    constexpr modint() : x(0) {}
+    constexpr modint(int64_t y) : x(y >= 0 ? y % modulo : (modulo - (-y) % modulo) % modulo) {}
+    static constexpr modint raw(int v) {
+        modint r;
+        r.x = v;
+        return r;
+    }
+    constexpr modint& operator+=(const modint& p) {
         if ((x += p.x) >= modulo) x -= modulo;
         return *this;
     }
-    modint& operator-=(const modint& p) {
+    constexpr modint& operator-=(const modint& p) {
         if ((x += modulo - p.x) >= modulo) x -= modulo;
         return *this;
     }
-    modint& operator*=(const modint& p) {
+    constexpr modint& operator*=(const modint& p) {
         x = (int)(1LL * x * p.x % modulo);
         return *this;
     }
-    modint& operator/=(const modint& p) {
+    constexpr modint& operator/=(const modint& p) {
         *this *= p.inv();
         return *this;
     }
-    modint operator-() const { return modint(-x); }
-    modint operator+(const modint& p) const { return modint(*this) += p; }
-    modint operator-(const modint& p) const { return modint(*this) -= p; }
-    modint operator*(const modint& p) const { return modint(*this) *= p; }
-    modint operator/(const modint& p) const { return modint(*this) /= p; }
-    bool operator==(const modint& p) const { return x == p.x; }
-    bool operator!=(const modint& p) const { return x != p.x; }
-    modint inv() const {
+    constexpr modint& operator++() {
+        if (++x == modulo) x = 0;
+        return *this;
+    }
+    constexpr modint& operator--() {
+        if (x == 0) x = modulo;
+        --x;
+        return *this;
+    }
+    constexpr modint operator++(int) {
+        modint r = *this;
+        ++*this;
+        return r;
+    }
+    constexpr modint operator--(int) {
+        modint r = *this;
+        --*this;
+        return r;
+    }
+    constexpr modint operator-() const { return modint(-x); }
+    constexpr modint operator+(const modint& p) const { return modint(*this) += p; }
+    constexpr modint operator-(const modint& p) const { return modint(*this) -= p; }
+    constexpr modint operator*(const modint& p) const { return modint(*this) *= p; }
+    constexpr modint operator/(const modint& p) const { return modint(*this) /= p; }
+    constexpr bool operator==(const modint& p) const { return x == p.x; }
+    constexpr bool operator!=(const modint& p) const { return x != p.x; }
+    constexpr modint inv() const {
         int a = x, b = modulo, u = 1, v = 0, t;
         while (b > 0) {
             t = a / b;
             swap(a -= t * b, b);
             swap(u -= t * v, v);
         }
+        assert(a == 1);
         return modint(u);
     }
-    modint pow(int64_t n) const {
-        modint ret(1), mul(x);
-        while (n > 0) {
-            if (n & 1) ret *= mul;
+    constexpr modint pow(int64_t n) const {
+        modint ret(1), mul = n < 0 ? inv() : *this;
+        uint64_t e = n < 0 ? -(uint64_t)n : n;
+        while (e > 0) {
+            if (e & 1) ret *= mul;
             mul *= mul;
-            n >>= 1;
+            e >>= 1;
         }
         return ret;
     }
@@ -53,7 +80,5 @@ struct modint {
         a = modint<modulo>(t);
         return (is);
     }
-    int val() const { return x; }
     static constexpr int mod() { return modulo; }
-    static constexpr int half() { return (modulo + 1) >> 1; }
 };
