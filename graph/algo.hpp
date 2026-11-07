@@ -42,13 +42,26 @@ vector<int> BFS(Graph<T>& g, int s = 0) {  // 01
     }
     return dp;
 }
-template <class T>
-tuple<int, int, T> Diameter(Graph<T>& g) {
-    auto d = dijkstra(g, 0);
+
+template <class T, bool Weighted = false>
+pair<vector<int>, T> Diameter(Graph<T>& g) {
+    auto d = (Weighted ? dijkstra(g, 0) : BFS(g, 0));
     int u = max_element(d.begin(), d.end()) - d.begin();
-    d = dijkstra(g, u);
+    d = (Weighted ? dijkstra(g, u) : BFS(g, u));
     int v = max_element(d.begin(), d.end()) - d.begin();
-    return make_tuple(u, v, d[v]);
+    vector<int> path{v};
+    int D = d[v];
+    if (!Weighted) path.reserve(d[v] + 1);
+    while (v != u) {
+        for (auto e : g[v]) {
+            if (d[e.to] + e.cost == d[v]) {
+                path.push_back(e.to);
+                v = e.to;
+                break;
+            }
+        }
+    }
+    return make_pair(path, D);
 }
 template <typename G>
 vector<int> Path(G& g, int u, int v) {
